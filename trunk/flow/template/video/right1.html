@@ -1,0 +1,148 @@
+<table width="190" height="340" border="0" cellpadding="0" cellspacing="0" style="border: 1px solid #ddd">
+  <tr>
+    <td valign="top"><table width="199" border="0" align="right" cellpadding="0" cellspacing="0" bordercolor="#D4D7D0">
+      <tr>
+        
+        <td width="182" align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="4" cellpadding="0">
+              <tr>
+                <td width="25%"><div align="center"><img src="template/images/video/20.gif" width="10" height="11" /></div></td>
+                <td width="75%" class="grey"><a href="redir.php?catalog_id=32">首页</a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td bgcolor="#CCCCCC"><img src="template/images/video/spacer.gif" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="4" cellpadding="0">
+              <tr>
+                <td width="25%"><div align="center"><img src="template/images/video/20.gif" width="10" height="11" /></div></td>
+                <td width="75%" class="grey"><a href="redir.php?catalog_id=121">求是访谈室</a></td>
+              </tr>
+            </table></td>
+          </tr>
+          
+            </table></td>
+          </tr>
+          <tr>
+            <td bgcolor="#CCCCCC"><img src="template/images/video/spacer.gif" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="4" cellpadding="0">
+              <tr>
+                <td width="25%"><div align="center"><img src="template/images/video/20.gif" width="10" height="11" /></div></td>
+                <td width="75%" class="grey"><a href="redir.php?catalog_id=124">原创DV</a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td bgcolor="#CCCCCC"><img src="template/images/video/spacer.gif" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="4" cellpadding="0">
+              <tr>
+                <td width="25%"><div align="center"><img src="template/images/video/20.gif" width="10" height="11" /></div></td>
+                <td width="75%" class="grey"><a href="redir.php?catalog_id=127">学在网视</a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td bgcolor="#CCCCCC"><img src="template/images/video/spacer.gif" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="4" cellpadding="0">
+              <tr>
+                <td width="25%"><div align="center"><img src="template/images/video/20.gif" width="10" height="11" /></div></td>
+                <td width="75%" class="grey"><a href="redir.php?catalog_id=128">校园视角</a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td bgcolor="#CCCCCC"><img src="template/images/video/spacer.gif" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="4" cellpadding="0">
+              <tr>
+                <td width="25%"><div align="center"><img src="template/images/video/20.gif" width="10" height="11" /></div></td>
+                <td width="75%" class="grey"><a href="redir.php?catalog_id=129&amp;object_id=44065">互动平台</a></td>
+              </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><table width="87%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><a href="redir.php?catalog_id=124"><img src="template/images/video/ban1.gif" width="173" height="42" border="0" /></a></td>
+          </tr>
+          <tr>
+            <td background="template/images/video/bg3.gif">{article_list picture_only=1 count=3 assign=dvs catalog_id=124 cut=16}
+			
+              <table width="100%" border="0" cellspacing="0" cellpadding="3">
+			{ foreach from=$dvs item=theDv}
+                <tr>
+                  <td align="center"><table width="100" border="1" cellpadding="0" cellspacing="0" bordercolor="#FFA71D">
+                    <tr>
+                      <td><a href="redir.php?catalog_id={$theDv.catalog}&amp;object_id={$theDv.id}"><img src="file.php?cmd=preview&amp;id={$theDv.picture_id}" width="100" height="75" border="0"/></a></td>
+                    </tr>
+                  </table>                    <a href="redir.php?catalog_id={$theDv.catalog}&object_id={$theDv.id}"></a></td>
+                </tr>
+                <tr>
+                  <td align="center"><a href="redir.php?catalog_id={$theDv.catalog}&object_id={$theDv.id}">{$theDv.heading}</a></td>
+                  </tr>
+                <tr>
+                  <td>{$theDv.summary|cut:60}</td>
+                </tr>
+                <tr>
+                  <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><div align="center">{article_detail id=$theDv.id assign=dvs_detail} 
+      { $dvs_detail.content|cut:90 }</div></td>
+  </tr>
+</table>
+
+				  </td>
+                </tr>
+              {/foreach} 
+              </table></td>
+          </tr>
+          <tr>
+            <td><img src="template/images/video/bott1.gif" width="173" height="10" /></td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td align="center" valign="top">&nbsp;</td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td align="center"><img src="template/video/images/clip_software.gif" width="173" height="74" border="0" usemap="#Map_Soft" /></td>
+          </tr>
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td align="center" valign="top"><a href="redir.php?catalog_id=129&amp;object_id=44065"></a></td>
+      </tr>
+      <tr>
+        <td align="center" valign="top">&nbsp;</td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+<map name="Map_Soft" id="Map_Soft">
+<area shape="rect" coords="12,35,151,48" href="http://10.76.8.4/software/StormCodec.exe" />
+<area shape="rect" coords="10,49,152,57" href="http://10.76.8.4/software/real.rar" />
+<area shape="rect" coords="11,57,148,70" href="http://10.76.8.4/software/fg13beta2.exe" />
+</map>

@@ -1,0 +1,401 @@
+body {
+	background-color:#B7CADD;
+	font-size:12px;
+	padding: 0px;
+	margin: 0px;
+	font-family: 宋体;
+}
+input, select, textarea {
+	font-size: 12px;
+	font-family: 宋体;
+}
+form {
+	padding: 0px;
+	margin: 0px;
+}
+th {
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.frameLine { background-color:#888888} /*对象边框的颜色。*/
+.barTitle { filter:glow(color=blank, strength=3); font-weight:bold }
+.column_guide {
+	font-weight:bold;
+	color:black;
+	cursor:hand;
+	background:url(col_guide.gif);
+	width:80px;
+	text-align:center;
+	height:26px;
+	vertical-align: bottom;
+	padding-top: 11px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	white-space: nowrap;
+	padding-left: 3px;
+	padding-right: 3px;
+}
+.column_guide_selected {
+	font-weight:bold;
+	color:black;
+	cursor:hand;
+	background:url(col_guide_selected.gif);
+	width:80px;
+	text-align:center;
+	height:26px;
+	vertical-align: bottom;
+	padding-top: 11px;
+} /*栏目导航的链接样式。在browse.php,browsefile.php中*/
+.command_pane { background-color:F0F0F0; background:url(box_mtl_ctr.gif);height:22px } /*命令按钮面板的样式。*/
+.disabled_button { color:eeeeee } /*已经禁用的按钮的文字样式。*/
+.Panel {
+	background-color:eeeeee;
+	border: 1px solid #fff;
+	border-top-width: 2px;
+	border-right-color: #aaaaaa;
+	border-bottom-color: #aaaaaa;
+}
+td { font-size:9pt}
+a { color:2E589D ;text-decoration:none}
+.Chart { background-color:AAD2ED}
+.GuidePanel {
+	background-color:#FFFFFF;
+	border: 1px solid #666;
+	border-left-width: 2px;
+	border-bottom-color: #fff;
+	background:url(hline-thin.gif);
+}
+.body_guide { /* 导航帧的body */
+	background-color:#ffffff
+}
+.body_head {
+	background-color:395A7B;
+}
+.heading1 {
+	width:21px;
+	height:18px;
+	background:url(heading_1.gif);
+}
+.heading2 {
+	background:url(heading_2.gif);
+	cursor:default;
+	font-weight:bold;
+}
+.heading3 {
+	background:url(heading_3.gif);
+	width:8px;
+}
+.InputPrompt {
+	color: #999999;
+}
+.article_status_0 {
+	padding-left: 20px;
+	background-image: url(st_edit.gif);
+	background-repeat: no-repeat;
+}
+.article_status_1 {
+	padding-left: 20px;
+	background-image: url(st_published.gif);
+	background-repeat: no-repeat;
+}
+.article_status_2 {
+	padding-left: 20px;
+	background-repeat: no-repeat;
+	background-position: 0px -4px;
+}
+.article_islink_1 {
+	padding-left: 20px;
+	background-image: url(st_link.gif);
+	background-repeat: no-repeat;
+	background-position: 0px -2px;
+}
+.listview_sep {
+	background-image: url(listview_sep_items.gif);
+	background-repeat: repeat-y;
+	width: 3px;
+}
+
+.listview_row_mouseover td {
+	background-color: #8d949b;
+	color: #fff;
+}
+a.shortcut_label {
+	padding-left: 20px;
+	background-image: url(expand.gif);
+	background-repeat: no-repeat;
+	line-height: 20px;
+	position: absolute;
+	right: 40px;
+	font-weight: bold;
+}
+
+div.tab1, div.tab2 {
+	width: 100%;
+}
+div.tab1 ul {
+	margin-left: 0px;
+	display: block;
+	border-bottom: 1px solid #395B7B;
+	height: 22px;
+}
+div.tab1 ul li {
+	display: inline;
+	float: left;
+}
+div.tab1 ul li a {
+	display: block;
+	padding: 3px 10px 3px 10px;
+	text-decoration: none;
+	color: #000;
+	border: 1px solid #666;
+	background-color: #AEC0D2;
+	margin-left: 5px;
+	border-bottom: none;
+}
+div.tab1 ul li a.focused {
+	background-color: #395B7B;
+	color: #fff;
+}
+div.tab2 ul li {
+	display: inline;
+	float: left;
+}
+div.tab2 * {
+	float: left;
+}
+div.tab2 ul li a {
+	display: block;
+	padding: 3px 10px 3px 10px;
+	text-decoration: none;
+	color: #000;
+	border: 1px solid #666;
+	background-color: #ccc;
+	margin-left: 5px;
+	border-bottom: none;
+}
+div.tab2 ul li a.focused {
+	background-color: #666;
+	color: #fff;
+}
+
+.btn_edit {
+	text-indent: -9999;
+	display: block;
+	width: 18px;
+	height: 18px;
+	background-image: url(edit.gif);
+	background-repeat: no-repeat;
+}
+.btn_del {
+	text-indent: -9999;
+	display: block;
+	width: 15px;
+	height: 14px;
+	background-image: url(del.gif);
+	background-repeat: no-repeat;
+}
+.btn_move {
+	text-indent: -9999;
+	display: block;
+	width: 17px;
+	height: 19px;
+	background-image: url(move.gif);
+	background-repeat: no-repeat;
+}
+.btn_publish {
+	text-indent: -9999;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-image: url(st_both.gif);
+	background-repeat: no-repeat;
+}
+.btn_up {
+	text-indent: -9999;
+	display: block;
+	width: 17px;
+	height: 19px;
+	background-image: url(move_up.gif);
+	background-repeat: no-repeat;
+}
+.btn_down {
+	text-indent: -9999;
+	display: block;
+	width: 17px;
+	height: 19px;
+	background-image: url(move_down.gif);
+	background-repeat: no-repeat;
+}
+.btn_subcolumn {
+	text-indent: -9999;
+	display: block;
+	width: 20px;
+	height: 16px;
+	background-image: url(subcolumn.gif);
+	background-repeat: no-repeat;
+}
+.btn_template {
+	text-indent: -9999;
+	display: block;
+	width: 17px;
+	height: 19px;
+	background-image: url(template.gif);
+	background-repeat: no-repeat;
+}
+.btn_reply {
+	text-indent: -9999;
+	display: block;
+	width: 14px;
+	height: 15px;
+	background-image: url(reply.gif);
+	background-repeat: no-repeat;
+}
+.btn_permission {
+	text-indent: -9999;
+	display: block;
+	width: 20px;
+	height: 15px;
+	background-image: url(permission.gif);
+	background-repeat: no-repeat;
+}
+
+div.block h2 {
+	font-size: 14px;
+	font-weight: bold;
+	padding-left: 35px;
+	border-bottom: 2px solid #395B7B;
+	padding-top: 10px;
+	padding-bottom: 5px;
+	background-repeat: no-repeat;
+}
+div#unpublished_article h2, div#my_articles h2 {
+	background-image: url(article.gif);
+}
+div#my_columns h2 {
+	background-image: url(my_columns.gif);
+}
+div#my_info h2 {
+	background-image: url(stat.gif);
+}
+
+div.block table th {
+	background-color: #94A9BF;
+	padding: 3px;
+	color: #fff;
+}
+div.block table td {
+	background-color: #fff;
+}
+
+/* styles for CHeadBar */
+div#headBar ul {
+	margin-left: 0px;
+	padding-left: 15px;
+	background-image: url(hline-thin.gif);
+	margin-bottom: 0px;
+}
+div#HeadBar ul li {
+	display: inline;
+}
+div#HeadBar span#current_position {
+	padding-left: 15px;
+	width: 100%;
+	display: block;
+	background-image: url(box_mtl_ctr.gif);
+	height: 25px;
+	line-height: 25px;
+}
+
+div#headBar div#buttons {
+	position: relative;
+	margin-right: 20px;
+	margin-top: -22px;
+	float: right;
+}
+div#headBar div#buttons li {
+	display: inline;
+	float: left;
+}
+a.NormalButton {
+	height: 20px;
+	width: 100px;
+	display: block;
+	background-image: url(button_100.gif);
+	background-repeat: no-repeat;
+	padding: 0px;
+	background-color: none;
+	text-align: center;
+	color: #000;
+	line-height: 20px;
+}
+a.NormalButton:hover {
+	background-image: url(button_100_focus.gif);
+}
+
+span.window_close {
+	float: right;
+	display: block;
+	width: 17px;
+	height: 19px;
+	background: url(close.gif) no-repeat;
+	padding: 0px;
+	margin: 0px;
+	text-indent: -9999px;
+}
+div.window_title {
+	background-color: #3A5C7C;
+	height: 20px;
+	color: #fff;
+	font-size: 12px;
+	font-weight: bold;
+	padding-left: 10px;
+	letter-spacing: 2px;
+	line-height: 20px;
+}
+/* styles for CListview */
+
+/* styles for guide frame */
+div#toc {
+	margin:5px 0 5px 0;
+	width: 100%;
+}
+div#toc ul, div#toc ul li {
+	float: left;
+	margin-left: 5px;
+}
+div#toc a {
+	text-indent: -9999px;
+	display: block;
+	width: 16px;
+	height: 16px;
+	background-repeat: no-repeat;
+}
+a#btn_expand_all {
+	background-image: url(expand_all.gif);
+}
+a#btn_collapse_all {
+	background-image: url(collapse_all.gif);
+}
+a#btn_switch_sidebar {
+	background-image: url(switch_sidebar.gif);
+}
+
+.webfx-tree-item-label {
+	font-size: 12px;
+}
+
+span.accesskey {
+	text-decoration: underline;
+}
+.toolbar {
+	background-color:#f5f5f5;
+	border-width: 1px;
+	border-top-width: 2px;
+	border-bottom-width: 0px;
+	border-style: solid;
+	border-color: #fff;
+	border-right-color: #aaa;
+	border-bottom-color: #aaa;
+	padding-bottom: 3px;
+}

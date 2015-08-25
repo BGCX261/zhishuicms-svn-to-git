@@ -1,0 +1,8 @@
+{ foreach from=$articles item=article }
+<div class="pic_new">
+	
+<div class="text_new">
+	<div class="text_new_list">{ article_list catalog_id=$article.catalog count=$params.tcount tcut=$params.ttcut template=edu/article_list_ul.html }</div>
+    <div class="text_new_more"><a href="redir.php?catalog_id={$article.catalog}" target="_blank">more..</a></div>
+</div>
+{ /foreach }

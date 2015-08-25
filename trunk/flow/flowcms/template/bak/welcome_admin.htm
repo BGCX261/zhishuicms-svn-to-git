@@ -1,0 +1,32 @@
+<table width="100%">
+<tr><td width="70%">
+<div class="block" id="unpublished_article">
+<h2>系统中未发布文章列表</h2>
+<table width="100%">
+<tr><th>编号</th><th>标题</th><th>所属栏目</th><th>日期</th><th>编辑</th><th>删除</th><th>发布</th></tr>
+{ foreach from=$unpublished_articles item=article }
+<tr><td>{ $article.id }</td><td>{ $article.heading }</td><td>{$article.mname}</td><td>{ $article.dt }</td><td><a href="hwnd_article_edit.php?c={$article.c}&m={$article.m}&id={$article.id}" class="btn_edit">编辑</a></td><td><a href="###" onclick='del({$article.m},{$article.id})' class="btn_del">删除</a></td><td><a href="###" onclick='publish({$article.id})' class="btn_publish">发布</td></tr>
+{ /foreach }
+</table>
+</div>
+</td>
+<td>
+</td>
+</tr></table>
+<iframe width="0" height="0" name="loader" src="blank.html"></iframe>
+{ literal }
+<script type="text/javascript">
+
+function del(catalog, id)
+{
+	if(confirm("确实要删除ID为"+id+"的文章吗？该操作不可恢复。\n\n对于链接文章，本操作将仅删除该文章在本栏目的链接；对于普通文章，本操作将删除文章本身以及它在其他栏目中的链接。"))
+		window.loader.location.href="hwnd_article_edit.php?cmd=delete&articles="+id + '&catalog=' + catalog;
+}
+
+function publish(id)
+{
+	if (confirm('确认发布该文章吗？'))
+		loader.location.href = "hwnd_article_edit.php?cmd=publish&articles=" + id;
+}
+</script>
+{ /literal }

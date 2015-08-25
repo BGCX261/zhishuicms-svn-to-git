@@ -1,0 +1,35 @@
+
+<script type="text/javascript" src="{$cfg.fckeditor_url}/fckeditor.js"></script>
+
+<form method="post" target="loader">
+
+<script type="text/javascript">
+var editor = new FCKeditor('summary') ;
+editor.BasePath = '{$cfg.fckeditor_url}/';
+editor.Config['CustomConfigurationsPath']  = '../../fckeditor_config.js'; 
+editor.Config['ImageBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=img&class_id={$smarty.const.CC_CUSTOMIZE}&object_id={$catalog_id}';
+editor.Config['LinkBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?class_id={$smarty.const.CC_CUSTOMIZE}&object_id={$catalog_id}';
+editor.Config['FlashBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=swf&class_id={$smarty.const.CC_CUSTOMIZE}&object_id={$catalog_id}';
+editor.Height = 230;
+editor.Width = '100%';
+editor.Value = "{$data.summary|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"/script":"/s\"+\"cript"}";
+editor.Create() ;
+
+
+var editor = new FCKeditor('content') ;
+editor.BasePath = '{$cfg.fckeditor_url}/';
+editor.Config['CustomConfigurationsPath']  = '../../fckeditor_config.js'; 
+editor.Config['ImageBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=img&class_id={$smarty.const.CC_CUSTOMIZE}&object_id={$catalog_id}';
+editor.Config['LinkBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?class_id={$smarty.const.CC_CUSTOMIZE}&object_id={$catalog_id}';
+editor.Config['FlashBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=swf&class_id={$smarty.const.CC_CUSTOMIZE}&object_id={$catalog_id}';
+editor.Height = 330;
+editor.Width = '100%';
+editor.Value = "{$data.content|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"/script":"/s\"+\"cript"}";
+editor.Create() ;
+</script>
+<input type='hidden' name='m' value='{$catalog_id}' />
+<input type="hidden" name="postflag" value="1" />
+<input type="submit" value=" ±£´æ "/>
+</form>
+
+<iframe width=0 height=0 src="blank.html" name="loader"></iframe>

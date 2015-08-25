@@ -1,0 +1,52 @@
+@charset "gb2312";
+/* CSS Document */
+/*教育公用文件*/
+body, div, span, h1, h2, h3, h4, h5, h6, p, a, img, li, ul, form, table, tr, th, td ,input {
+	margin:0;
+	padding:0;
+	border:0;
+}
+
+body { 
+	font-family:"宋体",Tahoma, Verdana, sans-serif, simsun;
+	font-size:12px;
+	background-color:#FFFFFF;
+	text-align:center;
+}
+
+.container {
+	width:1000px;
+	margin:0 auto;
+}
+
+div {
+	overflow:hidden;
+}
+
+h1 {font-size:36px;}
+h2 {font-size:28px;}
+h3 {font-size:22px;}
+h4 {font-size:18px;}
+h5 {font-size:14px;}
+h6 {font-size:12px;}
+
+a:link {
+	text-decoration:none;
+	color:#999;
+}
+a:visited {
+	text-decoration:none;
+	color:#999;
+}
+a:hover {
+	text-decoration:none;
+	color:#F00;
+}
+a:active {
+	text-decoration:none;
+	color:#F00;
+}
+
+.highlight {
+	font-weight:bold;
+}

@@ -1,0 +1,85 @@
+<html>
+<head>
+<title>登录</title>
+<meta http-equiv="content-type" content="text/html;charset=gb2312"/>
+{ literal }
+<style type="text/css">
+body, td { font-size: 12px; margin: 0; padding: 0; }
+input { height: 20px; }
+</style>
+<script type="text/javascript" language="javascript">
+function get_parent_url()
+{
+	if (window.top == window)
+		return;
+	
+	var url = window.top.location.href;
+	if (document.forms.length > 0)
+		document.forms[0].forward.value = url;
+	else
+	{
+		var link = document.getElementById('logout')
+		link.href = '/profile.php?cmd=logout&forward=' + escape(url);
+	}
+}
+</script>
+{ /literal }
+</head>
+<body bgcolor="{$smarty.request.bgcolor}" onLoad="get_parent_url()">
+{ if $smarty.session.rc_member_login }
+{assign var=u value=$smarty.session.rc_user_info}
+<table border="0" cellspacing="5" cellpadding="3" align="center">
+  <tr>
+    <td>{$u->username}</td>
+    <td>{$u->name}</td>
+  </tr>
+  <tr>
+    <td>登录次数</td>
+    <td>{$u->login_count+1}</td>
+  </tr>
+  <tr>
+    <td>上次登录</td>
+    <td>{$u->lastdate|date_format:'%Y-%m-%d %H:%M'}</td>
+  </tr>
+  <tr>
+    <td>积分</td>
+    <td>{$u->credits+5}</td>
+  </tr>
+  <tr>
+    <td><a href="profile.php?cmd=logout&amp;forward=/profile.php%3fcmd%3dlogin" target="_top" id="logout">注销登录</a></td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+<br/>
+{ else }
+<form method="post" class="user_login" target="_top">
+  <input type="hidden" name="cmd" value="login"/>
+  <input type="hidden" name="postflag" value="1"/>
+  {if $message }<font color="red">{$message}</font>{/if}
+  <table align="center" cellpadding="1" cellspacing="2">
+    <tr>
+      <td><label for="login_account">用户名:</label></td>
+      <td><input name="username" type="text" id="login_account" value="{$bean->username}" size="15"/></td>
+    </tr>
+    <tr>
+      <td><label for="login_password">密&nbsp;&nbsp;码:</label></td>
+      <td><input name="password" type="password" id="login_password" size="15"/></td>
+    </tr>
+    <tr>
+      <td valign="top"><label for="checkcode">验证码:</label></td>
+      <td><input name="checkcode" type="text" id="checkcode" size="15"/><br/><img src="/wescms/checkcode.php?number={$checkcode}" width="120" height="30"/></td>
+    </tr>
+    <tr>
+      <td colspan="2" align="right"><input type="submit" value="登录"/>&nbsp;&nbsp;&nbsp;<a href="/profile.php?cmd=member_add" target="_top">注册新用户</a>
+          <input type="hidden" name="cmd" value="login"/>
+		  <input type="hidden" name="forward" value=""/>
+		  <input type="hidden" name="simple" value="0"/>
+        <input type="hidden" name="postflag" value="1"/>
+        &nbsp;</td>
+    </tr>
+  </table>
+</form>
+{ /if }
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+
+<ul>
+<table>
+	{ foreach from=$articles item=article }
+	
+	<tr>
+	<td height="48" bgcolor="#EEECEA">
+	<a style='color:#000000;text-decoration:none;font-size:18px;font-family: ºÚÌå ' href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" class="highlight">{$article.heading|cut:30}</a>	</td>
+	</tr>
+	
+	{ /foreach }
+</table>
+</ul>

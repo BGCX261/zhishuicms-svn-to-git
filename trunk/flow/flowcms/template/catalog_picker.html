@@ -1,0 +1,79 @@
+<html>
+<base target="_self"/>
+<head>
+{ literal }
+<style type="text/css">
+* {
+	font-size: 12px;
+	font-family: 宋体;
+}
+body {
+	background-color: #EBE9ED;
+	overflow: hidden;
+}
+</style>
+{ /literal }
+<link rel="stylesheet" href="lib/xtree2/css/xtree2.css"/>
+<script type="text/javascript" src="lib/xtree2/js/xtree2.js"></script>
+<script type="text/javascript" src="lib/xtree2/js/xloadtree2.js"></script>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312"/>
+<title>选择栏目</title>
+
+</head>
+
+<body>
+<div style='width: 280px; height: 300px; overflow: auto;margin: 2px;background-color: #fff;border: 1px solid #ccc;padding: 3px;'>
+<script type="text/javascript">
+var choose_type = {$type};
+{ literal }
+function pick(id, type)
+{
+	if (type == choose_type)
+	{
+		document.forms[0].id.value = id;
+		document.forms[0].btnok.disabled = 0;
+	}
+	else
+		document.forms[0].btnok.disabled = 1;
+}
+{/literal}
+ webFXTreeConfig = {literal}{{/literal}
+	rootIcon        : "images/folder.png",
+	openRootIcon    : "images/openfolder.png",
+	folderIcon      : "images/folder.png",
+	openFolderIcon  : "images/openfolder.png",
+	fileIcon        : "images/file.png",
+	iIcon           : "images/I.png",
+	lIcon           : "images/L.png",
+	lMinusIcon      : "images/Lminus.png",
+	lPlusIcon       : "images/Lplus.png",
+	tIcon           : "images/T.png",
+	tMinusIcon      : "images/Tminus.png",
+	tPlusIcon       : "images/Tplus.png",
+	plusIcon        : "images/plus.png",
+	minusIcon       : "images/minus.png",
+	blankIcon       : "images/blank.png",
+	defaultText     : "载入子栏目…",
+	defaultAction   : null,
+	defaultBehavior : "explorer",
+	usePersistence	: true
+{literal}};{/literal}
+  
+
+var tree = new WebFXLoadTree('WESCMS', 'tree.php?catalog=0&mode=pick', 'explorer', "icons/home.gif");
+tree.write();
+tree.expand();
+
+
+
+</script>
+</div>
+<form style='margin: 0px; padding: 0px; text-align: center;'>
+<input type="hidden" name="id" value=""/>
+<input type="button" name="btnok" value="确定" disabled="disabled" onClick="window.returnValue=this.form.id.value;window.close()"/><input type="button" value="取消" onClick="window.close()"/>
+</form>
+
+
+<iframe width="0" height="0" src="template/picker.html" name="picker"></iframe>
+</body>
+</html>

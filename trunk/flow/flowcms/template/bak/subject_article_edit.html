@@ -1,0 +1,116 @@
+
+<script language=javascript>
+var class_id = {$smarty.const.CC_SUBJECT};
+var id = {$data.subject_id};
+{ literal }
+function syncDate(obj)
+{
+	var dt = new Date();
+	obj.value = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate() + ' ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+}
+
+function choose_picture(input)
+{
+	window.open('./sys/filebrowser/fck_filebrowser.php?type=img&class_id=' + class_id + '&object_id=' + id, 'picture', 'dialogWidth=610px;dialogHeight=400px');
+}
+function SetUrl(url)
+{
+	var re = /id=(\d+)/;
+	var cr = re.exec(url);
+	if (cr != null && typeof(cr) == 'object' && cr.length != null && cr.length == 2)
+		document.forms[0].picture_id.value = cr[1];
+}
+</script>
+{ /literal }
+
+<script type="text/javascript" src="{$cfg.fckeditor_url}/fckeditor.js"></script>
+<style type="text/css">
+    @import url({$cfg.jscalendar_url}/calendar-win2k-1.css);
+</style>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/lang/calendar-zh.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar-setup.js"></script>
+	  <form name="Edit" method="POST" target="loader">
+        		<table border=0 width="100%" cellpadding=0 cellspacing=0 height="100%">
+					<tr> 
+						<td width="30">标题</td>
+						<td colspan="2"> 
+							<input type=text size="50" name=title value="{$data.title|escape}">
+							发布状态：<select name="status"><option value="1" {$data.status|html_option:1}>草稿</option><option value="2" {$data.status|html_option:2}>发布</option></select>
+							<input type="checkbox" name="highlight" value="1" id="highlight" {$data.highlight|html_check:1}>
+							<label for="highlight">高亮显示</label>
+							<input type="checkbox" name="sticky" value="1" id="sticky" {$data.sticky|html_check:1}>
+							<label for="sticky">置顶</label>
+							所属类别:<select name="catalog" style='width:100px'>
+<option value="{$data.catalog|escape}">&lt;其他&gt;</option>
+{ foreach from=$catalogs item=tab1}
+<option {$data.catalog|html_option:$tab1}>{$tab1|escape}</option>
+{ /foreach }
+</select>
+						</td>
+					</tr>
+					<tr> 
+						<td valign="top">正文</td>
+						<td colspan="2"> 
+<script type="text/javascript">
+	var editor = new FCKeditor('content') ;
+	editor.BasePath = '{$cfg.fckeditor_url}/';
+	editor.Config['CustomConfigurationsPath']  = '../../fckeditor_config.js'; 
+	editor.Config['ImageBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=img&class_id={$smarty.const.CC_SUBJECT}&object_id={$data.subject_id}';
+	editor.Config['LinkBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?class_id={$smarty.const.CC_SUBJECT}&object_id={$data.subject_id}';
+	editor.Config['FlashBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=swf&class_id={$smarty.const.CC_SUBJECT}&object_id={$data.subject_id}';
+	editor.Height = 430;
+	editor.Width = '100%';
+	editor.Value = "{$data.content|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"\r":"\\n"|replace:"/script":"/s\"+\"cript"}";
+	editor.Create() ;
+</script>
+						</td>
+					</tr>
+					<tr> 
+						<td>网址</td>
+						<td> 
+							<input type="text" name="url" size="35" value="{$data.url|escape}">
+						</td>
+						<td>图片ID: <input type="text" size="10" name="picture_id" id="picture_id" value="{$data.picture_id}" /><input type="button" onclick="choose_picture('picture_id')" value="..."/></td>
+					</tr>
+					<tr> 
+						<td>日期</td>
+						<td> 
+							<input type=text size=20 name="dt" id=f_date value="{$data.dt|date_format:'%Y-%m-%d %H:%M'}" readonly><button type="reset" value="..." id=date_b>...</button><input type="button" value="同步到当前时间" onclick="syncDate(this.form.dt)"></td>
+{ literal }
+<script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "f_date",      // id of the input field
+        ifFormat       :    "%Y-%m-%d %H:%M",       // format of the input field
+        showsTime      :    true,            // will display a time selector
+        button         :    "date_b",   // trigger for the calendar (button ID)
+        singleClick    :    false,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+{ /literal }
+						<td> 作者 
+							<input type="text" name="author" size="20" value="{$data.author|escape}">
+							<input type="hidden" name="catalog_id" value="{$catalog_id}">
+							<input type="hidden" name="cmd" value="article_edit">
+							<input type="hidden" name="id" value="{$data.id}">
+							<input type="hidden" name="subject_id" value="{$data.subject_id}">
+							<input type="hidden" name="postflag" value="1"/>
+						</td>
+					</tr>
+          {if $use_district }
+          <tr><td>区域</td><td>{set_checkboxes set='district' value=$data.district}</td></tr>
+          { /if }
+		  <tr><td>&nbsp;</td><td><input type="submit" value="  保存  "/></td></tr>
+				</table>
+      </form>
+{ literal }
+<script type="text/javascript">
+var ifm = document.getElementById('content___Frame');
+if (ifm) 
+{
+	ifm.height = screen.height - 440;
+	ifm.width = screen.width - 330;
+}
+</script>
+{ /literal }

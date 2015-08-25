@@ -1,0 +1,31 @@
+<title>求是潮校庆活动专题网</title>{include file=birthday/header.html} 
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top" background="template/birthday/images/bg.gif"><p>当前位置:<a href="redir.php?catalog_id=57703">校庆专题网</a>>{current_position root_id=58232 catalog_id=$catalog.id} </p>
+      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+      <tr>
+        <td><table width="100%" border="0" cellspacing="4" cellpadding="0">
+            <tr>
+              <td class="grey"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td width="9%">&nbsp;</td>
+                    <td width="91%">{$catalog.name}</td>
+                  </tr>
+              </table></td>
+            </tr>
+            <tr bgcolor="#FF0000">
+              <td><img src="template/images/service/spacer.gif" width="1" height="1" /></td>
+            </tr>
+            <tr>
+              <td><div class="article_browse">{article_list catalog_id=$catalog.id count=58232 template=article_list_pages.htm page=$smarty.request.page tcut=30} </div></td>
+            </tr>
+          </table>          </td>
+      </tr>
+    </table>
+      <br />
+    <br /></td>
+  </tr>
+</table>
+{include file=footer.html} 
+</body>
+</html>

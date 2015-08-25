@@ -1,0 +1,32 @@
+	<div id="HeadBar">
+		<span id="current_position">当前操作：用户组权限管理</span>
+		<div id="buttons">
+		<ul>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='javascript:window.location.reload()';">刷新</a></li>
+		</ul>
+		</div>
+	</div>
+
+
+<form id="form1" name="form1" method="post" action="" target="loader">
+  <table border="0" cellspacing="1" cellpadding="1">
+    <tr>
+      <td valign="top">用户组:
+        <br />
+        <select name="group_id" size="20" id="group_id" style="width:250px" onchange="window.location.href='control.php?act=privilege_manage&amp;group_id=' + this.value">
+		{ foreach from=$groups item=group }
+		<option value="{$group.id}" {if $group_id == $group.id}selected{/if}>{$group.name}</option>
+		{ /foreach }
+        </select>      </td>
+      <td valign="top">权限点:<br />
+      {enum_checkboxes enum="SYSTEM_PRIVILEGE" name="privilege" separator="<br/>" selected=$privileges} </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value=" 保存 " /></td>
+    </tr>
+  </table>
+  <input type="hidden" name="postflag" value="1" />
+  <input type="hidden" name="gid" value="{$group_id}" />
+</form>
+<iframe width=0 height=0 src="blank.html" name='loader'></iframe>

@@ -1,0 +1,305 @@
+{literal}
+<script language="javascript">
+function syncDate(obj)
+{
+	var dt = new Date();
+	obj.value = dt.getFullYear() + '-' + (dt.getMonth() + 1) + '-' + dt.getDate()
+		+ ' ' + dt.getHours() + ':' + dt.getMinutes() + ':' + dt.getSeconds();
+}
+</script>
+{/literal}
+
+
+<script type="text/javascript" src="template/browser.js"></script>
+<script type="text/javascript" src="lib/tabpane/js/tabpane.js"></script>
+<script type="text/javascript" src="lib/editor/fckeditor.js"></script>
+
+<style type="text/css">
+    @import url(lib/jscalendar-1.0/calendar-win2k-1.css);
+</style>
+<script type="text/javascript" src="lib/jscalendar-1.0/calendar.js"></script>
+<script type="text/javascript" src="lib/jscalendar-1.0/lang/calendar-zh.js"></script>
+<script type="text/javascript" src="lib/jscalendar-1.0/calendar-setup.js"></script>
+
+<link type="text/css" rel="StyleSheet" href="lib/tabpane/css/luna/tab.css" />
+
+<div id="HeadBar">
+		<span id="current_position">当前栏目：{$catalog.name}</span>
+		<div id="buttons">
+		<ul>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='javascript:window.location.reload()';">刷新</a></li>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='control.php?act=article_edit&amp;cmd=article_add&amp;catalog_id={$catalog.id}';">添加新文章</a></li>
+		</ul>
+		</div>
+	</div>
+<form name="Edit" method="POST" target="loader" action="control.php?act=article_edit&cmd={$cmd}&catalog_id={$catalog.id}&article_id={$data.id}">
+<div class="tab-pane" id="tab-pane-1" style='overflow:auto'>
+	<!-- first tab page begin -->
+   <div class="tab-page" id='page1'>
+      <h2 class="tab">常用</h2>
+	<table width="98%" border="0" cellpadding="0" cellspacing="0">
+	<tr> 
+	<td width="50" nowrap><label for="heading" title="Heading">标题(<span class="accesskey">H</span>)</label></td>
+	<td> 
+	<input type="text" id="heading" name="heading" size="50" value="{$data.heading}" accesskey="h">
+	</td>
+	</tr>
+	<tr>
+	<td><label for="link" title="Link" nowrap>网址(<span class="accesskey">L</span>)</label></td>
+	<td><input type="text" id="link" name="link" size="50" value="{$data.link}" accesskey="l"/><input type="button" value="..." onclick="choose_file('file', this.form.picture_id, this.form.link)"/></td>
+	</tr>
+	<tr>
+	<td>属性</td>
+	<td><table border="0"><tr><td nowrap>
+	<input type="checkbox" name="highlight" value="1" id="highlight" { if $data.highlight=="1" }checked{/if}></td><td nowrap>
+	<label for="highlight">高亮</label></td><td>
+	<input type="checkbox" name="sticky" value="1" id="sticky" {if $data.sticky=="1"}checked{/if}></td><td nowrap>
+	<label for="sticky">置顶</label></td><td nowrap>
+	日期:</td><td><input type="text" size="18" name="date" id="f_date" value="{$data.dt}" readonly/></td><td>
+	<input type="reset" value="..." id="date_b">
+	{literal}
+	<script type="text/javascript">
+	Calendar.setup({
+		inputField     :    "f_date",     
+		ifFormat       :    "%Y-%m-%d %H:%M:%S",
+		showsTime      :    true,         
+		button         :    "date_b",
+		singleClick    :    false,   
+		step           :    1        
+	});
+	
+	</script>
+	{/literal}
+	{if $cmd=="article_add"}
+		<script type="text/javascript">
+			syncDate(document.forms['Edit'].date);
+		</script>
+	{/if}
+	
+	
+	</td><td>
+	<input type="button" value="当前时间" onclick="syncDate(this.form.date)" /></td><td nowrap>
+	作者:</td><td><input type="text" name="author" size="10" value="{$data.author}"></td><td nowrap>
+	编辑:</td><td><input type="text" name="editor" size="7" value="{$data.editor}"/></td></tr></table></td>
+	</tr>
+	<tr> 
+	<td valign="top"><label>正文</label></td>
+	<td> 
+	<script type="text/javascript">
+	var editor = new FCKeditor('content') ;
+	editor.BasePath = 'lib/editor/';
+
+	editor.Config['ImageBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Image&class_id=1&object_id={$data.id}' ;
+	editor.Config['FlashBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Flash&class_id=1&object_id={$data.id}' ;
+	editor.Config['LinkBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=File&class_id=1&object_id={$data.id}' ;
+	
+	
+	editor.Height = 300;
+	editor.Width = '100%';
+	editor.Value = "{$data.content|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"\r":"\\n"|replace:"/script":"/s\"+\"cript"|replace:"<iframe":"<i\"+\"frame"}";
+	editor.Create() ;
+	</script>
+	</td>
+	</tr>
+	<tr><td width="50">&nbsp;</td><td>
+<input type="submit" value="  保存  "/></td></tr>
+	</table>
+   </div><!-- first tab page end -->
+   
+   
+   
+   
+   <!-- second tab page begin -->
+   <div class="tab-page">
+	<h2 class="tab">其他选项</h2>
+<table width="97%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td width="68" align="right"><label for="supheading">
+		<div align="left">眉题<span class="accesskey">U</span></div>
+		</label></td>
+		<td colspan="5"><input type="text" id="supheading" name="supheading" size="35" value="{$data.supheading}" accesskey="u"></td>
+	</tr>
+	<tr>
+		<td align="right"><label for="subheading">
+		<div align="left">副标题<span class="accesskey">D</span></div>
+		</label></td>
+		<td colspan="5"><input type="text" id="subheading" name="subheading" size="35" value="{$data.subheading}" accesskey="d"></td>
+	</tr>
+	<tr>
+		<td align="right" nowrap><label for="heading_color">
+		<div align="left">标题颜色<span class="accesskey">C</span></div>
+		</label></td>
+		<td><input type="text" id="heading_color" name="heading_color" size="15" value="{$data.heading_color}" accesskey="c"><input type="button" value="..." onclick="choose_color(this.heading_color)"/></td>
+		<td><label for="keywords">
+		<div align="left">关键字(<span class="accesskey">K</span>):</div>
+		</label></td>
+		<td><input type="text" id="keywords" name="keywords" value="{$keywords}" accesskey="k" style='width:100%'/></td>
+		<td width="64" nowrap><label for="template">页面模版<span class="accesskey">T</span></label></td>
+		<td width="306"><input type="text" id="template" name="template" value="{$data.template}"  style='width:100%' accesskey="t"/></td>
+	</tr>
+	<tr>
+		<td align="right"><label for="picture_id">
+		<div align="left">标题图片</div>
+		</label></td>
+		<td width="184"><input type="text" id="picture_id" name="picture_id" size="15" value="{$data.picture_id}"/><input type="button" value="..." onclick="choose_file('Image', this.form.picture_id, this.form.picture_id)"/></td>
+	    <td width="92"><label for="source">来源(<span class="accesskey">S</span>)</label></td>
+	    <td width="215"><input type="text" name="source" id="source" style='width:100%' value="{$data.source}" accesskey="S" /></td>
+	    <td><label for="photographer"> 摄影记者</label></td>
+	    <td><input type="text" id="photographer" name="photographer"  style='width:100%' value="{$data.photographer}"/></td>
+	</tr>
+	<tr>
+		<td valign="top" align="right"><div align="left">导语</div></td>
+		<td colspan="5">
+<script type="text/javascript">
+var editor_summary = new FCKeditor('summary') ;
+editor_summary.BasePath = 'lib/editor/';
+editor_summary.Height = 300;
+editor_summary.Width = '100%';
+editor_summary.Value = "{$data.summary|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"\r":"\\n"}";
+editor_summary.Create() ;
+</script></td></tr>
+  
+	<tr><td>&nbsp;</td><td colspan="5">
+
+<input type="submit" value="  保存  "/>
+{if $catalog.video==1}
+<input type="button" onclick="javascript:window.open('http://www.qsc.zju.edu.cn/movieupload/index.php?object_id={$data.id}', '上传视频', 'dialogWidth=610px;dialogHeight=200px')" value="上传视频" />
+{/if}
+</td></tr>
+	</table>
+	</div><!-- second tab page end -->
+	
+	{if 0}
+   <div class="tab-page">
+	<h2 class="tab">相关文章</h2>
+	<table>
+	<tr>
+		<td align="right" width="80" nowrap><label for="keywords">关键字(<span class="accesskey">K</span>):</td>
+		<td><input type="text" id="keywords" name="keywords" value="{$keywords}" accesskey="k" style='width:60%'/></td>
+	</tr>
+<tr>
+<td>
+上传视频
+</td>
+<td>
+	<input type="button" onclick="javascript:window.open('http://www.ansin.cn/swfupload/index.php?object_id=')" value="上传视频" />
+</td>
+</tr>
+	<tr>
+		<td align="right" valign="top" nowrap>自选相关文章:</td>
+		<td>
+			<table width="100%">
+			<tr>
+				<td><select size="20" style='width:250px'></select></td>
+				<td><input type="button" value="&lt;"/><br/><input type="button" value="&gt;"/><br/><input type="button" value="^"/><br/><input type="button" value="v"/></td>
+				<td><table width="100%"><tr><td>搜索文章:&nbsp;栏目:<input type="text" name="r_catalog" size="24"/><br/>日期:<input type="text" size="10"/>关键字:<input type="text" size="10"/></td></tr><tr><td><select size="18" style='width:250px'></select></td></tr></table></td>
+			</tr></table>
+		</td>
+	</tr>
+
+	<tr><td>&nbsp;</td><td>
+<input type="submit" value="  保存  "/></td></tr>
+	</table>
+	</div>
+	{/if}
+</div>
+<input type="hidden" name="id" value="{$data.id}">
+<input type="hidden" name="catalog" value="{$data.catalog}">
+<input type="hidden" name="step" value="2"/>
+</form>
+<script type="text/javascript">
+var id = "{$data.id}";
+
+
+{ literal }
+document.getElementsByClassName = function(className,oBox) {
+	//适用于获取某个HTML区块内部含有某一特定className的所有HTML元素
+	this.d= oBox || document;
+	var children = this.d.getElementsByTagName('*') || document.all;
+	var elements = new Array();
+	for (var ii = 0; ii < children.length; ii++) {
+		var child = children[ii];
+		var classNames = child.className.split(' ');
+		for (var j = 0; j < classNames.length; j++) {
+			if (classNames[j] == className) {
+				elements.push(child);
+				break;
+			}
+		}
+	}
+	return elements;
+}
+
+function arrange_interface()
+{
+	var sizeArray = wesGetPageSize();
+	var clientWidth = sizeArray[2];
+	var clientHeight = sizeArray[3];
+	var ifm = document.getElementById('content___Frame');
+	if (ifm) 
+	{
+		var h = sizeArray[3] - 160;
+		if (h > 300)
+			ifm.height = h;
+		ifm.width = sizeArray[2] - 95;
+	}
+	var ifm = document.getElementById('summary___Frame');
+	if (ifm)
+	{
+		ifm.width = sizeArray[2] - 95;
+	}
+	var panel = document.getElementById('tab-pane-1');
+	panel.style.height = sizeArray[3] - 10;
+	panel.style.width = sizeArray[2];
+	var heading = document.getElementById('heading');
+	if (heading)
+		heading.style.width = (clientWidth - 100) + 'px';
+	var link = document.getElementById('link');
+	if (link)
+		link.style.width = (clientWidth - 150) + 'px';
+	var subheading = document.getElementById('subheading');
+	if (subheading)
+		subheading.style.width = (clientWidth - 100) + 'px';
+	var supheading = document.getElementById('supheading');
+	if (supheading)
+		supheading.style.width = (clientWidth - 100) + 'px';
+	var cp = document.getElementById('current_position');
+	if (cp)
+		cp.style.width = clientWidth + 'px';
+}
+
+var current_pick;
+function choose_file(type, orig_id, obj)
+{
+	current_pick = obj;
+	window.open('filebrowser.php?Type=' + type + '&class_id=1&object_id=' + id, 'picture', 'dialogWidth=610px;dialogHeight=400px');
+}
+function SetUrl(url)
+{
+	if (current_pick == document.forms[0].picture_id)
+	{
+		var re = /id=(\d+)/;
+		var cr = re.exec(url);
+		if (cr != null && typeof(cr) == 'object' && cr.length != null && cr.length == 2)
+			document.forms[0].picture_id.value = cr[1];
+	}
+	else
+	{
+		current_pick.value = url;
+	}
+}
+
+function setcolor(color)
+{
+	document.forms[0].heading_color.value = color;
+}
+
+function choose_color(obj)
+{
+	window.open('template/color.html', '', 'width=514,height=560');
+}
+window.onload=function() {arrange_interface();}
+//document.body.onresize=function(){arrange_interface();}
+{ /literal }
+</script>
+<iframe width="0" height="0" border="0" src="template/blank.html" name="loader"></iframe>

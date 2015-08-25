@@ -1,0 +1,49 @@
+<table width="100%" cellspacing="5" cellpadding="5">
+<tr><td width="70%" valign="top">
+<div class="block" id="unpublished_article">
+<h2>系统中未发布文章列表</h2>
+<table width="100%">
+<tr><th>编号</th><th>标题</th><th>所属栏目</th><th width="120">日期</th><th width="35">编辑</th><th width="35">删除</th><th width="35">发布</th></tr>
+{ foreach from=$unpublished_articles item=article }
+<tr><td>{ $article.id }</td><td>{ $article.heading }</td><td>{$article.mname}</td><td>{ $article.dt }</td><td align="center"><a href="hwnd_article_edit.php?c={$article.c}&m={$article.m}&id={$article.id}" class="btn_edit">编辑</a></td><td align="center"><a href="###" onclick='if (confirm("确认删除该文章吗？")) window.loader.location.href="article_del.php?c={$article.c}&m={$article.m}&id={$article.id}";' class="btn_del">删除</a></td><td align="center"><a href="###" onclick='window.loader.location.href="article_publish.php?c={$article.c}&m={$article.m}&id={$article.id}";' class="btn_publish">发布</td></tr>
+{ /foreach }
+</table>
+</div>
+</td>
+<td valign="top">
+<div class="block" id="my_columns">
+<h2>我的栏目</h2>
+<table width="100%">
+<tr><th>栏目</th></tr>
+{ foreach from=$my_columns item=column }
+<tr><td>{$column.pname} &gt; <a href="{$COLUMN_HANDLERS[$column.type].0}?catalog={$column.id}">{$column.name }</a></td></tr>
+{/foreach }
+</table>
+</div>
+</td>
+</tr>
+<tr><td valign="top">
+<div class="block" id="my_articles">
+<h2>我的文章</h2>
+<table width="100%">
+<tr><th>编号</th><th>标题</th><th>所属栏目</th><th width="120">日期</th><th width="35">编辑</th><th width="35">删除</th><th width="35">发布</th></tr>
+{ foreach from=$my_articles item=article }
+<tr><td>{ $article.id }</td><td>{ $article.title }</td><td>{$article.mname}</td><td>{ $article.dt }</td><td><a href="hwnd_article_edit.php?c={$article.c}&m={$article.m}&id={$article.id}" class="btn_edit">编辑</a></td><td><a href="###" onclick='if (confirm("确认删除该文章吗？")) window.loader.location.href="article_del.php?c={$article.c}&m={$article.m}&id={$article.id}";' class="btn_del">删除</a></td><td><a href="###" onclick='window.loader.location.href="article_publish.php?c={$article.c}&m={$article.m}&id={$article.id}";' class="btn_publish">发布</td></tr>
+{ /foreach }
+</table>
+
+</td>
+<td valign="top">
+<div class="block" id="my_info">
+<h2>我的基本信息</h2>
+<table width="100%">
+<tr><th>项目</th><th>信息</th></tr>
+{ foreach from=$infos item=value key=name}
+<tr><td>{$name}</td><td>{$value}</td></tr>
+{ /foreach }
+</table>
+</div>
+</td>
+</tr>
+</table>
+<iframe width="0" height="0" name="loader" src="blank.html"></iframe>

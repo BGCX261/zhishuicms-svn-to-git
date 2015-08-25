@@ -1,0 +1,71 @@
+ { include file="news/header.html" }
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="180" valign="top" bgcolor="#C9D7E4"><table width="96%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center"><br />
+          <img src="template/news/images/btn_words.gif" width="165" height="26" /></td>
+        </tr>
+      <tr>
+        <td><table width="100%" border="0" cellspacing="2" cellpadding="8">
+          <tr>
+            <td>{customize_page catalog_id=43104 short_mode=1} </td>
+          </tr>
+        </table></td>
+        </tr>
+    </table>
+      <table width="96%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center"><br />
+              <img src="template/news/images/btn_contact.gif" width="165" height="26" /></td>
+        </tr>
+        <tr>
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="8">
+            <tr>
+              <td>{customize_page catalog_id=42988 short_mode=1} </td>
+            </tr>
+          </table></td>
+        </tr>
+        </table>      <table width="96%" border="0" cellpadding="0" cellspacing="0">
+          <tr>
+            <td align="center"><br />
+                <img src="template/news/images/btn_link.gif" width="165" height="26" /></td>
+          </tr>
+          <tr>
+            <td><table width="100%" border="0" cellspacing="2" cellpadding="8">
+              <tr>
+                <td><span class="block">{link_list catalog_id=42970 count=10 cut=24} </span></td>
+              </tr>
+            </table></td>
+          </tr>
+    </table></td>
+    <td valign="top"><img src="images/spacer.gif" width="10" height="20" />{ subject_list catalog_id=$smarty.request.catalog_id assign=subjects }
+      { foreach from=$subjects item=subject }<br />
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td><table width="100%" border="0" cellspacing="3" cellpadding="3">
+            <tr>
+              <td bgcolor="c9d7e4" class="deepblue"><img src="template/news/images/dot1.gif" width="15" height="11" />&nbsp;{$subject.title}</td>
+            </tr>
+            <tr>
+              <td>{$subject.intro}</td>
+            </tr>
+            <tr>
+              <td>{subject_article_list count=7 cut=28 id=$subject.id template=news/sal.html}</td>
+            </tr>
+          </table></td>
+          <td width="130" valign="top" bgcolor="#F0F0F0"><table width="100%" border="0" cellspacing="2" cellpadding="3">
+              <tr>
+                <td align="center">{subject_article_list id=$subject.id catalog_id=$catalog.id count=2 picture_only=1 template=news/sal_p1.html width=120 height=150 cut=20} </td>
+              </tr>
+            </table></td>
+        </tr>
+      </table>
+
+{ /foreach } </td>
+  </tr>
+</table>
+{ include file="footer.html" }
+<div class="block browse">
+  <div class="article_browse"></div>
+</div>

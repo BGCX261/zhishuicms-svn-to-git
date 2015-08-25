@@ -1,0 +1,23 @@
+{foreach from=$articles item=article}
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td><div align="center">
+      <table width="90" border="1" cellpadding="0" cellspacing="0" bordercolor="#fff1db" >
+        <tr>
+          <td><img src="file.php?cmd=preview&amp;id={$article.picture_id}" alt="" width="90" height="120" border-colour="ffffff" /></td>
+        </tr>
+      </table>
+    </div></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="2" cellpadding="2">
+      <tr>
+        <td><div align="center" class="css"><a href="redir.php?catalog_id={$article.catalog}&object_id={$article.id}">{$article.heading}</a></div></td>
+      </tr>
+      <tr>
+        <td class="grey"><div align="center"><a href="redir.php?catalog_id={$article.catalog}">点击查看更多</a></div></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+{/foreach}

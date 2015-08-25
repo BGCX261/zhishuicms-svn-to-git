@@ -1,0 +1,20 @@
+<form action="" method="post" name="" target="loader" id="">
+  <table width="100%" border="0" cellspacing="2" cellpadding="3" class="Panel">
+    <tr>
+      <td width="60">属性名：</td>
+      <td><input name="property_name" type="text" id="property_name" value="{$data.property_name}" size="50" /></td>
+    </tr>
+    <tr>
+      <td>属性值：</td>
+      <td><input name="value" type="text" id="value" value="{$data.value}" size="50" /></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="button" id="button" value=" 保存 " />
+      <input name="class_id" type="hidden" id="class_id" value="{$data.class_id}" />
+      <input name="object_id" type="hidden" id="object_id" value="{$data.object_id}" />
+      <input name="postflag" type="hidden" id="postflag" value="1" />
+      <input type="button" name="button2" id="button2" value=" 取消 " onclick="location.href='property_sheet.php?cmd=list&amp;class_id={$data.class_id}&amp;object_id={$data.object_id}'"/></td>
+    </tr>
+  </table>
+</form>

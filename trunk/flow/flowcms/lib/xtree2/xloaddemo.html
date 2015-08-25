@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+<title>XLoadTree Demo (WebFX)</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="js/xtree2.js"></script>
+<script type="text/javascript" src="js/xloadtree2.js"></script>
+<link type="text/css" rel="stylesheet" href="css/xtree2.css" />
+
+<style type="text/css">
+
+body {
+	background:	white;
+	color:		black;
+}
+
+</style>
+</head>
+<body>
+
+<p><button onclick="rti.reload()">Reload Item</button></p>
+<p><button onclick="tree.openPath( '/Tree Item 2/Load treeLARGE.xml/Loaded Item 70', true, true )">Open /Tree Item 2/Load treeLARGE.xml/Loaded Item 70</button></p>
+<p><button onclick="tree.openPath( '/Tree Item 2/Loaded Item 2/Loaded Item 2.1', true )">Open /Tree Item 2/Loaded Item 2/Loaded Item 2.1</button></p>
+<p><button onclick="tree.openPath( '/Tree Item 2/Deep nesting/0/1/2/3/4/5/6/7/8/9/10', true )">Open /Tree Item 2/Deep nesting/0/1/2/3/4/5/6/7/8/9/10</button></p>
+
+<script type="text/javascript">
+
+var rti;
+var tree = new WebFXTree("Root");
+tree.add(new WebFXTreeItem("Tree Item 1"));
+tree.add(new WebFXLoadTreeItem("Tree Item 2", "tree.xml"));
+tree.add(rti = new WebFXLoadTreeItem("Tree Item 3 (Reload)", "date.xml.pl"));
+tree.add(new WebFXTreeItem("Tree Item 4"));
+
+tree.write();
+
+t = tree;
+
+</script>
+
+</body>
+</html>

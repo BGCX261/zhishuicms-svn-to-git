@@ -1,0 +1,16 @@
+<div id='content'>
+<h1>{ $article.heading }</h1>
+<div class="metastuff">
+<ul><li>记者：{$article.author}</li><li>编辑：{$article.editor}</li><li>发布时间: { $article.dt|date_format:"%Y-%m-%d" }</li><li> 浏览次数: { $article.visitcount+1 }</li></ul></div>
+<div class="content">
+{ $article.content }
+</div>
+</div>
+{ assign var=id value=$smarty.request.object_id}
+{ article_visitcount id=$id }
+
+
+<div class="article_nav">
+{ article_nav id=$id mode="summary" direction="both" }
+</div>
+<a name="footer"></a>

@@ -1,0 +1,50 @@
+{include file=service/header.html} 
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top">µ±«∞Œª÷√£∫{current_position catalog_id=$catalog.id root_id=1} </td>
+    <td>&nbsp;</td>
+    <td valign="top">&nbsp;</td>
+  </tr>
+  <tr>
+  
+  
+  
+  
+  
+    <td align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+	  
+	  
+	  
+	  
+	  
+        <td width="100%"><table width="500%" border="0" cellspacing="4" cellpadding="0">
+          <tr>
+            <td class="grey"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="9%"><img src="template/service/images/dot3.gif" width="32" height="32" /></td>
+                  <td width="91%">{$catalog.name}</td>
+                </tr>
+            </table></td>
+          </tr>
+          <tr>
+            <td bgcolor="#286112"><img src="template/images/service/spacer.gif" width="1" height="1" /></td>
+          </tr>
+          <tr>
+            <td width="100%">{article_list catalog_id=$catalog.id count=30 }</td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+     </td>
+	 
+	 
+	 
+	 
+	 <td width="15">&nbsp;</td>
+    <td width="180" valign="top">{ include file=service/right.html} </td>
+  </tr>
+</table>
+{include file=footer.html} 
+</body>
+</html>

@@ -1,0 +1,18 @@
+<table width="100%">
+<tr><td>{heading label="投票结果：$vote_title"}</td></tr>
+<tr><td>
+{assign var=vote_option_count value=$vote_options|@count}
+累计参与投票人数： { $vote_count } 选项个数：{ $vote_option_count} 
+</td></tr>
+<tr><td>
+<table>
+{assign var=i value=0}
+{ foreach from=$vote_options item=option}
+<tr>
+<td>{$option.1}</td><td><img src="{$cfg.theme_url}/bar{$i}.gif" border="0" width="{$option.width}" height="11"/> <strong>{$option.2}</strong> ({$option.rate}%)</td></tr>
+{assign var=i value=$i+1}
+{/foreach}
+</table>
+</td></tr>
+</table>
+<input type="button" onclick="window.location.href='hwnd_vote.php?cmd=list&catalog={$catalog}&page={$page}'" value="返回"/>

@@ -1,0 +1,5 @@
+<ul>
+	{ foreach from=$columns item=column }
+	<li { if $column.id == $catalog.id }class="current"{ /if }><a href="{ if $column.url}{$column.url}{else}redir.php?catalog_id={$column.id}{/if}" { if $column.id == $catalog.id }class="current"{ /if }>{$column.name}</a></li>
+	{ /foreach }
+</ul>

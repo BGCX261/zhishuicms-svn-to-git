@@ -1,0 +1,75 @@
+{ include file="news/header.html" }
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    </table></td>
+    <td width="10" rowspan="2"><img src="images/spacer.gif" width="10" height="20" /></td>
+    <td width="180" rowspan="2" valign="top" bgcolor="#98B1C5">{article_list count=4 picture_only=1 catalog_id=$catalog.id template=article_list_picture_vert1.html}</td>
+  </tr>
+  <tr>
+    <td width="180" align="center" valign="top" bgcolor="#CED7E7"><table width="96%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center"><br />
+          <img src="template/news/images/btn_words.gif" width="165" height="26" /></td>
+      </tr>
+      <tr>
+        <td><table width="100%" border="0" cellspacing="2" cellpadding="8">
+          <tr>
+            <td>{customize_page catalog_id=43104 short_mode=1} </td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+    <table width="96%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center"><br />
+          <img src="template/news/images/btn_hot.gif" width="165" height="26" /></td>
+      </tr>
+      <tr>
+        <td><table width="100%" border="0" cellspacing="2" cellpadding="8">
+          <tr>
+            <td>{article_list count=10 tcut=48 catalog_id=$catalog.id template=article_list_hot.htm mode=hot period=31} </td>
+          </tr>
+        </table></td>
+      </tr>
+    </table>
+      <table width="96%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center"><br />
+              <img src="template/news/images/btn_contact.gif" width="165" height="26" /></td>
+        </tr>
+        <tr>
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="8">
+            <tr>
+              <td>{customize_page catalog_id=42988 short_mode=1}</td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+      <table width="96%" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td align="center"><br />
+              <img src="template/news/images/btn_link.gif" width="165" height="26" /></td>
+        </tr>
+        <tr>
+          <td><table width="100%" border="0" cellspacing="2" cellpadding="8">
+            <tr>
+              <td><span class="block">{link_list catalog_id=42970 count=10 tcut=48} </span></td>
+            </tr>
+          </table></td>
+        </tr>
+      </table></td>
+    <td valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="3">
+      <tr>
+        <td>当前位置：{current_position catalog_id=$catalog.id root_id=1} </td>
+      </tr>
+    </table>
+      <p><br />
+      {article_list count=30 catalog_id=$catalog.id template=article_list_pages.htm page=$smarty.request.page tcut=23}</p>
+      <p>到第
+        <input type="text" id="jh" size="5" />
+      页 
+<input type="button" value="跳转" onClick="location.href='redir.php?catalog_id={$catalog.id}&page='+document.getElementById('jh').value;location.target='mainFrame'" /></p></td>
+  </tr>
+</table>
+{ include file="footer.html" }

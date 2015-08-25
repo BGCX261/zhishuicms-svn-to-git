@@ -1,0 +1,120 @@
+<form name=um>
+<table width=100%>
+<tr><td><b>组名称：</b></td><td>{$group.name}</td></tr><tr><td valign=top><b>组描述：</b></td><td>{$group.descri}</td></tr>
+<tr><td valign=top><b>该组现有成员：</b></td><td><table><tr><td><select name="nowusers" size=15 style='width:150pt' multiple ondblclick='user_del()'><option value="">请选择…</option>
+{ foreach from=$current_users item=user}
+<option value="{$user.id}" >{$user.username} ({$user.name})</option>
+{ /foreach }
+</select></td><td><a class="NormalButton" href="##" onclick="window.location.href='javascript:user_del()';">&gt;</a><br><a class="NormalButton" href="##" onclick="window.location.href='javascript:user_del_all()';">&gt;&gt;</a><br><a class="NormalButton" href="##" onclick="window.location.href='javascript:user_add()';">&lt;</a><br><a class="NormalButton" href="##" onclick="window.location.href='javascript:user_add_all()';">&lt;&lt;</a><br></td><td><select name="allusers" size=15 style='width:150pt' multiple ondblclick='user_add()'><option value="">请选择…</option>
+{ foreach from=$all_users item=user}
+<option value="{$user.id}" >{$user.username} ({$user.name})</option>
+{ /foreach }
+</select></td></tr></table></tr><tr><td></td><td><a class="NormalButton" href="##" onclick="window.location.href='javascript:save()';">保存</a><br><br><br><a class="NormalButton" href="##" onclick="window.location.href='javascript:cancel()';">取消</a></td></tr></table></form></td></tr></table><iframe name=loader width=1 height=1 src='../blank.html'></iframe>
+<form name="save" action="group_edit.php" method="post" target="loader">
+<input type="hidden" name="id" value="{$group.id}">
+<input type="hidden" name="users" value="">
+<input type="hidden" name="cmd" value="group_user"/>
+<input type="hidden" name="postflag" value="1"/>
+</form>
+<script language=javascript>
+var frm=document.um;
+var nowusers=frm.nowusers;
+var allusers=frm.allusers;
+var group_list_page = "{$smarty.request.page}";
+{ literal }
+function user_add()
+{
+	var i;
+	for(i=0;i<allusers.length;i++) //an item is selected, restore it
+	{
+		if(allusers.options[i].selected)
+		{
+			//this for loop is used to avoid add the same item more than one times
+			var found=false;
+			for(var j=0;j<nowusers.length;j++)
+			{
+				if(nowusers.options[j].value.toString()==allusers.options[i].value.toString())
+				{
+					alert('要添加的用户在组中已经存在！['+allusers.options[i].text.toString()+"]");
+					found=true;
+					break;
+				}
+			}
+			if(!found)
+			{
+				var text,value;
+				//save the option
+				text=allusers.options[i].text;
+				value=allusers.options[i].value;
+				//add the option to the pages list
+				nowusers.options[nowusers.options.length]=new Option(text,value);
+			}
+		}
+	}
+}
+function user_del()
+{
+	var i;
+	for(i=nowusers.length-1;i>=0;i--)
+	{
+		if(nowusers.options[i].selected)
+		{
+			nowusers.options.remove(i);
+		}
+	}
+}
+function user_del_all()
+{
+	var i;
+	for(i=nowusers.length-1;i>=0;i--)
+	{
+		nowusers.options.remove(i);
+	}
+}
+function user_add_all()
+{
+	user_del_all();
+	for(i=0;i<allusers.length;i++) //an item is selected, restore it
+	{
+		//this for loop is used to avoid add the same item more than one times
+		var found=false;
+		for(var j=0;j<nowusers.length;j++)
+		{
+			if(nowusers.options[j].value.toString()==allusers.options[i].value.toString())
+			{
+				found=true;
+				break;
+			}
+		}
+		if(!found)
+		{
+			var text,value;
+			//save the option
+			text=allusers.options[i].text;
+			value=allusers.options[i].value;
+			//add the option to the pages list
+			nowusers.options[nowusers.options.length]=new Option(text,value);
+		}
+	}
+
+}
+function cancel()
+{
+	window.location.href="manage_group.php?page=" + group_list_page;
+}
+function save()
+{
+	var result="";
+	for(var i=0;i<nowusers.length;i++)
+	{
+		if(nowusers.options[i].value.toString()!="")
+		{
+			result=result+"|"+nowusers.options[i].value.toString();
+		}
+	}
+	document.save.users.value=result;
+	document.save.submit();
+}
+{ /literal }
+</script>
+<iframe name="loader" width="0" height="0" src="../blank.html"></iframe>

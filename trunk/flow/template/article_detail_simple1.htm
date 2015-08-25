@@ -1,0 +1,35 @@
+<div id='content'>
+<h1>{ $article.heading }</h1>
+<div class="content">
+{ $article.content }
+  <table width="100%" border="0">
+    <tr>
+      <td>{ if $articles_pages > 0 }
+<table width="100%"><tr>
+<td><a href="redir.php?catalog_id={$articles_catalog}&page=0" id="page_first">第一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={ if $articles_page > 0 }{$articles_page-1}{else}0{/if}" id="page_prev">上一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={ if $articles_page >= $articles_pages-1 }{$articles_pages-1}{else}{$articles_page+1}{/if}" id="page_next">下一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={$articles_pages-1}" id="page_last">最后页</a></td>
+<td>到</td>
+<td><input type="text" name="textfield" size="4" /></td>
+<td>页</td>
+<td><input type="submit" name="Submit" value="跳转" onclick='turn()' /></td>
+<td>
+当前: {$articles_page+1} / {$articles_pages}</td>
+</tr></table>
+{ /if }
+{literal}
+<script>
+ function turn(){
+ var str=window.location.href; 
+var es=/catalog_id=/; 
+es.exec(str); 
+var right=RegExp.rightContext; 
+window.location.href="redir.php?catalog_id="+right+"&page="+(this.textfield.value-1);
+ }
+</script>
+{/literal}</td>
+    </tr>
+  </table>
+</div>
+</div>

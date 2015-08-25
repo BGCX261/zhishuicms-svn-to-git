@@ -1,0 +1,64 @@
+
+<form action="" method="post" name="" target="loader" id="">
+		<table width="100%" border="0" cellspacing="2" cellpadding="3">
+				<tr>
+						<td colspan="4">{ heading label=留言内容 } </td>
+				</tr>
+				<tr>
+						<td>姓名</td>
+						<td>{ $data.name } </td>
+						<td>电子邮件</td>
+						<td>{ if $data.email }<a href="mailto:{ $data.email }">{ $data.email }</a> { /if } </td>
+				</tr>
+				<tr>
+						<td>电话</td>
+						<td>{ $data.tele } </td>
+						<td>IP地址</td>
+						<td>{ $data.ip } </td>
+				</tr>
+				<tr>
+						<td>地址</td>
+						<td>{ $data.contact } </td>
+						<td>留言日期</td>
+						<td>{ $data.dt } </td>
+				</tr>
+				<tr>
+						<td>标题</td>
+						<td colspan="3"><input name="title" type="text" value="{ $data.title }" size="71" /></td>
+				</tr>
+				<tr>
+						<td valign="top">内容</td>
+						<td colspan="3"><textarea name="content" cols="70" rows="10">{ $data.content }</textarea></td>
+				</tr>
+				<tr>
+						<td colspan="4">{ heading label=管理员回复 } </td>
+				</tr>
+				<tr>
+						<td>&nbsp;</td>
+						<td colspan="3">{ html_checkboxes name=reply_flag values=1 output=标记留言为已回复 selected=$data.reply_flag }{ html_checkboxes name=verify_flag values=1 selected=$data.verify_flag output=留言已经通过审核 }
+								<input name="c" type="hidden" id="c" value="{ $c }" />
+								<input name="m" type="hidden" id="m" value="{ $m }" />
+								<input name="id" type="hidden" id="id" value="{ $id }" />
+								<input name="page" type="hidden" id="page" value="{ $page }" />
+								<input name="postflag" type="hidden" id="postflag" value="1" /></td>
+				</tr>
+				<tr>
+						<td valign="top">回复内容</td>
+						<td colspan="3"><script type="text/javascript" src="./lib/FCKeditor/fckeditor.js"></script>
+						<script type="text/javascript">
+                      var oFCKeditor = new FCKeditor( "reply" ) ;
+                      oFCKeditor.BasePath = "./lib/FCKeditor/" ;
+                      oFCKeditor.Height= 300 ;
+                      oFCKeditor.Width = "100%";
+                      oFCKeditor.Value= "{ $data.reply|replace:"\"":"\\\"" }" ;
+                      oFCKeditor.ToolbarSet = "Basic";
+                      oFCKeditor.Create() ;
+                      </script></td>
+				</tr>
+				<tr>
+						<td>&nbsp;</td>
+						<td colspan="3"><input type="submit" name="Submit" value="保存" />
+						<input type="button" value="返回" onclick="window.location.href='hwnd_guestbook.php?c={$c}&m={$m}&page={$page}'"/></td>
+				</tr>
+		</table>
+</form>

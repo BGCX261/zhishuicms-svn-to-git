@@ -1,0 +1,9 @@
+<table width="100%" class="al">
+	{ foreach from=$articles item=article }
+	<tr><td nowrap="nowrap"><img src="template/edu/images/dot1.gif" width="3" height="5" /></td><td>[<a href="redir.php?catalog_id={$article.catalog}">{$article.catalog_name}</a>]</td><td><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }>{$article.heading}</a></td>
+	{ /foreach }
+</table>
+
+{if not $params.hide_more}
+<a href="redir.php?catalog_id={$articles_catalog}" class="more">more</a>
+{/if}

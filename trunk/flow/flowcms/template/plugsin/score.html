@@ -1,0 +1,118 @@
+	<div id="HeadBar">
+		<span id="current_position">系统扩展：文章考核成绩</span>
+		<div id="buttons">
+		<ul>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='javascript:window.location.reload()';">刷新</a></li>
+		</div>
+	</div>
+{ literal }
+
+<style type="text/css">
+    @import url(lib/jscalendar-1.0/calendar-win2k-1.css);
+</style>
+<script type="text/javascript" src="lib/jscalendar-1.0/calendar.js"></script>
+<script type="text/javascript" src="lib/jscalendar-1.0/lang/calendar-zh.js"></script>
+<script type="text/javascript" src="lib/jscalendar-1.0/calendar-setup.js"></script>
+
+{ /literal }
+<form method="post" id="form" name="form" action="control.php?act=score">
+<div class="toolbar">
+<input type="hidden" name="catalog" value="{$catalog.id}"/>
+<label for="keywords">查询用户<input type="text" name="keywords" size="15" value=""/></label>
+部门：<select name="branch" id="branch"><option value="">所有部门</option> {enum_options enum="branch" selected=$data.branch}</select>
+查询自：<input type="text" size="18" name="date_from" id="f_date" readonly />至：<input type="text" size="18" name="date_to" id="f_date1" readonly/><input type="submit" value=" 查询 "/>
+</div>
+
+{ literal }
+	<script type="text/javascript">
+	Calendar.setup({
+		inputField     :    "f_date",     
+		ifFormat       :    "%Y-%m-%d %H:%M:%S",
+		showsTime      :    true,         
+		button         :    "date_b",
+		singleClick    :    false,   
+		step           :    1        
+	});
+	Calendar.setup({
+		inputField     :    "f_date1",     
+		ifFormat       :    "%Y-%m-%d %H:%M:%S",
+		showsTime      :    true,         
+		button         :    "date_b",
+		singleClick    :    false,   
+		step           :    1        
+	});
+	</script>
+{ /literal }
+
+<div id="listview" style="overflow:auto;">
+<table width="100%" cellpadding=1 cellspacing=0 class=frameLine align=center>
+	<tr>
+		<td>
+			<table width=100% cellpadding=0 border=0 cellspacing=0 height=20 background="/images/listview_col.gif" align=center>
+				<tr style='font-weight:bold'>
+					<td width="50" align="right" align="center">编号</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+					<td width="80" align="center">用户名</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+					<td nowrap width="80" align="center">姓名</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td nowrap width="140">部门</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td nowrap width="50">职务</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td nowrap style="width:45px" align="center">文章数</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+					<td nowrap style="width:36px" align="center">得分</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+				</tr>
+				{foreach from=$users item=user}
+
+				<tr onmouseover='this.className="listview_row_mouseover"' onmouseout='this.className=""' height="20">
+					<td bgcolor='#EBE6E0' width="50" align="right">{$user.id}&nbsp;</span></td>
+					<td width="3" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="80" >{$user.username|cut:44}</td>
+					<td width="3" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="80" align="center">{$user.name|cut:44}</td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="180">{$user.branch|cut:44}</td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="50">{$user.duty|cut:44}</td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' align="center">{$user.count}</td>
+					<td width="3" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' align="center">{$user.sum_score}</td>
+					<td width="3" bgcolor=#EBE6E0></td>
+				</tr>	 
+				
+				{/foreach}
+				
+			</table>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td bgcolor=#ffffff>
+			<table cellpadding=0 cellspacing=0 border=0>
+				<tr>
+					<td><a href='control.php?act=score&page=0'><img src="images/first.gif" border=0></a></td>
+					<td>{if $pagenum !=0}<a href='control.php?act=score&page={$pagenum-1}'><img src="images/prev.gif"  border=0></a>{else}<img src="images/prev.gif"  border=0>{/if}</td>
+					<td>{if $pagenum < $pagecount-1}<a href='control.php?act=score&page={$pagenum+1}'><img src="images/next.gif" border=0></a>{else}<img src="images/next.gif" border=0> {/if}</td>
+					<td><a href='control.php?act=score&page={$pagecount-1}'><img src="images/last.gif" border=0></a></td>
+					<td align=center width=95%>共有条目：{$users_count} &nbsp;&nbsp;第 {$pagenum+1} / {$pagecount} 页</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+</form>
+{ literal }
+<script type="text/javascript" src="template/browser.js"></script>
+<script type="text/javascript">
+var sizeArray = wesGetPageSize();
+document.getElementById('listview').style.height = (sizeArray[1] - 55) + 'px';
+</script>
+{ /literal }
+<iframe width="0" height="0" src="template/blank.html" name="loader"></iframe>

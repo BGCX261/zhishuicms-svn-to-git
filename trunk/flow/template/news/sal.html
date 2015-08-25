@@ -1,0 +1,9 @@
+<table width="100%" class="al">
+	{ foreach from=$articles item=article }
+	<tr><td width="99%"><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog_id}&amp;object_id={$article.subject_id}&id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }>{$article.title}</a></td><td nowrap>[{ $article.dt|date_format:"%m-%d" }]</td>
+	{ /foreach }
+</table>
+
+{if not $params.hide_more}
+<a href="redir.php?catalog_id={$article.catalog_id}&amp;object_id={$article.subject_id}" class="more">more</a>
+{/if}

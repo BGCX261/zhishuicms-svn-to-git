@@ -1,0 +1,380 @@
+{include file=leisure/header.html}
+{literal}
+<link href="template/leisure/css/index.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="template/library/jquery-1.2.6.js"></script>
+<script type="text/javascript" src="template/library/ui/jquery.ui.all.js"></script>
+<script type="text/javascript" src="template/library/horizontal_accordion/ifx.js"></script>
+<script type="text/javascript" src="template/library/horizontal_accordion/easing.js"></script>
+<script type="text/javascript" src="template/library/horizontal_accordion/jquery.hrzAccordion.js"></script>
+<script>
+$(function(){
+    $("#tags-head > ul").tabs( );
+	$("#tags-ha1").hrzAccordion( {openOnLoad: 3} );
+	$("#tags-ha2").hrzAccordion( {openOnLoad: 3} );
+	$("#tags-ha3").hrzAccordion( {openOnLoad: 4} );
+	$("#tags-ha4").hrzAccordion( {openOnLoad: 1} );
+});
+function ScrollPicBack(obj){
+        $("#scrollPic").find("ul:first").animate({
+                opacity:0
+        },500,function(){
+                $(this).css({opacity:1}).find("li:last").prependTo(this);
+        });
+};
+function ScrollPicForward(obj){
+        $("#scrollPic").find("ul:first").animate({
+                opacity:0
+        },500,function(){
+                $(this).css({opacity:1}).find("li:first").appendTo(this);
+        });
+		if(!scrollPause){
+			scrolling = setTimeout("ScrollPicForward();",3000);
+		}
+};
+</script>
+<script language="javascript" type="text/javascript" src="template/leisure/js/indexBuy.js"></script>
+{/literal}
+<div class="top">
+      <div class="top_left">
+        <div class="big_pic">
+          <div id="scrollPic">
+            <ul>
+              <li>{article_list catalog_id=32963,32965 count=1 picture_only=1 assign=picture}
+              	{foreach from=$picture item=picture}
+              	<a href="redir.php?catalog_id={$picture.catalog}&object_id={$picture.id}"><img src="file.php?cmd=preview&id={$picture.picture_id}" width="353" height="353" /></a>{/foreach}</li>
+              <li>{article_list catalog_id=139909,33023,139910 count=1 picture_only=1 assign=picture}
+              	{foreach from=$picture item=picture}
+              	<a href="redir.php?catalog_id={$picture.catalog}&object_id={$picture.id}"><img src="file.php?cmd=preview&id={$picture.picture_id}" width="353" height="353" /></a>{/foreach}</li>
+              <li>{article_list catalog_id=139911,139912,139913 count=1 picture_only=1 assign=picture}
+              	{foreach from=$picture item=picture}
+              	<a href="redir.php?catalog_id={$picture.catalog}&object_id={$picture.id}"><img src="file.php?cmd=preview&id={$picture.picture_id}" width="353" height="353" /></a>{/foreach}</li>
+              <li>{article_list catalog_id=139914,139915,139916,139917 count=1 picture_only=1 assign=picture}
+              	{foreach from=$picture item=picture}
+              	<a href="redir.php?catalog_id={$picture.catalog}&object_id={$picture.id}"><img src="file.php?cmd=preview&id={$picture.picture_id}" width="353" height="353" /></a>{/foreach}</li>
+              <li>{article_list catalog_id=139918 count=1 picture_only=1 assign=picture}
+              	{foreach from=$picture item=picture}
+              	<a href="redir.php?catalog_id={$picture.catalog}&object_id={$picture.id}"><img src="file.php?cmd=preview&id={$picture.picture_id}" width="353" height="353" /></a>{/foreach}</li>
+            </ul>
+            <div id="scrollPicNav">
+            <img src="template/leisure/images/l.gif" onclick="ScrollPicBack(); return false;" />
+            <img src="template/leisure/images/r.gif" onclick="ScrollPicForward(); return false;"  />
+            </div>
+          </div>
+        </div>
+        <div id="latest-news">
+          <div id="latest-news-head"><a href="redir.php?catalog_id=112"><img src="template/leisure/images/new_resource_header.jpg" /></a></div>
+          <div id="latest-news-container" class="leisure-gray">
+              {article_list catalog_id=32963,32965 mode=latest count=7 with_catalog=1 hide_more=1 template=leisure/article_list_with_date.html}
+          </div>
+        </div>
+      </div>
+      <div class="top_mid">
+        <div class="tiger">
+          <div id="recommend">
+            <div id="recommend-upper"></div>
+            <div id="recommend-lower">
+              <div id="recommend-item">
+                <ul>
+                </ul>
+              </div>
+              <div id="recommend-item-img">
+                <ul>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="arti_list">
+        	{article_list count=18 with_catalog=1 catalog_id=32963,32965,139909,33023,139910,139911,139912,139913,139914,139915,139916,139917,139918 template=leisure/article_list_with_catalog.html}
+        </div>
+      </div>
+      <div class="top_right">
+        <div class="hot_last_week">
+          <div id="hot_last_week_head"></div>
+          <div id="hot_last_week_cont" class="leisure-white">
+            {article_list mode=hot period=7 count=16 cut=26 catalog_id=32963,32965,139909,33023,139910,139911,139912,139913,139914,139915,139916,139917,139918 template=leisure/article_list.html}
+          </div>
+        </div>
+        <div class="past_links">
+          <div class="past_links_header"></div>
+          <div class="past_links_cont">
+            <!--+++-->
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mid_banner"> <img src="template/leisure/images/mid_banner.jpg" alt="" />
+        <!--+++-->
+    </div>
+    <div class="bottem">
+      <div class="categories">
+        <div id="tags">
+          <div id="tags-head">
+            <ul>
+              <li><a href="#tags-fragment-1">
+                <div class="tags-left"></div>
+                <div class="tags-mid">{catalog_name catalog_id=32977}</div>
+                <div class="tags-right"></div>
+              </a></li>
+              <li><a href="#tags-fragment-2">
+                <div class="tags-left"></div>
+                <div class="tags-mid">{catalog_name catalog_id=32961}</div>
+                <div class="tags-right"></div>
+              </a></li>
+              <li><a href="#tags-fragment-3">
+                <div class="tags-left"></div>
+                <div class="tags-mid">{catalog_name catalog_id=42980}</div>
+                <div class="tags-right"></div>
+              </a></li>
+              <li><a href="#tags-fragment-4">
+                <div class="tags-left"></div>
+                <div class="tags-mid">{catalog_name catalog_id=139918}</div>
+                <div class="tags-right"></div>
+              </a></li>
+            </ul>
+          </div>
+          <div id="tags-fragment-1" class="tags-main">
+            <div id="tags-bar">
+              <div class="tags-bar-active" style="margin-left:1px;"></div>
+            </div>
+            <div class="tags-upper">
+              <div class="tags-upper-left">{article_list mode=latest count=1 catalog_id=139909,33023,139910 picture_only=1 template=leisure/article_summary_left.html}</div>
+              <div class="tags-upper-stick"></div>
+              <div class="tags-upper-right">{article_list mode=latest count=2 catalog_id=139909,33023,139910 picture_only=1 template=leisure/article_summary_right.html}</div>
+            </div>
+            <div class="tags-accordion">
+              <ul id="tags-ha1">
+                <li>
+                  <div class="handle"><br />食<br />尚</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139909 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139909.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139909" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+                <li>
+                  <div class="handle"><br />旅<br />游</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=33023 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139909.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=33023" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+                <li>
+                  <div class="handle"><br />文<br />驿</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139910 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139909.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139910" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="tags-fragment-2" class="tags-main">
+            <div id="tags-bar">
+              <div class="tags-bar-active" style="margin-left:128px;"></div>
+            </div>
+            <div class="tags-upper">
+              <div class="tags-upper-left">{article_list mode=latest count=1 catalog_id=139910,139911,139912,139913 picture_only=1 template=leisure/article_summary_left.html}</div>
+              <div class="tags-upper-stick"></div>
+              <div class="tags-upper-right">{article_list mode=latest count=2 catalog_id=139910,139911,139912,139913 picture_only=1 template=leisure/article_summary_right.html}</div>
+            </div>
+            <div class="tags-accordion">
+              <ul id="tags-ha2">
+                <li>
+                  <div class="handle"><br />美<br />颜</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139911 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139911.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139911" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+                <li>
+                  <div class="handle"><br />服<br />饰</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139912 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139911.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139912" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+                <li>
+                  <div class="handle"><br />数<br />码</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139913 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139911.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139913" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="tags-fragment-3" class="tags-main">
+            <div id="tags-bar">
+              <div class="tags-bar-active" style="margin-left:255px;"></div>
+            </div>
+            <div class="tags-upper">
+              <div class="tags-upper-left">{article_list mode=latest count=1 catalog_id=139914,139915,139916,139917 picture_only=1 template=leisure/article_summary_left.html}</div>
+              <div class="tags-upper-stick"></div>
+              <div class="tags-upper-right">{article_list mode=latest count=2 catalog_id=139914,139915,139916,139917 picture_only=1 template=leisure/article_summary_right.html}</div>
+            </div>
+            <div class="tags-accordion">
+              <ul id="tags-ha3">
+                <li>
+                  <div class="handle"><br />影<br />视</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139914 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139917.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139914" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+                <li>
+                  <div class="handle"><br />音<br />乐</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139915 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139917.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139915" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+                <li>
+                  <div class="handle"><br />动<br />漫</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139916 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139917.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139916" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+                <li>
+                  <div class="handle"><br />flash<br />小<br />游<br />戏</div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139917 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139917.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139917" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div id="tags-fragment-4" class="tags-main">
+            <div id="tags-bar">
+              <div class="tags-bar-active" style="margin-left:382px;"></div>
+            </div>
+            <div class="tags-upper">
+              <div class="tags-upper-left">{article_list mode=latest count=1 catalog_id=139918 picture_only=1 template=leisure/article_summary_left.html}</div>
+              <div class="tags-upper-stick"></div>
+              <div class="tags-upper-right">{article_list mode=latest count=2 catalog_id=139918 picture_only=1 template=leisure/article_summary_right.html}</div>
+            </div>
+            <div class="tags-accordion">
+              <ul id="tags-ha4">
+                <li>
+                  <div class="handle"><br />下<br />载<br />专<br />区<br /></div>
+                  <div class="leisure-blue">{article_list mode=latest count=9 catalog_id=139918 template=leisure/article_list_with_date.html}<img src="template/leisure/images/icon_139918.jpg" /></div>
+                  <div style="margin-left:350px; margin-top:-10px;"><a href="redir.php?catalog_id=139918" target="_blank"><img src="template/leisure/images/more.jpg" /></a></div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="friend_links">
+        <div class="friend_links_header"></div>
+        <div class="friend_links_cont">
+          <!--+++-->
+        </div>
+      </div>
+    </div>
+</div>
+{literal}
+<script language="javascript" type="text/javascript">
+var indexbuy = new IndexBuy();
+{/literal}
+indexbuy.BizProductData=[
+[
+	{article_list catalog_id=32963 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=32965 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139909 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=33023 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139910 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139911 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139912 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139913 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139914 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139915 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139916 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139917 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+],
+[
+	{article_list catalog_id=139918 count=3 picture_only=1 assign=picture}
+	{foreach from=$picture item=picture}
+	{literal}{{/literal}"id":{$picture.id},"name":"{$picture.heading}","cover":"file.php?cmd=preview&id={$picture.picture_id}"{literal}}{/literal},
+	{/foreach}
+]
+];
+{literal}
+var scrollPause = false;
+var scrolling = null;
+scrolling = setTimeout("ScrollPicForward();",3000);
+document.getElementById("scrollPic").onmouseover=function(){
+	scrollPause = true;
+	clearTimeout(scrolling);
+	scrolling = null;
+};
+document.getElementById("scrollPic").onmouseout=function(){
+	scrollPause = false;
+	if(!scrollPause){
+		scrolling = setTimeout("ScrollPicForward();",3000);
+	}
+};
+document.getElementById("scrollPicNav").onmouseover=function(){
+	scrollPause = true;
+	clearTimeout(scrolling);
+	scrolling = null;
+};
+indexbuy.BizList();
+document.getElementById("recommend-item").onmouseover=function(){
+	indexbuy.IsPause = true;
+	indexbuy.MoveTimeoutPause();
+};
+document.getElementById("recommend-item").onmouseout=function(){
+	indexbuy.IsPause = false;
+	indexbuy.MoveTimeoutStart();
+};
+document.getElementById("recommend-item-img").onmouseover=function(){
+	indexbuy.IsPause = true;
+	indexbuy.MoveTimeoutPause();
+};
+document.getElementById("recommend-item-img").onmouseout=function(){
+	indexbuy.IsPause = false;
+	indexbuy.MoveTimeoutStart();
+};
+</script>
+{/literal}
+{include file=leisure/footer.html} 

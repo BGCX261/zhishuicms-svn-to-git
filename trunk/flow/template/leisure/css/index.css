@@ -1,0 +1,590 @@
+/*=================================
+???߰????ǳ? ??????css   
+????Ȫ??С???? 2008.8.27
+????css??qsc7/public/qsc7pub.css??
+==================================*/
+
+	/*?ϰ벿??
+==============*/
+.top{
+width:992px;
+height:526px;
+margin-bottom:10px;
+}
+.top_left, .top_mid, .top_right{
+height:526px;
+float:left;
+}
+	/*????
+==============*/
+.top_left{
+width:353px; float:left;
+display:inline;
+}
+/*ͼƬ????
+===============*/
+.big_pic{
+width:353px; height:353px; 
+border:#CCCCCC 1px solid;
+}
+/*??????Ѷ
+================*/
+#latest-news{
+width:353px;
+height:173px;
+text-decoration:none; 
+}
+#latest-news-head{
+width:353px;
+height:37px;
+border:0px;
+}
+#latest-news-container{
+width:343px; height:131px; 
+border-color:#FD7828; border-style:solid; border-width:0 5px 5px 5px; background-color:#FFFFFF;
+text-align:left;
+}
+#latest-news-container .list {
+padding-left: 5px;
+list-style-type: none;
+line-height: 18px;
+width: 290px;
+float: left;
+}
+#latest-news-container .date {
+list-style-type: none;
+line-height: 18px;
+width:45px;
+float:left;
+}
+
+	/*????
+=================*/	
+.top_mid{
+width:419px;
+float:left;
+margin-left:6px;
+display:inline;
+}
+/*?ϻ???
+=================*/
+.tiger{
+width:419px; height:174px;
+}
+/*?????б?
+==================*/
+.arti_list{
+margin-top:7px;
+width:419px; height:345px;
+font-size:12px; text-decoration:none;
+background-color:#FFFED9;
+text-align: justify;
+}
+.arti_list ul {
+padding-top: 8px;
+list-style-type: none;
+line-height: 18px;
+}
+	/*????
+===================*/
+.top_right{
+width:204px;
+margin-left:8px;
+display:inline;
+float:right;
+}
+/*???????ŵ???
+===================*/
+.hot_last_week{
+height:333px;
+width:204px;
+background-color:#666666;
+font-size:12px; text-decoration:none;
+}
+#hot_last_week_head {
+width:204px;
+height:33px;
+background-image:url(../images/hot_last_week_header.jpg);
+}
+#hot_last_week_cont{
+width:204px;
+height:300px;
+text-align:left;
+}
+#hot_last_week_cont ul {
+padding-left: 5px;
+padding-top: 6px;
+list-style-type: none;
+line-height: 18px;
+}
+/*????ר???ع?
+===================*/
+.past_links{
+width:204px; height:193px;
+font-size:12px; color:#FFFFFF; text-decoration:underline; font-weight:bold;
+background-image:url(../images/past_links_bg.jpg); background-position:bottom; background-repeat:no-repeat; background-color:#666666;
+}
+.past_links_header{
+width:204px;
+height:33px;
+background-image:url(../images/past_link.gif);
+}
+.past_links_cont{
+width:204px;
+height:160px;
+}
+	/*?м?banner
+===================*/
+.mid_banner{
+width:992px; 
+margin-bottom:7px; float:none;
+}
+	/*?°벿??
+==================*/
+.bottem{
+float:none;
+width:992px;
+height:436px;
+margin-bottom:8px; 
+}
+.bottom,.categories,.about_links{
+height:436px; float:left;
+}
+/*??8Ŀ
+==================*/
+.categories{
+width:780px; text-align:left; float:left; 
+margin-right:8px;
+display:inline;
+}
+.categories ul{
+list-style:none; 
+}
+/*????t??
+==================*/
+.friend_links{
+width:204px; height:436px;
+float:left;
+background-image:url(../images/friend_links_bg.jpg); background-position:bottom; background-repeat:no-repeat; background-color:#666666;
+}
+.friend_links_header{
+width:204px; height:33px;
+background-image:url(../images/friend_link.gif); background-position:top; background-repeat:no-repeat;
+}
+.friend_links_cont{
+width:204px;padding-top:11px; padding-left:21px;
+display:inline;
+color:#FFFFFF; text-decoration:none;
+}
+.friend_links_cont a{
+color:#B4B4B4; text-decoration:underline;
+}
+
+/*?????Ƕ?̬????(?仯??ͼƬ???ϻ???????8Ŀѡ?)  from lanfan
+=================================*/
+#scrollPic {
+width:353px;
+height:353px;
+overflow:hidden;
+position:relative;
+}
+
+#scrollPic ul {
+padding:0;
+margin:0;
+list-style-type:none;
+}
+
+#scrollPic li {
+display:inline;
+float:left;
+}
+
+#scrollPicNav {
+position:absolute;
+z-index:2;
+top:20px;
+left:20px;
+cursor:pointer;
+}
+
+#recommend {
+border:0;
+margin:0;
+padding:0;
+width:418px;
+height:172px;
+}
+
+#recommend-upper {
+width:418px;
+height:52px;
+background-image:url(../images/leisure_recommend_upper.gif);
+}
+
+#recommend-lower {
+width:418px;
+height:120px;
+background-image:url(../images/leisure_recommend_lower.gif);
+position:relative;
+z-index:1;
+}
+
+#recommend-item {
+position:absolute;
+left:21px;
+top:13px;
+width:85px;
+height:90px;
+overflow:hidden;
+z-index:2;
+}
+#recommend-item ul {
+margin:0;
+padding:0;
+list-style:none;
+width:85px;
+}
+#recommend-item li{line-height:18px; font-family:Arial;  width:85px; padding-left:2px; color:#222; cursor:pointer; height:18px; font-size:12px; font-weight:bold;}
+#recommend-item-img{position:absolute; height:92px; width:277px; overflow:hidden;top:10px; right:15px; z-index:2;}
+#recommend-item-img ul { border:0; margin:0; padding:0; z-index:2; }
+#recommend-item-img li {display:inline; margin-left:6px; height:92px; width:86px; float:left; z-index:2;}
+
+.ui-wrapper { border: 0; /*1px solid #50A029;*/ }
+.ui-wrapper input, .ui-wrapper textarea { border: 0; }
+
+/* Caution! Ensure accessibility in print and other media types... */
+@media projection, screen { /* Use class for showing/hiding tab content, so that visibility can be better controlled in different media types... */
+    .ui-tabs-hide {
+        display: none !important;
+    }
+}
+
+/* Hide useless elements in print layouts... */
+@media print {
+    .ui-tabs-nav {
+        display: none;
+    }
+}
+
+/* Skin */
+.ui-tabs-nav, .ui-tabs-panel {
+    font-family: "Trebuchet MS", Trebuchet, Verdana, Helvetica, Arial, sans-serif;
+    font-size: 12px;
+}
+.ui-tabs-nav {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+	float:left;
+}
+.ui-tabs-nav:after { /* clearing without presentational markup, IE gets extra treatment */
+    display: block;
+    clear: both;
+    content: " ";
+}
+.ui-tabs-nav li {
+    float: left;
+    font-weight: bold;
+	margin-right:2px;
+}
+.ui-tabs-nav a {
+    float: left; /* fixes dir=ltr problem and other quirks IE */
+    padding: 0 ;
+}
+.ui-tabs-nav a {
+    padding-left: 0;
+    background-position: 100% 0;
+    text-decoration: none;
+    outline: 0; /* @ Firefox, prevent dotted border after click */    
+}
+.ui-tabs-nav a:link, .ui-tabs-nav a:visited {
+    color: #000000;
+}
+.ui-tabs-nav .ui-tabs-selected a {
+    background-position: 100% 0px;
+}
+/*.ui-tabs-nav a span {
+	width:125px;
+	height:32px;
+}
+.ui-tabs-nav .ui-tabs-selected a span {
+	width:125px;
+	height:32px;
+}*/
+.ui-tabs-nav .ui-tabs-selected a:link, .ui-tabs-nav .ui-tabs-selected a:visited,
+.ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited { /* @ Opera, use pseudo classes otherwise it confuses cursor... */
+    cursor: pointer;
+}
+.ui-tabs-nav a:hover, .ui-tabs-nav a:focus, .ui-tabs-nav a:active,
+.ui-tabs-nav .ui-tabs-unselect a:hover, .ui-tabs-nav .ui-tabs-unselect a:focus, .ui-tabs-nav .ui-tabs-unselect a:active { /* @ Opera, we need to be explicit again here now... */
+    cursor: pointer;
+}
+.ui-tabs-disabled {
+    opacity: 1;
+}
+.ui-tabs-nav .ui-tabs-disabled a:link, .ui-tabs-nav .ui-tabs-disabled a:visited {
+    color: #000;
+}
+.ui-tabs-panel {
+    border: 0;
+}
+/*.ui-tabs-loading em {
+    padding: 0 0 0 20px;
+    background: url(loading.gif) no-repeat 0 50%;
+}*/
+
+/* Additional IE specific bug fixes... */
+* html .ui-tabs-nav { /* auto clear @ IE 6 & IE 7 Quirks Mode */
+    display: inline-block;
+}
+*:first-child+html .ui-tabs-nav  { /* auto clear @ IE 7 Standards Mode - do not group selectors, otherwise IE 6 will ignore complete rule (because of the unknown + combinator)... */
+    display: inline-block;
+}
+
+#tags {
+margin:0;
+border:0;
+padding:0;
+width:778px;
+height:436px;
+background-color:#000000;
+}
+
+#tags-head {
+height:38px;
+background-image:url(../images/tags_head_bg.gif);
+}
+
+#tags-head ul { float:left; }
+
+.ui-tabs-nav {
+	height:32px;
+	margin-top:6px;
+}
+
+.ui-tabs-nav img {
+border:0px;
+}
+
+.ui-tabs-nav .tags-left {
+float:left;
+display:inline;
+width:4px;
+height:32px;
+background-image:url(../images/tags_deactive_left.gif);
+}
+
+.ui-tabs-nav .tags-mid {
+float:left;
+display:inline;
+width:117px;
+height:32px;
+background-image:url(../images/tags_deactive_mid.gif);
+background-repeat:repeat-x;
+text-align:center;
+padding-top:10px;
+}
+
+.ui-tabs-nav .tags-right {
+float:left;
+display:inline;
+width:4px;
+height:32px;
+background-image:url(../images/tags_deactive_right.gif);
+}
+
+.ui-tabs-selected .tags-left {
+float:left;
+display:inline;
+width:4px;
+height:32px;
+background-image:url(../images/tags_active_left.gif);
+}
+
+.ui-tabs-selected .tags-mid {
+float:left;
+display:inline;
+width:117px;
+height:32px;
+background-image:url(../images/tags_active_mid.gif);
+text-align:center;
+padding-top:10px;
+}
+
+.ui-tabs-selected .tags-right {
+float:left;
+display:inline;
+width:4px;
+height:32px;
+background-image:url(../images/tags_active_right.gif);
+}
+
+#tags-bar {
+width:778px;
+height:1px;
+font-size:1px;
+background-color:#FF9103;
+}
+
+.tags-bar-active {
+width:124px;
+height:1px;
+font-size:1px;
+background-image:url(../images/tags_active_bar.gif);
+}
+
+.tags-main {
+width:778px;
+height:398px;
+}
+
+.tags-upper {
+border-bottom: 1px solid #FF9103;
+border-left: 1px solid #FF9103;
+border-right: 1px solid #FF9103;
+width:776px;
+height:204px;
+background-image:url(../images/tags_upper_bg.gif);
+}
+
+.tags-upper-left {
+display: inline;
+float: left;
+margin-top:13px;
+margin-bottom:20px;
+margin-left: 25px;
+width:360px;
+height:171px;
+}
+.tags-upper-stick {
+float:left;
+margin-top:13px;
+margin-bottom:20px;
+width:1px;
+height:171px;
+background-color:#FF9103;
+}
+.tags-upper-right {
+display: inline;
+float:left;
+margin-top:13px;
+margin-bottom:20px;
+margin-left:20px;
+width:370px;
+height:171px;
+}
+
+.leisure-summary {
+display: inline;
+width:300px;
+height:171px;
+}
+.summary-img {
+display: inline;
+float: left;
+margin: 0px 15px 25px 0px;
+background-color:#FFFFFF;
+padding: 2px;
+border:solid 1px #EEEEEE;
+}
+.summary-content {
+display: inline;
+color: #666666;
+float: left;
+width: 200px;
+padding-top:5px;
+}
+
+.tags-accordion {
+border-bottom: 1px solid #FF9103;
+border-right: 1px solid #FF9103;
+width:777px;
+height:191px;
+background-color:#FFFED9;
+padding:0;
+}
+
+/*Main Container*/
+.hrzContainer {
+width:777px;
+margin:0;
+padding:0;
+}
+.hrzContainer ul{
+	list-style-type: none;
+	margin: 0px;
+	padding:0px;	
+}
+.hrzContainer li{
+	display:inline;
+	margin: 0px;
+	padding:0px;
+}
+/*Handle*/
+.handle {
+	float: left;
+	width: 30px;
+	height: 191px;
+	background-image:url(../images/horizontal_accordion_deactive.gif);
+	border-left: 1px solid #FF9103;
+	text-align:center;
+	font-weight:bold;
+	list-style-image:none;
+	list-style-type:none;
+}
+.handleOver{	
+	background-image:url(../images/horizontal_accordion_active.gif);
+}
+.handleSelected{
+	background-image:url(../images/horizontal_accordion_selected.gif);
+}
+/*Content Container*/
+.contentWrapper{
+	width: 700px;
+}
+.contentInnerWrapper{
+	text-align: justify;
+	padding: 0px;
+}
+.contentInnerWrapper ul {
+list-style-type:none;
+padding-left:5px;
+padding-top:5px;
+text-decoration:none;
+}
+.contentInnerWrapper li {
+display:list-item;
+line-height:18px;
+}
+.contentInnerWrapper .list {
+line-height: 18px;
+width: 360px;
+float: left;
+}
+.contentInnerWrapper .date {
+padding-left: 0;
+line-height: 18px;
+width:45px;
+float:left;
+}
+
+.contentWrapper h3{
+	border-bottom: 1px solid silver;
+	color: rgb(172, 194, 112);
+}
+/*Animation Start*/
+.contentStart {
+	padding-left: 0px;	
+	float: left;
+	width: 0px;
+	height: 191px;	
+	overflow:hidden;
+}
+/*Animation End*/
+.contentEnd {
+	padding-left: 9px;
+	float: left;	
+	width: 700px;
+	height: 191px;
+}

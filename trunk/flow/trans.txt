@@ -1,0 +1,29 @@
+insert into flow.tblarticle select id,heading,dt,content,author,catalog,link,ownerid,visitcount,status,highlight,sticky,district,subheading,supheading,heading_color,summary,source,source_url,template,publish_schedule,unpublish_schedule,photographer,picture_id,page_count,editor,link_id,0 from qsc.tblarticle;
+
+
+insert into flow.tblarticlelink select * from qsc.tblarticlelink ;
+
+insert into flow.tblattachment select id,class_id,object_id,CONCAT("01-",dt,"-",id,".",ext),filename,ext,mime,mime,FROM_UNIXTIME(dt) from qsc.tblobject_attachment  ;
+
+
+update flow.tblattachment set mime ="File";
+update flow.tblattachment set mime ="Image" where  mime_type="image/pjpeg";
+update flow.tblattachment set mime ="Image" where  mime_type="image/x-png";
+update flow.tblattachment set mime ="Image" where  mime_type="image/jpeg";
+update flow.tblattachment set mime ="Image" where  mime_type="image/gif";
+update flow.tblattachment set mime ="Image" where  mime_type="image/x-bmp";
+
+insert into flow.tblcolumns  select id ,pcatalog,name,type,sort_order,show_position,show_in_guide,shortcut,ur,district,template_portal,template_list,template_content,path_portal,path_list,path_content,NULL,NULL,base_path ,contrib,alias,description,0,0 from qsc.tblcolumns 
+
+
+insert into flow.tblcustomise select * from qsc.tblcustomise;
+
+insert into flow.tblkeywords  select * from qsc.tblkeywords ;
+
+insert into flow.tbllink   select * from qsc.tbllink  ;
+
+insert into flow.tblobject_keywords  select * from qsc.tblobject_keywords ;
+insert into flow.tblsubject select * from qsc.tblsubject ;
+insert into flow.tblsubjectarticle select * from qsc.tblsubjectarticle ;
+
+insert into flow.tbllogin select id ,username,password,contact,descri,user_type,name,birthday,unit,branch,qq,msn,tele,mobile,email,zip,last_visit,visit_count,address,gender,duty,lock_flag  from qsc.tbllogin;

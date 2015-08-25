@@ -1,0 +1,153 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网络文化节</title>
+<link href="template/festival/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#B9D1E3">
+<table width="780" border="0" cellspacing="0" cellpadding="6" style="margin:0px auto;">
+	<tr>
+		<td>{include file=festival/header.html}</td>
+	</tr>
+	<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#EEF1FA">
+				<tr>
+					<td height="68" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="2%" height="20">&nbsp;</td>
+							<td width="96%">&nbsp;</td>
+							<td width="2%">&nbsp;</td>
+						</tr>
+						{include file=festival/nav.html}
+						<tr>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table></td>
+				</tr>
+				<tr>
+					<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="15">&nbsp;</td>
+							<td width="506" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px solid gray;">
+								<tr>
+									<td width="503" height="48" style="background:url(template/festival/images/news_1.jpg) no-repeat;" >&nbsp;</td>
+								</tr>
+								<tr>
+									<td><table width="503" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="2%">&nbsp;</td>
+												<td width="97%" height="10">&nbsp;</td>
+												<td width="1%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td height="140" width="487" style="overflow:hidden" class="picShow"><div id="demo" style="overflow:hidden;width:480px; position:absolute; top:310px;">
+                    <table cellpadding="1" cellspacing="1">
+                      <tr>
+                        <td valign="top" id="marquePic1"> {article_list catalog_id=128922 count=8 picture_only=1 template=article_list_picture_news.html} </td>
+                        <td valign="top" id="marquePic2"></td>
+                      </tr>
+                    </table>
+                </div>
+				{literal}
+                  <script language="JavaScript" type="text/javascript">
+				  demo.style.left=(document.body.scrollWidth - 780) / 2 + 40;
+var speed=20;
+//if(marquePic1.getElementsByTagName('table').length <= 3){
+//	marquePic1.innerHTML += marquePic1.innerHTML;
+//}
+document.getElementById('marquePic2').innerHTML=document.getElementById('marquePic1').innerHTML;
+//demo.scrollWidth=490;
+function Marquee(){
+    if(document.getElementById('demo').scrollLeft>=document.getElementById('marquePic1').scrollWidth){
+		//alert("asdf"+demo.scrollLeft);
+        document.getElementById('demo').scrollLeft=0;
+    }else{
+        demo.scrollLeft++;
+		//alert(document.getElementById('marquePic1').scrollWidth*2-480);
+		//alert(demo.scrollWidth);
+    }
+}
+var MyMar=setInterval(Marquee,speed);
+document.getElementById('demo').onmouseover=function() {clearInterval(MyMar)}
+document.getElementById('demo').onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+            </script>
+                  {/literal}</td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td height="10">&nbsp;</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+								</tr>
+								<tr>
+									<td width="502" height="49" style="background:url(template/festival/images/news_2.jpg) no-repeat;">&nbsp;</td>
+								</tr>
+								<tr>
+									<td style="min-height:400px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="2%">&nbsp;</td>
+												<td width="97%" height="10">&nbsp;</td>
+												<td width="1%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td align="left" valign="top">{article_list count=10 cut=40 catalog_id=128923 template=festival/article_list_simple1.htm} </td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td height="10">&nbsp;</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+								</tr>
+								<tr>
+									<td width="502" height="49" style="background:url(template/festival/images/news_3.jpg) no-repeat">&nbsp;</td>
+								</tr>
+								<tr>
+									<td style="min-height:400px;"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="2%">&nbsp;</td>
+												<td width="97%" height="10">&nbsp;</td>
+												<td width="1%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td align="left" valign="top">{article_list count=10 cut=40 catalog_id=128924 template=festival/article_list_simple1.htm} </td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td height="10">&nbsp;</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+								</tr>
+							</table></td>
+							<td width="27">&nbsp;</td>
+							<td width="182" valign="top">{include file=festival/right.html}</td>
+							<td width="38">&nbsp;</td>
+						</tr>
+						<tr>
+							<td height="30">&nbsp;</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table></td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr>
+		<td>{include file=festival/footer.html}</td>
+	</tr>
+</table>
+</body>
+</html>

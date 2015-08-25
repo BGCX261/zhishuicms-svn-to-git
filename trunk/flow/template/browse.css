@@ -1,0 +1,38 @@
+div.page_nav ul li {
+	float: left;
+}
+a#page_first, a#page_prev, a#page_next, a#page_last {
+	border: 1px solid #ccc;
+	background: #eee;
+	text-decoration: none;
+	display: block;
+	float: left;
+	width: 60px;
+	color: #666;
+	margin-left: 5px;
+	padding: 3px 5px 3px 5px;
+}
+div.page_nav {
+	margin-top: 10px;
+	float: right;
+	width: 450px;
+}
+
+div.article_browse ul {
+	margin-left: 10px;
+}
+div.article_browse ul li {
+	list-style-type: none;
+	border-bottom: 1px dotted #e2e2e2;
+	margin-right: 10px;
+}
+div.article_browse a {
+	text-decoration: none;
+	line-height: 20px;
+	background: url(/images/black_dot.gif) no-repeat 3px 7px;
+	padding-left: 15px;
+	width: 400px;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

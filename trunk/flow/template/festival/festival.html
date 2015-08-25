@@ -1,0 +1,205 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网络文化节</title>
+<link href="template/festival/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<table width="780" border="0" cellspacing="0" cellpadding="6" style="margin:0px auto;">
+	<tr>
+		<td>{include file=festival/header.html}</td>
+	</tr>
+	<tr>
+		<td><table width="100%" border="0" cellspacing="10" cellpadding="0" bgcolor="#EEF1FA">
+			<tr>
+				<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td width="316" height="290" align="center" valign="middle">{article_list catalog_id=128922 count=5 picture_only=1 template=festival/article_list_sina.html width=316 height=260 tcut=24}</td>
+						<td width="424"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td width="62" height="290" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td height="155"><img src="template/festival/images/festival_01.jpg" width="62" height="155" alt="" style="cursor:hand;" onclick="location.href='redir.php?catalog_id=128923'" /></td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td height="135"><img src="template/festival/images/festival_06.jpg" width="62" height="135" alt="" style="cursor:hand;" onclick="location.href='redir.php?catalog_id=128924'" /></td>
+									</tr>
+									
+								</table></td>
+								<td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td>&nbsp;</td>
+									</tr>
+									<tr>
+										<td height="136" valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="3%">&nbsp;</td>
+												<td width="95%">&nbsp;</td>
+												<td width="2%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td height="123">&nbsp;</td>
+												<td class="hidden" valign="top">{article_list count=4 cut=40 catalog_id=128923  template=festival/article_list_simple1.htm}</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+									</tr>
+									<tr>
+										<td height="30">&nbsp;</td>
+									</tr>
+									<tr>
+										<td height="108" valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="3%">&nbsp;</td>
+												<td width="95%">&nbsp;</td>
+												<td width="2%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td height="109">&nbsp;</td>
+												<td valign="top" class="hidden">{article_list count=4 cut=40 catalog_id=128924 template=festival/article_list_simple1.htm}</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+					</tr>
+				</table></td>
+			</tr>
+			<tr>
+				<td width="734" height="89" style="overflow:hidden;">{article_list catalog_id=128943 count=5 picture_only=1 template=festival/article_list_sina1.html width=734 height=89}</td>
+			</tr>
+			<tr>
+				<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+					<tr><td width="303" height="443" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td height="75"><img src="template/festival/images/festival_02.jpg" width="303" height="75" alt="" /><!-- style="cursor:hand;" onclick="location.href='redir.php?catalog_id=128925'"--></td>
+							</tr>
+							<tr>
+								<td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td width="3%">&nbsp;</td>
+										<td width="14%" bgcolor="#FFFFFF">&nbsp;</td>
+										<td width="67%" bgcolor="#FFFFFF">&nbsp;</td>
+										<td width="16%" bgcolor="#FFFFFF">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td height="336" bgcolor="#FFFFFF">&nbsp;</td>
+										<td align="center" valign="middle" bgcolor="#FFFFFF">{article_list cut=34 catalog_id=128925 count=2 picture_only=1 assign=movies}{foreach from=$movies item=movie}
+											<table width="100%" height="150" border="0" cellpadding="0" cellspacing="5">
+                        <tr>
+                          <td bgcolor="#FFF1DB" style="border: 1px solid #ffa71d"><table width="100%" border="0" cellspacing="2" cellpadding="2">
+                              <tr>
+                                <td valign="top"><div align="center"><!--<a href="redir.php?catalog_id={$movie.catalog}&amp;object_id={$movie.id}">--><img src="file.php?cmd=preview&amp;id={$movie.picture_id}" width="200" height="150" border="0"/><!--</a>--></div></td>
+                                
+                              </tr>
+							  <tr>
+							  
+							  <td><strong><div align="center"><!--<a href="redir.php?catalog_id={$movie.catalog}&amp;object_id={$movie.id}">-->{$movie.heading}<!--</a>--></div></strong><!--<a href="redir.php?catalog_id={$movie.catalog}&amp;object_id={$movie.id}">--><br />
+                                  {$movie.summary}<!--</a>--></td>
+							  
+							  </tr>
+                          </table></td>
+                        </tr>
+                      </table>
+                    {/foreach}</td>
+										<td bgcolor="#FFFFFF">&nbsp;</td>
+									</tr>
+									<tr>
+										<td>&nbsp;</td>
+										<td bgcolor="#FFFFFF">&nbsp;</td>
+										<td bgcolor="#FFFFFF">&nbsp;</td>
+										<td bgcolor="#FFFFFF">&nbsp;</td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+						<td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+							<tr>
+								<td height="157" valign="top" style="background:url(template/festival/images/festival_03.jpg) center no-repeat"><table width="100%" height="158" border="0" cellpadding="0" cellspacing="0">
+									<tr>
+										<td width="15%" height="157">&nbsp;</td>
+										<td width="72%" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td height="79">&nbsp;</td>
+											</tr>
+											<tr>
+												<td height="46" align="left" style="cursor:hand" onclick="location.href='redir.php?catalog_id=128915'"><strong>自己的声音，看得见的，听得见的，声的世界，来吧，一起在这音的海洋中畅游</strong></td>
+											</tr>
+											<tr>
+												<td height="32">&nbsp;</td>
+											</tr>
+										</table></td>
+										<td width="13%">&nbsp;</td>
+									</tr>
+								</table></td>
+							</tr>
+							<tr>
+								<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td width="19">&nbsp;</td>
+										<td height="125" valign="top" style="background:url(template/festival/images/festival_04.jpg) center no-repeat;" bgcolor="#FFFFFF"><table width="100%" height="129" border="0" cellpadding="0" cellspacing="0">
+											<tr>
+												<td width="28%" height="32">&nbsp;</td>
+												<td width="67%">&nbsp;</td>
+												<td width="5%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td height="71" style="cursor:hand" onclick="location.href='redir.php?catalog_id=128909'">&nbsp;</td>
+												<td valign="top" class="hidden">{article_list catalog_id=129105 mode=latest count=3 cut=35 template=festival/article_list_simple1.htm}</td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td height="26">&nbsp;</td>
+												<td>&nbsp;</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+										<td width="13">&nbsp;</td>
+									</tr>
+								</table></td>
+							</tr>
+							<tr>
+								<td height="16" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+									<tr>
+										<td width="19">&nbsp;</td>
+										<td height="150" valign="top" style="background:url(template/festival/images/festival_05.jpg) center no-repeat;" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="28%" height="41">&nbsp;</td>
+												<td width="67%">&nbsp;</td>
+												<td width="5%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td height="89" style="cursor:hand;" onclick="location.href='redir.php?catalog_id=128917'">&nbsp;</td>
+												<td valign="top" class="hidden">{article_list count=3 cut=35 catalog_id=128917 template=festival/article_list_simple1.htm}</td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td height="20">&nbsp;</td>
+												<td>&nbsp;</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+										<td width="13">&nbsp;</td>
+									</tr>
+								</table></td>
+							</tr>
+						</table></td>
+						
+					</tr>
+				</table></td>
+			</tr>
+		</table></td>
+	</tr>
+	<tr>
+		<td>{include file=festival/footer.html}</td>
+	</tr>
+</table>
+</body>
+</html>

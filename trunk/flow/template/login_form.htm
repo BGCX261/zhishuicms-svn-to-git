@@ -1,0 +1,21 @@
+{ include file=main_header.html}
+<div class="main">
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="210">{include file=main_left.html}</td>
+<td>
+<form method="post" action="login.php" class="user_login">
+	<input type="hidden" name="cmd" value="login"/>
+	<input type="hidden" name="forward" value="{$bean->forward}"/>
+	<input type="hidden" name="postflag" value="1"/>{if $message }<font color="red">{$message}</font>{/if}
+	<table align="center">
+	<tr><td>
+	<label for="login_account">ÓÃ»§Ãû:</label></td><td><input type="text" name="username" id="login_account" value="{$bean->username}"/>{ error_message field="username" }</td></tr>
+	<td><label for="login_password">ÃÜÂë:</label></td><td><input type="password" name="password" id="login_password"/>{ error_message field="password" }</td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="µÇÂ¼"/>
+	&nbsp;</td>
+	</tr>
+	</table>
+</form>
+</td></tr></table>
+{ include file=global_footer.html}

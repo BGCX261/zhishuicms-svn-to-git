@@ -1,0 +1,5 @@
+<ul>
+	{ foreach from=$articles item=article }
+	<li><a href="redir.php?c={$article.category}&m={$article.col}&id={$article.id}" target="_blank" { if $article.highlight }class="highlight"{ /if }>{$article.title}</a></li>
+	{ /foreach }
+</ul>

@@ -1,0 +1,23 @@
+<title>评论列表</title>
+<table width="500" border="0" align="center" cellpadding="0" cellspacing="0" style="font-size:12px;">
+  <tr>
+    <td style="font-size:16px; line-height:1.5em; letter-spacing:4px; padding-left:5px;">发表新评论：</td>
+  </tr>
+   <form id="form1" name="form1" method="post" action="comment.php">
+   <input type="hidden" name="article_id" value="{$article_id}" />
+   <input type="hidden" name="postflag" value="1" />
+  <tr> 
+    <td><textarea name="content" cols="80" rows="10" style="overflow:auto; filter:progid:DXImageTransform.Microsoft.Shadow(Color=gray,Direction=120,strength=3); border:solid 1px gray;"></textarea></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="0" cellpadding="0" style="font-size:12px;">
+        <tr>
+          <td width="31%" align="center"><a href="comment.php?article_id={$article_id}" style="color:#666666; font-size:14px; text-decoration:none; border-bottom:dashed 1px gray; padding-bottom:1px;">点击查看评论</a></td>
+          <td width="9%">用户名：</td>
+          <td width="33%"><input name="user_name" type="text" id="user_name" value="匿名" style="filter:progid:DXImageTransform.Microsoft.Shadow(Color=gray,Direction=120,strength=3); border:solid 1px gray; padding:5px 3px; height:25px; width:180px;" /></td>
+          <td width="27%"><input name="Submit" type="submit" id="Submit" value="发  表" style="height:25px; background:#F1F1F1 url(idx_btnbg.gif) center repeat-x; border:solid 1px gray; color:#333; cursor:pointer;" /></td>
+        </tr>
+      </table>    </td>
+  </tr>
+  </form>
+</table>

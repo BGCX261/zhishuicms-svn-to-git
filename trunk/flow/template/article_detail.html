@@ -1,0 +1,47 @@
+<div id='content'>
+<h1><!--title begin-->{ $article.heading }<!--title end--></h1>
+<div class="metastuff">
+<ul>
+  <li>文字：<!--author begin -->{$article.author}<!--author end --></li>
+  <li>摄影：<!--photoby begin -->{$article.photographer}<!--photoby end --></li>
+  <li>发布时间: <!--ftime begin -->{ $article.dt|date_format:"%Y-%m-%d" }<!--ftime end --></li></ul>
+</div>
+<div class="content">
+<!--content begin -->{ $article.content }<!--content end -->
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td align="right"><table border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td width="405"><div align="right">编辑：{$article.editor}&nbsp;&nbsp;</div></td>
+        <td width="51">&nbsp;</td>
+        <td width="259">来源：{if $article.source_url}<a href="{$article.source_url}">{$article.source}</a> {else}{$article.source}{/if}&nbsp;&nbsp;</td>
+        <td width="241"><div align="left">浏览次数: { $article.visitcount+1 }</div></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</div>
+{ assign var=id value=$smarty.request.object_id}
+{ article_visitcount id=$id }
+
+<div id="footer_button">
+<a href="#" onclick="javascript:window.close()" class="footer_button">关闭窗口</a>
+<a href="#header" class="footer_button">返回页面顶部</a></div>
+
+<div class="article_nav">
+{ article_nav id=$id mode="summary" direction="both" }
+</div>
+<div class="related">
+  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td valign="top"><div class="block" style="width: 240px">
+      <h1>热门点击</h1>
+      { article_list catalog_id=$article.catalog count=5 mode=hot template=article_list_simple.htm} </div></td>
+    <td valign="top"><div class="block" style="width:240px">
+      <h1>最新信息</h1>
+      { article_list catalog_id=$article.catalog count=5 template=article_list_simple.htm} </div></td>
+  </tr>
+</table>
+</div>
+<a name="footer"></a>

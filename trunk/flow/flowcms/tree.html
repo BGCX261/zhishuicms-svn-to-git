@@ -1,0 +1,134 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html>
+<head>
+
+<title>XLoadTree Demo (WebFX)</title>
+<script type="text/javascript">
+	<!--
+	function Logout(){
+		if (confirm("确实要退出本系统吗？"))
+			window.top.location.href = "logout.php";
+	}
+	//-->
+</script>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<script type="text/javascript" src="lib/xtree2/js/xtree2.js"></script>
+<script type="text/javascript" src="lib/xtree2/js/xloadtree2.js"></script>
+<link type="text/css" rel="stylesheet" href="lib/xtree2/css/xtree2.css" />
+<style type="text/css">
+body {
+	background:	white;
+	color:		black;
+}
+</style>
+</head>
+<body>
+<SCRIPT type=text/javascript>
+var theme_dir = "images";
+function theme_file(file)
+{
+  return theme_dir + "/" + file;
+}
+var tree = new WebFXTree('知水新闻发布系统', 'javascript:void(0)', 'explorer', theme_file("icons/home.gif"));
+  tree.setTarget('mainFrame');
+
+  var ticm = new WebFXTreeItem('网站内容管理', 'javascript:void(0)', null, theme_file('icons/home.gif'), theme_file('icons/home.gif'));
+  tree.add(ticm);
+  
+   var tic = new WebFXLoadTreeItem('根栏目', 'tree.php?catalog=0',
+     null, null, theme_file('icons/catmain.gif'), 
+     theme_file('icons/catmain_open.gif'));
+    ticm.add(tic);
+   
+    
+	var tisys = new WebFXTreeItem('系统管理', 'javascript:void(0)', null,
+	  theme_file('icons/system.gif'), theme_file('icons/system.gif'));
+	tree.add(tisys);
+
+  tisys.add(new WebFXTreeItem('栏目管理', 'control.php?act=catalog_list&pcatalog_id=0', null,
+    theme_file('icons/option1.gif'), theme_file('icons/option1.gif')));
+  
+  tisys.add(new WebFXTreeItem('用户管理', 'control.php?act=user_manage&cmd=list', null,
+    theme_file('icons/user.gif'), theme_file('icons/user.gif')));
+    
+  tisys.add(new WebFXTreeItem('用户组管理', 'control.php?act=group_manage', null,
+    theme_file('icons/user.gif'), theme_file('icons/user.gif')));
+  
+  tisys.add(new WebFXTreeItem('权限管理', 'control.php?act=privilege_manage', null,
+    theme_file('icons/privilege.gif'), theme_file('icons/privilege.gif')));
+
+  tisys.add(new WebFXTreeItem('系统日志', 'control.php?act=record', null,
+    theme_file('icons/privilege.gif'), theme_file('icons/privilege.gif')));
+  
+  tisys.add(new WebFXTreeItem('口令与个人选项', 'control.php?act=user_manage&cmd=edit', null,
+  theme_file('icons/option.gif'), theme_file('icons/option.gif')));
+  
+  
+	var plugins = new WebFXLoadTreeItem('扩展功能', 'plugins.xml',
+     null, null, theme_file('icons/system.gif'), 
+     theme_file('icons/system.gif'));
+	tree.add(plugins);  
+  
+  
+  
+  
+  
+  
+ 	var tilogout = new WebFXTreeItem('退出', '', null, theme_file('icons/close.gif'));
+	tilogout.setAction(Logout);
+	tree.add(tilogout);
+
+function recursive_target(node)
+{
+  node.setTarget("mainFrame");
+  for (var i = 0; i < node.childNodes.length; i ++)
+    recursive_target(node.childNodes[i]);
+}
+recursive_target(tree);
+ webFXTreeConfig = {
+	rootIcon        : "images/folder.png",
+	openRootIcon    : "images/openfolder.png",
+	folderIcon      : "images/folder.png",
+	openFolderIcon  : "images/openfolder.png",
+	fileIcon        : "images/file.png",
+	iIcon           : "images/I.png",
+	lIcon           : "images/L.png",
+	lMinusIcon      : "images/Lminus.png",
+	lPlusIcon       : "images/Lplus.png",
+	tIcon           : "images/T.png",
+	tMinusIcon      : "images/Tminus.png",
+	tPlusIcon       : "images/Tplus.png",
+	plusIcon        : "images/plus.png",
+	minusIcon       : "images/minus.png",
+	blankIcon       : "images/blank.png",
+	defaultText     : "Tree Item",
+	defaultAction   : null,
+	defaultBehavior : "explorer",
+	usePersistence	: true
+};
+tree.collapseAll();
+tree.expand();
+tree.write();
+function arrange_interface()
+{
+  var obj = document.getElementById('tree');
+  if (obj)
+  {
+    var sizeArray = wesGetPageSize();
+    obj.style.height = (sizeArray[1] - 30) + 'px';
+    obj.style.width = sizeArray[0] + 'px';
+  }
+}
+document.onload = arrange_interface;
+document.body.onresize=arrange_interface;
+arrange_interface();
+</SCRIPT>
+
+
+
+</body>
+</html>
+
+

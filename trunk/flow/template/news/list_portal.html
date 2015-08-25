@@ -1,0 +1,31 @@
+ { include file="news/header.html" }
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td valign="top"> { sub_catalog_list catalog_id=$smarty.request.catalog_id assign=subcatalogs }
+      { foreach from=$subcatalogs item=catalog }<br />
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="150" bgcolor="#f0f0f0"><table width="100%" border="0" cellspacing="2" cellpadding="3">
+            <tr>
+              <td align="center">{article_list catalog_id=$catalog.id count=1 picture_only=1 template=article_list_picture_vert1.html width=120 height=160 tcut=20} </td>
+            </tr>
+          </table></td>
+          <td><table width="100%" border="0" cellspacing="3" cellpadding="3">
+            <tr>
+              <td bgcolor="c9d7e4" class="deepblue"><img src="template/news/images/dot1.gif" width="15" height="11" />&nbsp;{$catalog.name}</td>
+            </tr>
+            <tr>
+              <td>{article_list count=7 tcut=28 catalog_id=$catalog.id}</td>
+            </tr>
+          </table></td>
+        </tr>
+      </table>
+      <br />
+      { /foreach } </td>
+    <td width="172" valign="top"><div class="right_column">{include file=news/right.html}</div></td>
+  </tr>
+</table>
+{ include file="footer.html" }
+<div class="block browse">
+  <div class="article_browse"></div>
+</div>

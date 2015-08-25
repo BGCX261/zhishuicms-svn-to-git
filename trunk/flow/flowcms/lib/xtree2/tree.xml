@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+
+<tree>
+	<tree text="Load &quot;tree1.xml&quot; (Should raise error)" src="tree1.xml" toolTip="Tool Tip"/>
+	<tree text="Load &quot;tree2.xml&quot; (Should raise error)" src="tree2.xml"
+		  onerror="this.setText('Load &quot;tree2.xml&quot; (Raised error)')"/>
+	<tree text="Loaded Item 1" action="http://webfx.eae.net" />
+	<tree text="Loaded Item 2" expanded="true">
+		<tree text="Loaded Item 2.1" action="javascript:alert( tree.getSelected().getId() )" id="custom-id"/>
+	</tree>
+	<tree text="Loaded Item 3 (click to set src)" onaction="this.setSrc(this.getSrc() ? null : 'tree3.xml')"
+		  onload="this.setText('Loaded Item 3 (changed onload)')"/>
+	<tree text="Load treeLARGE.xml" src="treeLARGE.xml" toolTip="XML file with 500 items"/>
+	<tree text="Deep nesting" src="nest.xml.pl" />
+</tree>
+

@@ -1,0 +1,69 @@
+	<div id="HeadBar">
+		<span id="current_position">当前操作：自定义页面编辑</span>
+		<div id="buttons">
+		<ul>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='javascript:window.location.reload()';">刷新</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+<script type="text/javascript" src="lib/editor/fckeditor.js"></script>
+<script type="text/javascript" src="lib/tabpane/js/tabpane.js"></script>
+
+<link type="text/css" rel="StyleSheet" href="lib/tabpane/css/luna/tab.css" />
+
+
+
+
+
+
+<form method="post" target="loader">
+
+<div class="tab-pane" id="tab-pane-1" style='overflow:auto'>
+	<!-- first tab page begin -->
+   <div class="tab-page" id='page1'>
+      <h2 class="tab">页面提要</h2>
+<script type="text/javascript">
+
+var editor = new FCKeditor('summary') ;
+editor.BasePath = 'lib/editor/';
+	editor.Config['ImageBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Image&class_id=1&object_id={$data.col}' ;
+	editor.Config['FlashBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Flash&class_id=1&object_id={$data.col}' ;
+	editor.Config['LinkBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=File&class_id=1&object_id={$data.col}' ;
+editor.Height = 390;
+editor.Width = '100%';
+editor.Value = "{$data.summary|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"/script":"/s\"+\"cript"}";
+editor.Create() ;
+</script>
+<input type="submit" value=" 保存 "/>
+   </div><!-- first tab page end -->
+   
+   
+   
+   
+   <!-- second tab page begin -->
+   <div class="tab-page">
+	<h2 class="tab">页面内容</h2>
+
+<script type="text/javascript">
+var editor = new FCKeditor('content') ;
+editor.BasePath = 'lib/editor/';
+	editor.Config['ImageBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Image&class_id=1&object_id={$data.col}' ;
+	editor.Config['FlashBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Flash&class_id=1&object_id={$data.col}' ;
+	editor.Config['LinkBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=File&class_id=1&object_id={$data.col}' ;
+editor.Height = 390;
+editor.Width = '100%';
+editor.Value = "{$data.content|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"/script":"/s\"+\"cript"}";
+editor.Create() ;
+</script>
+<input type='hidden' name='catalog_id' value='{$data.col}' />
+<input type='hidden' name='col' value='{$data.col}' />
+<input type="hidden" name="postflag" value="1" />
+<input type="submit" value=" 保存 "/>
+	</div>
+</div>
+
+</form>
+
+<iframe width=0 height=0 src="blank.html" name="loader"></iframe>

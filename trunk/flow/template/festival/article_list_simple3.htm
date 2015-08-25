@@ -1,0 +1,11 @@
+
+
+
+<table width="100%" border="0" cellspacing="2" cellpadding="2">{foreach from=$articles item=article}
+  <tr>
+    <td width="4"><img src="template/festival/images/dot1.gif" width="3" height="5" /></td>
+	<td width="85">[&nbsp;<a href="redir.php?catalog_id={$article.catalog}">{$article.catalog_name}</a>&nbsp;]</td>
+    <td align="left"><a href="redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}" target="_blank">{$article.heading}</a></td>
+  </tr>{/foreach}  
+</table>
+

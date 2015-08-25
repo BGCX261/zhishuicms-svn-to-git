@@ -1,0 +1,7 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	{ foreach from=$articles item=article }
+	<tr>
+	<td><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }><span class="STYLE11">{$article.heading}</span></a></td>
+	</tr>
+	{ /foreach }
+	</table>

@@ -1,0 +1,46 @@
+<form action="" method="post" target="loader">
+  <table width="100%" border="0" cellpadding="3" cellspacing="2">
+
+<tbody>
+<tr><td >栏目标题:</td><td><input name="title" type="text" id="title" value="{$data.title}" size="30">
+</td></tr>
+<tr>
+  <td >简短描述(可选):</td>
+  <td><input name="description" type="text" id="description" value="{$data.description}" size="30" />
+  </td>
+</tr>
+<tr>
+  <td valign="top">数据类型：</td>
+  <td>{enum_options name=data_type enum=field_type selected=$data.type} </td>
+</tr>
+<tr>
+  <td valign="top">枚举/集合名称：</td>
+  <td><input name="enum_name" type="text" id="enum_name" value="{$data.enum_name}" />
+      <br />
+    如果数据类型为枚举或集合，请在这里输入枚举或集合的具体类型</td>
+</tr>
+<tr>
+  <td >内容最大长度:</td>
+  <td><input name="size" type="text" id="size" value="{$data.size}" size="30" />
+      <br />
+      <span>如果数据类型为文本类型，请输入内容最大长度；范围 1～255 字节</span></td>
+</tr><tr><td >隐藏:</td>
+  <td><span>{enum_radios name=invisible enum=boolean checked=$data.invisible}<br />
+    选择“是”将只有管理人员和会员自身可以查看填写的内容</span></td>
+</tr><tr>
+  <td >可选:</td>
+  <td><span>{enum_radios name=optional enum=boolean checked=$data.optional}<br />
+    选择“是”将不要求用户在注册或控制面板中必须填写或选择</span></td>
+</tr><tr><td >不可修改:</td>
+  <td><span>{enum_radios name=unchangeable enum=boolean checked=$data.unchangeable}<br />
+    选择“是”则用户一旦填写此内容，将不可再次自行修改该项目的内容</span></td>
+</tr>
+<tr>
+  <td valign="top"><input class="button" type="submit" name="editsubmit" value="提 交" />
+    <input type="button" name="Button" value="返回" onclick="window.location.href='member.php?cmd=cp_list'"/></td>
+  <td><input name="cmd" type="hidden" id="cmd" value="cp_edit" />
+    <input name="postflag" type="hidden" id="postflag" value="1" /></td>
+</tr>
+</tbody></table>
+  <center>
+  </center></form><iframe name="loader" width="0" height="0" src="../blank.html"></iframe>

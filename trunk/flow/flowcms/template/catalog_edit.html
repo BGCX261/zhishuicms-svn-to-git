@@ -1,0 +1,176 @@
+
+
+<script type="text/javascript" src="lib/tabpane/js/tabpane.js"></script>
+<script type="text/javascript" src="lib/editor/fckeditor.js"></script>
+<link type="text/css" rel="StyleSheet" href="lib/tabpane/css/luna/tab.css" />
+
+	<div id="HeadBar">
+		<span id="current_position">当前操作：栏目管理 {current_position catalog_id=$catalog_id   uri="control.php?act=catalog_list&pcatalog_id="}</span>
+		<div id="buttons">
+			<ul>
+				<li><a class="NormalButton" href="##" onClick="window.location.href='control.php?act=catalog_edit&cmd=catalog_add&pcatalog_id={$pcatalog_id}';">添加栏目</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+<form method="post" name="catalog_edit" target="loader">
+
+
+<div class="tab-pane" id="tab-pane-1" style='overflow:auto'>
+
+	<!-- first tab page begin -->
+   <div class="tab-page" id='page1'>
+      <h2 class="tab">基本信息</h2>
+     <table width="97%">
+          <tr>
+            <td width="77" align="right">栏目名称:</td>
+            <td colspan="2"><input type="text" name="name" size="40" value="{$data.name}"></td>
+          </tr>
+		  <tr>
+			<td width="77" align="right">栏目别名:</td>
+		  <td colspan="2"><input type="text" name='alias' size="40" value="{$data.alias}"/>		  </tr>
+          <tr>
+            <td width="77" align="right">类型:</td>
+            <td><select name=type>
+                <option value="">&lt;请选择&gt;</option>
+				{enum_options enum="catalog_type" selected=$data.type}
+               </select>		    </td>
+            <td><label>
+              <input name="video" type="checkbox" id="video" value="1" {$data.video|html_check:1} />
+            允许上传视频</label></td>
+          </tr>
+          <tr>
+            <td width="77">&nbsp;</td>
+            <td colspan="2"><input type="checkbox" name="show_in_guide" id="show_in_guide" value="1" {$data.show_in_guide|html_check:1} />
+			
+              <label for="show_in_guide">在栏目导航中显示该栏目</label>              <label></label></td>
+          </tr>
+          <tr>
+            <td width="77" align="right">&nbsp;</td>
+            <td width="194">  <label><input type="checkbox" name="label_link" value="1" {if $data.label_link}checked{/if} onclick="javascript:seturl()"/>
+            栏目名称显示为链接</label></td>
+            <td width="638"><div id="divurl" {if !$data.label_link} style="visibility:hidden" {/if} >网址:
+              <input type="text" name="url" id="url" value="{$data.url}" size="40"  />
+打开此栏目时，自动跳转到以上网址</div></td>
+          </tr>
+          <tr>
+            <td width="77" align="right">栏目描述:</td>
+            <td colspan="2">
+
+	<script type="text/javascript">
+	var editor = new FCKeditor('description') ;
+	editor.BasePath = 'lib/editor/';
+	editor.Height = 270;
+	editor.Width = '100%';
+	editor.Value = "{$data.description|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"\r":"\\n"|replace:"/script":"/s\"+\"cript"}";
+	editor.Create() ;
+	</script></td>
+	</tr>
+	<tr>
+            <td width="77"></td>
+            <td colspan="2"><input type="submit" value="  保存  "/>
+              <input type="button" value="  返回  " onclick='window.location.href="control.php?act=catalog_list&pcatalog_id={$data.pcatalog}";'/>
+              <input type="hidden" name="pcatalog" value="{$data.pcatalog}"/>
+              <input type="hidden" name="id" value="{$data.id}"/>
+              <input type="hidden" name="cmd" value="{$cmd}"/>
+              <input type="hidden" name="step" value="2"/></td>
+        </tr>
+	</table>
+	
+	
+   </div><!-- first tab page end -->
+   
+   
+   
+   
+   <!-- second tab page begin -->
+   <div class="tab-page">
+	<h2 class="tab">模板选项</h2>	
+	
+		
+	
+	<table width="95%">
+	<tr>
+            <td width="15%" align="right">显示位置:</td>
+            <td colspan="3"><select name="show_position" id="show_position">
+				
+                <option value="0" {$data.show_position|html_option:0}>&lt;不显示&gt;</option>
+                <option value="1" {$data.show_position|html_option:1}>左侧</option>
+                <option value="2" {$data.show_position|html_option:2}>中间</option>
+                <option value="3" {$data.show_position|html_option:3}>右侧</option>
+              </select>
+              <label for="show_position">在栏目组对应的前台页面中的显示位置</label></td>
+        </tr>
+          <tr>
+            <td width="15%" align="right"><label for="portal_template">入口页模版:</label></td>
+            <td colspan="3"><input type="text" id="portal_template" name="template_portal" value="{$data.template_portal}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="15%" align="right"><label for="portal_file">入口页文件名:</label></td>
+            <td colspan="3"><input type="text" id="portal_file" name="path_portal" value="{$data.path_portal}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="15%" align="right"><label for="list_template">分页浏览模版:</label></td>
+            <td colspan="3"><input type="text" id="list_template" name="template_list" value="{$data.template_list}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="15%" align="right"><label for="list_file">分页浏览文件名:</label></td>
+            <td colspan="3"><input type="text" id="list_file" name="path_list" value="{$data.path_list}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="15%" align="right"><label for="content_template">内容页模版:</label></td>
+            <td colspan="3"><input type="text" id="content_template" name="template_content" value="{$data.template_content}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="15%" align="right"><label for="content_file">内容页文件名:</label></td>
+            <td colspan="3"><input type="text" id="content_file" name="path_content" value="{$data.path_content}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="15%" align="right"><label for="content_template">搜索页模版:</label></td>
+            <td colspan="3"><input type="text" id="search_template" name="search_template" value="{$data.search_template}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="15%" align="right"><label for="comment_template">评论页模板:</label></td>
+            <td width="53%"><input type="text" id="comment_template" name="comment_template" value="{$data.comment_template}" size="61"/></td>
+            <td width="17%"><label>
+              <input name="allow_comment" type="checkbox" id="allow_comment" value="1" {$data.allow_comment|html_check:1}/>
+            允许评论</label></td>
+            <td width="15%"><label>
+              <input name="comment_need_check" type="checkbox" id="comment_need_check" value="2" {$data.comment_need_check|html_check:1}/>
+            需要审核</label></td>
+          </tr>
+          <tr>
+            <td width="15%"></td>
+            <td colspan="3"><input type="submit" value="  保存  "/>
+          <input type="button" value="  返回  " onclick='window.location.href="column.php?task=list&pcatalog={$data.pcatalog}";'/>          </tr>
+      </table>
+      </td>
+  </tr>
+</table>
+
+</div><!-- second tab page end -->
+
+
+</div>
+</form>
+{ literal }
+<script type="text/javascript">
+
+function seturl(){
+	if (document.forms[0].label_link.checked)
+		document.getElementById("divurl").style.visibility = "visible";
+	else
+		document.getElementById("divurl").style.visibility = "hidden";
+}
+
+
+
+document.body.onload=function() 
+{
+	document.catalog_edit.name.focus();
+	document.catalog_edit.name.select();
+};
+</script>
+{ /literal }
+<iframe width="0" height="0" src="template/blank.html" name="loader"></iframe>

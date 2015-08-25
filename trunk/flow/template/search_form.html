@@ -1,0 +1,37 @@
+{ include file="news/header.html" }
+
+<table width="760" border="0" cellpadding="2" cellspacing="4" align="center">
+<tr>
+<td valign="top">
+<div class="current_position">
+当前位置：
+<a href="/">首页</a> &gt; 搜索</div><br/><br/>
+<form method="GET" action="search.php">
+<table width="80%" border="0" align="center" cellpadding="5" cellspacing="3" bordercolor="#CCCCCC">
+	<tr>
+		<td>关键字</td>
+		<td><input name="keywords" type="text" size="30" value=''></td>    
+	</tr>
+	<tr>
+		<td>开始日期</td>
+		<td>{ html_select_date time=$smarty.now-3600*24*365 start_year=2003 month_format="%m" field_order="YMD" prefix="Start"}</td>    
+	</tr>
+	<tr>
+		<td>截至日期</td>
+		<td>{ html_select_date time=$smarty.now start_year=2003 month_format="%m" field_order="YMD" prefix="End"}</td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type="checkbox" name="fulltext" value="1"/>执行全文检索</td>
+	</tr>
+	<tr>
+      				<td>&nbsp;</td>
+      				<td height="20"><input type="hidden" name="postflag" value="1"/><input type="hidden" name="action" value="search" /><input type="submit" value="  搜索 "/><input type="hidden" name="area" value="3"/></td>
+      </tr>
+</table>
+      </form>
+</div></td>
+<td width="160">{include file=news/left.html}</td>
+</tr>
+</table>
+{ include file="footer.html" }

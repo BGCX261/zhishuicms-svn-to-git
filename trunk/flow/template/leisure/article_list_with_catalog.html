@@ -1,0 +1,11 @@
+<ul>
+{foreach from=$articles item=article}
+<li>
+    <div style="margin:0px; padding:0px; height:18px;">
+    <span style="padding:0 0 0 10px;"><img src="template/leisure/images/dot.gif" /></span>
+    <span class="leisure-gray" style="margin:0 10px 0 10px;">[<a href="redir.php?catalog_id={$article.catalog}">{$article.catalog_name}</a>]</span>
+    <span class="leisure-brown"><a href="redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}" target="_blank">{$article.heading}</a></span>
+    </div>
+</li>
+{/foreach}
+</ul>

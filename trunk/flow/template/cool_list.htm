@@ -1,0 +1,8 @@
+<table width="150" border="0" cellspacing="2" cellpadding="3">
+{foreach from=$columns item=catalog}
+  <tr>
+    <td width="26"><img src="template/images/dot1.gif" width="6" height="9"></td>
+    <td width="124"><a href="redir.php?catalog_id={$catalog.id}">{$catalog.name}</a></td>
+  </tr>
+{/foreach}  
+</table>

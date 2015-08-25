@@ -1,0 +1,12 @@
+<table width="100%" cellspacing="5"><tr>
+	{ foreach from=$articles item=article }
+	<td align="center" valign="top"><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }>
+	  <table width="100%" border="1" cellpadding="4" cellspacing="0" bordercolor="#EBEBEB">
+        <tr>
+          <td><div align="center"><img src="file.php?cmd=preview&amp;id={$article.picture_id}" width="100" height="75" border="0"/></div></td>
+        </tr>
+      </table>
+	  <br/>
+    {$article.heading|cut:36}</a></td>
+	{ /foreach }
+</tr></table>

@@ -1,0 +1,77 @@
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+ <tr>
+    <td bgcolor="#C70700"><img src="template/leisure/images/xmax/logon_03.gif" width="198" height="29" /></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E38300"><table width="100%" height="40" border="0" cellpadding="0" cellspacing="5">
+      <tr>
+        <td bgcolor="#F4CD99" style="border: 1px solid #d45d00"><iframe width="100%" height="150" src="/profile.php?cmd=login&bgcolor=F4CD99&simple=1" frameborder="0"></iframe></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#C70700"><img src="template/leisure/images/xmax/btn_xxbk.gif" width="198" height="29"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E38300"><table width="100%" height="40" border="0" cellpadding="0" cellspacing="5">
+      <tr>
+        <td bgcolor="#F4CD99" style="border: 1px solid #d45d00">{xspace_article_list period=720 mode=hot count=16 cut=24 assign=articles}
+          <table width="100%" border="0" cellspacing="2" cellpadding="2">
+		  {foreach from=$articles item=article}
+            <tr>
+              <td><img src="template/leisure/images/dot.gif"/></td>
+              <td><a href="/blog/index.php/{$article.uid}/action_viewspace_itemid_{$article.itemid}">{$article.subject}</a></td>
+            </tr>
+			{/foreach }
+          </table>          </td>
+      </tr>
+    </table>
+        <table width="100%" height="40" border="0" cellpadding="0" cellspacing="5">
+          <tr>
+            <td bgcolor="#F4CD99" style="border: 1px solid #d45d00"><table width="100%" border="0" cellspacing="2" cellpadding="2">
+              <tr>
+                <td><img src="template/leisure/images/39.gif" width="16" height="16" /></td>
+                <td><a href="/blog/">BLOG首页</a></td>
+              </tr>
+              <tr>
+                <td><img src="template/leisure/images/39.gif" width="16" height="16" /></td>
+                <td><a href="/profile.php?cmd=member_add&amp;forward=/blog/">注册用户</a></td>
+              </tr>
+              <tr>
+                <td><img src="template/leisure/images/39.gif" width="16" height="16" /></td>
+                <td><a href="/blog/index.php/action_register.html">申请开通我的BLOG</a></td>
+              </tr>
+              <tr>
+                <td><img src="template/leisure/images/39.gif" width="16" height="16" /></td>
+                <td><a href="/blog/index.php/action_login.html">登录我的BLOG</a></td>
+              </tr>
+            </table></td>
+          </tr>
+      </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#C70700"><img src="template/leisure/images/xmax/btn_kslj.gif" width="198" height="29"></td>
+  </tr>
+  <tr>
+    <td bgcolor="#E38300"><table width="100%" height="40" border="0" cellpadding="0" cellspacing="5">
+      <tr>
+        <td bgcolor="#F4CD99" style="border: 1px solid #d45d00"><table width="100%" border="0" cellspacing="2" cellpadding="0">
+            <tr>
+              <td><span class="block">{link_list catalog_id=43283 count=12} </span></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td bgcolor="#C70700">&nbsp;</td>
+  </tr>
+  <tr>
+    <td bgcolor="#C70700"><div align="center"><a href="redir.php?catalog_id=44059"><img src="template/leisure/images/lei-tg.gif" width="130" height="35" border="0" /></a></div></td>
+  </tr>
+  <tr>
+    <td bgcolor="#C70700">&nbsp;</td>
+  </tr>
+  
+</table>
+ 

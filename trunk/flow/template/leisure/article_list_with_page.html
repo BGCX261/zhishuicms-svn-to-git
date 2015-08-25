@@ -1,0 +1,20 @@
+<ul>
+{foreach from=$articles item=article}
+<li>
+    <div style="margin:0px; padding:0px; height:18px;">
+    <span style="padding:5px;"><img src="template/leisure/images/dot.gif" /></span>
+    <span><a href="redir.php?catalog_id={$article.catalog}&object_id={$article.id}" target="_blank">{$article.heading}</a></span>
+    </div>
+</li>
+{/foreach}
+
+{if $articles_pages > 0}
+<div class="page">
+<a href="redir.php?catalog_id={$articles_catalog}&page=0">第一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={ if $articles_page > 0 }{$articles_page-1}{else}0{/if}">上一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={ if $articles_page >= $articles_pages-1 }{$articles_pages-1}{else}{$articles_page+1}{/if}">下一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={$articles_pages-1}">最后页</a>
+当前: {$articles_page+1} / {$articles_pages}
+</div>
+{/if}
+</ul>

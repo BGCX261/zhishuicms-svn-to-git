@@ -1,0 +1,5 @@
+<table>
+	{ foreach from=$articles item=article }
+	<tr><td width="100">[<a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }>{$article.heading}</a>]&nbsp;</td><td>{$article.summary}</td></tr>
+	{ /foreach }
+</table>

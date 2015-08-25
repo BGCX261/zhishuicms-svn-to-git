@@ -1,0 +1,113 @@
+{ flow_counter counter_id=1 display_status=0}
+<center><div id=fullscreenad style="display:none">&nbsp;</div></center>
+{ include file="news/header.html" }
+<table width="760" height="304" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="562" valign="top"><table width="562" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td height="168" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="4%" height="34" align="center">&nbsp;</td>
+            <td height="34" colspan="2"><img src="template/news/images/gj.png" width="482" height="50" /></td>
+            </tr>
+          <tr>
+            <td height="15" colspan="3"><img src="template/news/images/news_d.gif" width="520" height="15" /></td>
+          </tr>
+          <tr>
+            <td height="89" colspan="2" align="left" valign="top">{article_list catalog_id=12 count=3 picture_only=1 template=news/article_list_sina1.html width=240 height=180 tcut=17}</td>
+            <td width="56%" valign="top"><span class="block2">{article_list catalog_id=12  count=9  tcut=20}</span></td>
+          </tr>
+          <tr>
+            <td height="87" colspan="3" valign="top"><table width="100%" border="0" cellpadding="0" cellspacing="2">
+              <tr>
+                <td width="100%" height="83" class="black"><div id="demo" style="overflow:hidden;width:565;">
+                    <table width="565" cellpadding="1" cellspacing="1">
+                      <tr>
+                        <td width="565" valign="top" id="marquePic1"> {article_list catalog_id=27 count=8 picture_only=1 template=article_list_picture_news.html} </td>
+                        <td width="5" valign="top" id="marquePic2"></td>
+                      </tr>
+                    </table>
+                </div>
+                  {literal}
+                  <script language="JavaScript" type="text/javascript">
+var speed=20;
+marquePic2.innerHTML=marquePic1.innerHTML;
+function Marquee(){
+    if(demo.scrollLeft>=marquePic1.scrollWidth){
+        demo.scrollLeft=0;
+    }else{
+        demo.scrollLeft++;
+    }
+}
+var MyMar=setInterval(Marquee,speed);
+demo.onmouseover=function() {clearInterval(MyMar)}
+demo.onmouseout=function() {MyMar=setInterval(Marquee,speed)}
+            </script>
+                  {/literal} <a class="more" href="redir.php?catalog_id=27">more</a> </td>
+              </tr>
+            </table></td>
+            </tr>
+        </table></td>
+      </tr>
+      <tr>
+        <td height="82" align="left" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="0">
+          <tr>
+            <td colspan="2" class="black"><img src="template/news/images/rw.png" width="482" height="53" /></td>
+          </tr>
+          <tr>
+            <td colspan="2" class="black"><img src="template/news/images/news_d.gif" width="520" height="15" /></td>
+          </tr>
+          <tr>
+            <td width="50%" class="black"><span class="block">{article_list catalog_id=5,6,7 count=1 picture_only=1 template=news/person_list1.html}</span></td>
+            <td width="50%" class="black">{article_list catalog_id=8,9,10 count=1 picture_only=1 template=news/person_list1.html}</td>
+          </tr>
+        </table>
+          <table width="560" border="0">
+            <tr>
+              <td align="right"><a class="more" href="http://10.76.8.2redir.php?catalog_id=4"></a></td>
+            </tr>
+          </table>          </td>
+      </tr>
+      <tr>
+        <td><img src="template/news/images/gd.png" width="488" height="51" /></td>
+      </tr>
+      <tr>
+        <td><span class="black"><img src="template/news/images/news_d.gif" width="520" height="15" /></span></td>
+      </tr>
+      <tr>
+        <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><span class="block">{article_list catalog_id=22,23,24,25,26 count=7 template=article_list_new1.htm}</span></td>
+            <td>{article_list catalog_id=22,23,24,25,26 count=1 picture_only=1 template=article_list_news_picture.html width=80 height=120 tcut=17}</td>
+          </tr>
+          <tr>
+            <td colspan="2"><table width="100%" border="0" cellspacing="3" cellpadding="3">
+              <tr>
+                <td align="right"><a class="more" href="redir.php?catalog_id=21"></a><a href="redir.php?catalog_id=21"></a></td>
+              </tr>
+            </table></td>
+          </tr>
+        </table></td>
+      </tr>
+
+      <tr>
+        <td height="154" align="left" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="50%" height="29"><img src="template/news/images/yx.gif" width="201" height="44" /></td>
+            <td width="50%"><img src="template/news/images/st.gif" width="201" height="48" /></td>
+          </tr>
+          <tr>
+            <td height="15" colspan="2"><span class="black"><img src="template/news/images/news_d.gif" width="520" height="15" /></span></td>
+            </tr>
+          <tr>
+            <td height="115"><span class="block">{article_list catalog_id=15 count=10 tcut=18}</span></td>
+            <td height="115"><span class="black">{article_list catalog_id=16 count=10 tcut=18}</span></td>
+          </tr>
+        </table></td>
+        </tr>
+    </table></td>
+    <td width="15">&nbsp;</td>
+    <td width="183" valign="top">{include file=news/right.html} </td>
+  </tr>
+</table>
+<p>{ include file="footer.html" }</p>

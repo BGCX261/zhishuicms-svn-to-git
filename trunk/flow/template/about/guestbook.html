@@ -1,0 +1,17 @@
+{include file=about/header.html}
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+  <tr>
+    <td width="210" valign="top">{include file=about/left.html}</td>
+    <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td><br /></td>
+          </tr>
+          <tr>
+            <td>{guestbook_list template=guestbook/guestbook_list_full.htm catalog_id=$catalog.id} </td>
+          </tr>
+        </table></td>
+  </tr>
+</table>
+{include file=footer.html} 
+</body>
+</html>

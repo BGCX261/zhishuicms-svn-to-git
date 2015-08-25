@@ -1,0 +1,64 @@
+	<div id="HeadBar">
+		<span id="current_position">当前操作：编辑链接－－－栏目：{$catalog.name}</span>
+		<div id="buttons">
+		<ul>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='javascript:window.location.reload()';">刷新</a></li>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='control.php?act=link_edit&amp;cmd=link_add&amp;catalog_id={$catalog.id}';">添加新链接</a></li>
+		</ul>
+		</div>
+	</div>
+<script type="text/javascript">
+var id = {$data.id};
+{ literal }
+var field;
+function choose_picture(input)
+{
+	field = input;
+	window.open('filebrowser.php?type=Image&class_id=2&object_id=' + id, 'picture', 
+		'dialogWidth=610px;dialogHeight=400px');
+}
+function SetUrl(url)
+{
+	var re = /id=(\d+)/;
+	var cr = re.exec(url);
+	if (cr != null && typeof(cr) == 'object' && cr.length != null && cr.length == 2)
+		field.value = cr[1];
+}
+</script>
+{/literal}
+<form method="post" action="" target="loader">
+  <table border="0">
+    <tr> 
+      <td>网站名称</td>
+      <td>
+        <input type="text" name="name" size="50" value="{$data.name|escape}">      </td>
+    </tr>
+    <tr> 
+      <td>网站地址</td>
+      <td>
+        <input type="text" name="url" size="50" value="{$data.url|escape}">      </td>
+    </tr>
+    <tr> 
+      <td>网站描述</td>
+      <td>
+        <input type="text" name="descri" size="50" value="{$data.descri|escape}">      </td>
+    </tr>
+    <tr> 
+      <td>LOGO</td>
+      <td>
+        <input type="text" name="logo" value="{$data.logo}"><input type="button" value="..." onclick="choose_picture(this.form.logo)"/>      </td>
+    </tr>
+    <tr> 
+      <td>&nbsp;</td>
+      <td>
+        <input type="submit" name="Submit" value=" 确 定 ">
+        <input name="button" type="button" onclick="location.href='hwnd_link.php?cmd=list&catalog={$catalog}&page={$page}';" value=" 返 回 "/>
+        <input type="hidden" name="postflag" value="1">
+        <input type="hidden" name="id" value="{$data.id}">
+		<input type="hidden" name="catalog" value="{$data.catalog}">
+		<input type="hidden" name="catalog_id" value="{$data.catalog}">
+		<input type="hidden" name="cmd" value="edit">      </td>
+    </tr>
+  </table>
+</form>
+<iframe width="0" height="0" src="template/blank.html" name="loader"></iframe>

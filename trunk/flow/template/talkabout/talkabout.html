@@ -1,0 +1,79 @@
+{literal}
+<LINK 
+href="template/talkabout/include/style.css" type=text/css 
+rel=stylesheet><LINK href="template/talkabout/include/end_page_new.css" 
+type=text/css rel=stylesheet><LINK 
+href="template/talkabout/include/comment.css" type=text/css 
+rel=stylesheet>
+
+
+<DIV class=endArea><!-- left -->
+<DIV class=col1>
+  <!-- 当前位置 --><!-- 文章主体内容 -->
+<DIV class=blankWhiteBox>
+  <SCRIPT>
+var thepostid = '3OAGG1300001121M';
+var theboard = 'news_guoji2_bbs';
+var postid = '';
+var board = 'news_guoji2_bbs';
+var out_nickname;
+var out_ip;
+var out_board = 'news_guoji2_bbs';
+var out_postid;
+var out_ptime;
+var out_body;
+var diggcount='196';
+var trackCount='25';
+</SCRIPT>
+<SCRIPT language=JavaScript type=text/javascript>
+var submited = false;
+function reply_checksubmit()
+{
+	if(document.formpost.body.value==tip || document.formpost.body.value.length==0)
+	{
+		alert('请填写内容');
+		return false;
+	}
+	if(document.formpost.username.value.length==0)
+	{
+		alert('请填写昵称');
+		return false;
+	}	
+	if(submited){
+		alert('回复已经提交，请稍后;)');
+		return false;
+	}
+	submited=true;
+	return true;
+}
+</SCRIPT>
+<SCRIPT language=javascript 
+src="template/talkabout/include/replyjs.js"></SCRIPT>
+<DIV class=endDeliver0709>
+<DIV class=title>
+<DIV class=tip><IMG 
+height=34 alt=讨论区 src="template/talkabout/include/end_p1.gif" width=85 
+border=0></DIV>
+<DIV class=textBu><A id=look1 
+href="template/talkabout/showtips.php" 
+target=_blank>点击查看</A></DIV>
+<DIV class=text><A id=look2 
+href="template/talkabout/showtips.php" 
+target=_blank>已有对此专题感兴趣的网友发表了看法</A> </DIV></DIV>
+<DIV class=loginTip>
+<FORM name=formpost  onSubmit="return reply_checksubmit()" action="template/talkabout/talkabout.php" method=post target=_self>
+<DIV class=textBox><TEXTAREA onfocus=reply_clearfield() name=body>我来评两句！</TEXTAREA> 
+</DIV>
+<DIV class=send><INPUT class=input onMouseOver="this.className='inputOver'" onMouseOut="this.className='input'" type=submit value=马上发表 name=frmsubmit> 
+<INPUT type=hidden name=board> <INPUT type=hidden name=threadid> <INPUT 
+type=hidden name=url> </DIV>
+<DIV class=login>
+  昵称： 
+  <INPUT class=input1 name=username id=username>
+  <INPUT type=hidden value=1 name=type> <INPUT 
+type=hidden value=content name=product> <INPUT type=hidden name=url> 
+</FORM></DIV>
+<DIV class=clear></DIV></DIV></DIV>
+
+
+{/literal}

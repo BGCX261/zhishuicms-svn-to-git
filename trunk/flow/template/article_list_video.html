@@ -1,0 +1,17 @@
+<table width="100%" cellspacing="5"><tr>
+	{ foreach from=$articles item=article }
+	<td align="center" valign="top"><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }><img src="file.php?cmd=preview&id={$article.picture_id}" width="107" height="77" border="0" /></a></td><td valign="top"><span class="block2"><img src="template/video/images/vid.gif" width="32" height="32" /></span><br />
+	  {$article.heading}</td>
+	{cycle values=",</tr><tr>"}
+	{ /foreach }</tr>
+</table>
+
+{ if $articles_pages > 0 }
+<div class="page_nav">
+<a href="redir.php?catalog_id={$articles_catalog}&page=0" id="page_first">第一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={ if $articles_page > 0 }{$articles_page-1}{else}0{/if}" id="page_prev">上一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={ if $articles_page >= $articles_pages-1 }{$articles_pages-1}{else}{$articles_page+1}{/if}" id="page_next">下一页</a>
+<a href="redir.php?catalog_id={$articles_catalog}&page={$articles_pages-1}" id="page_last">最后页</a>
+当前: {$articles_page+1} / {$articles_pages}
+</div>
+{ /if }

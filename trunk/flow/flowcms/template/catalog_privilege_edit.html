@@ -1,0 +1,84 @@
+	<div id="HeadBar">
+		<span id="current_position">当前操作：编辑权限 {current_position catalog_id=$catalog.id   uri="control.php?act=catalog_edit&amp;cmd=catalog_privilege&amp;catalog_id="}</span>
+		<div id="buttons">
+			<ul>
+				<li><a class="NormalButton" href="##" onClick="window.location.href='control.php?act=catalog_edit&cmd=catalog_add&pcatalog_id={$pcatalog_id}';">添加栏目</a></li>
+			</ul>
+		</div>
+	</div>
+
+
+<form id="privilege" name="privilege" method="post" action="control.php?act=catalog_edit&amp;cmd=catalog_privilege&amp;catalog_id={$catalog.id}" target="loader">
+
+
+<div id="listview" style="overflow:auto;">
+<table width="100%" cellpadding=1 cellspacing=0 class=frameLine align=center>
+	<tr>
+		<td>
+			<table width=100% cellpadding=0 border=0 cellspacing=0 height=20 background="/images/listview_col.gif" align=center>
+				<tr style='font-weight:bold'>
+					<td width=2>&nbsp;</td>
+					<td width="20%" align="center">用户组</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td width="60%" align="center" align="center">权限</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+				</tr>
+				{ foreach from=$groups item=group }
+
+				<tr onmouseover='this.className="listview_row_mouseover"' onmouseout='this.className=""' height="20">
+					<td bgcolor='#EBE6E0' width=2>&nbsp;</td>
+					<td bgcolor='#EBE6E0' width="20%" align="left">{$group.name}</td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="60%" align="left">{ enum_radios enum="catalog_privilege" name="g_`$group.id`" selected="0"}</td>
+					<td width="3" bgcolor=#EBE6E0></td>
+				</tr>	 
+				{/foreach}
+				
+			</table>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+      <td width="13%">&nbsp;</td>
+      <td width="87%"><input type="submit" value=" 保存 "/>
+        <input name="button" type="button" onclick="history.go(-1);" value=" 返回 " /></td>
+    </tr>
+</table>
+</div>
+
+
+
+  <input type="hidden" name="catalog_id" value="{$catalog.id}" />
+  <input type="hidden" name="step" value="2" />
+</form>
+<script type="text/javascript">
+var frm = document.forms['privilege'];
+{ foreach from=$privileges item=p }
+set_radio('g_{$p.group_id}', "{$p.privilege}");
+{ if $p.disable }disable_radio('g_{$p.group_id}');{/if}
+{ /foreach }
+
+{ literal }
+function set_radio(name, value)
+{
+	for (var i = 0; i < frm.elements.length; i ++)
+	{
+		var e = frm.elements[i];
+		if (e.type == 'radio' && e.name == name && e.value == value)
+			e.checked = true;
+	}
+}
+
+function disable_radio(name)
+{
+	for (var i = 0; i < frm.elements.length; i ++)
+	{
+		var e = frm.elements[i];
+		if (e.type == 'radio' && e.name == name)
+			e.disabled = true;
+	}
+}
+{ /literal }
+</script>
+<iframe name="loader" width="0" height="0" src="blank.html"></iframe>

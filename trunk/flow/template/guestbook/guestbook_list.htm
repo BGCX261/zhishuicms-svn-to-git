@@ -1,0 +1,8 @@
+<table width="100%">
+{foreach from=$messages item=message}
+<tr><td>{$message.name|escape}</td><td>{$message.title|escape}</td><td>{$message.dt}</td></tr>
+{/foreach }
+</table>
+<table align="right" cellpadding="5" cellspacing="5">
+<tr><td><a href="redir.php?catalog_id={$guestbook_id}&cmd=add">填写留言</a></td><td><a href="redir.php?catalog_id={$guestbook_id}">查看全部</a></tr>
+</table>

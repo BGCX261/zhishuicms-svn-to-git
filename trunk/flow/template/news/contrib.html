@@ -1,0 +1,44 @@
+{ include file="news/header.html" }
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="180" bgcolor="#CED7E7"><table width="96%" border="0" cellpadding="8" cellspacing="2">
+      <tr>
+        <td align="center"><br />
+            <img src="template/news/images/btn_words.gif" width="165" height="26" /></td>
+      </tr>
+      <tr>
+        <td>{customize_page catalog_id=43104 short_mode=1} </td>
+      </tr>
+    </table>
+      <table width="96%" border="0" cellpadding="8" cellspacing="2">
+        <tr>
+          <td align="center"><br />
+              <img src="template/news/images/btn_hot.gif" width="165" height="26" /></td>
+        </tr>
+        <tr>
+          <td>{article_list count=10 cut=48 catalog_id=$catalog.id template=article_list_hot.htm mode=hot period=31} </td>
+        </tr>
+      </table>
+      <table width="96%" border="0" cellpadding="8" cellspacing="2">
+        <tr>
+          <td align="center"><br />
+              <img src="template/news/images/btn_contact.gif" width="165" height="26" /></td>
+        </tr>
+        <tr>
+          <td>{customize_page catalog_id=42988 short_mode=1} </td>
+        </tr>
+      </table>
+      <table width="96%" border="0" cellpadding="8" cellspacing="2">
+        <tr>
+          <td align="center"><br />
+              <img src="template/news/images/btn_link.gif" width="165" height="26" /></td>
+        </tr>
+        <tr>
+          <td><span class="block">{link_list catalog_id=42970 count=10 cut=48} </span></td>
+        </tr>
+      </table>
+    <br /></td>
+    <td><iframe width="580" height="700" frameborder="0" src="/wescms/contrib.php?cmd=add"></iframe></td>
+  </tr>
+</table>
+{ include file="footer.html" }

@@ -1,0 +1,24 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>欢迎来到求是潮服务网!</title>
+<link href="template/images/service/css.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+{include file=service_header.html} 
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="186" valign="top" bgcolor="#DEDEDE">{ include file=service_left.html} </td>
+    <td valign="top"><br />
+      <table width="98%" border="0" align="center" cellpadding="0" cellspacing="0">
+        <tr>
+          <td>{article_detail id=$smarty.request.object_id template=article_detail_simple.htm} </td>
+        </tr>
+      </table></td>
+  </tr>
+</table>
+{include file=global_footer.html} 
+</body>
+</html>

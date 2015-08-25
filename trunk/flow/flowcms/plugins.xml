@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+
+<tree>
+	<tree text="文章考核" action="control.php?act=score" target="mainFrame"/>
+</tree>
+

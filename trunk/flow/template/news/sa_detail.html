@@ -1,0 +1,16 @@
+
+
+<table align="center" width="95%"><tr><td>
+<div id='content' class="middle">
+<h1>{ $article.title }</h1>
+<div class="metastuff">发布时间: { $article.dt|date_format:"%Y-%m-%d" } 浏览次数: { $article.visitcount+1 }</div>
+<div class="content">
+{ $article.content }
+</div>
+</div>
+{ subject_article_visitcount id=$article.id }
+
+<br clear="all" />
+<a href="###" onclick="javascript:window.close()" class="footer_button">关闭窗口</a>
+<a href="#header" name="footer" class="footer_button">返回页面顶部</a>
+</td></tr></table>

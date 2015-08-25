@@ -1,0 +1,6 @@
+{ foreach from=$articles item=aarticle }
+{ article_detail id=$aarticle.id assign=article }
+<div class="preview_heading">{ $aarticle.heading }</div>
+<div class="preview_content">{ if $aarticle.summary }{ $aarticle.summary|cut:$params.scut }{ else }{ $article.heading }{ /if }</div>
+<div class="preview_button"><a href="{ if $aarticle.link }{ $aarticle.link }{ else }redir.php?catalog_id={ $aarticle.catalog }&amp;object_id={ $aarticle.id }{ /if }" target="_blank"><img src="template/edu/images/continue.gif" width="55" height="29" alt="¼ÌÐøÔÄ¶Á" /></a></div>
+{ /foreach }

@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+     "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>xTree 2 Beta</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<!-- WebFX Layout Include -->
+<script type="text/javascript" src="../../webfxlayout.js"></script>
+<!-- end WebFX Layout Includes -->
+
+<style type="text/css">
+
+.links {
+	padding:	0;
+	margin:		10px;
+}
+
+.links li {
+	display:	inline;
+	padding-right:	1ex;
+}
+
+</style>
+</head>
+<body>
+
+<!-- WebFX Layout Include -->
+<script type="text/javascript">
+
+try
+{
+	webfxLayout.writeTitle("xTree 2 Beta");
+	webfxLayout.writeMenu();
+	webfxLayout.writeDesignedByEdger();
+}
+catch (ex) {}
+</script>
+
+<div class="webfx-main-body">
+
+<!-- end WebFX Layout Includes -->
+
+<ul class="links">
+	<li><a href="requirements.txt">requirements.txt</a></li>
+	<li><a href="demo.html">demo.html</a></li>
+	<li><a href="demo.v1.html">demo.v1.html</a></li>
+	<li><a href="xloaddemo.html">xloaddemo.html</a></li>
+	<li><a href="xloadtreedemo.html">xloadtreedemo.html</a></li>
+</ul>
+
+<h2>Better Keyboard Navigation</h2>
+
+<p class="date">2005-06-06</p>
+
+<p>Now only one item has tabIndex set so that the entier tree only takes
+up one entry in the tab focus chain.</p>
+
+
+<h2>API Docs uploaded</h2>
+
+<p class="date">2005-01-04</p>
+
+<p>All methods and fields are now documented</p>
+
+<ul>
+	<li><a href="api.html">api.html</a></li>
+	<li><a href="api.xloadtree2.html">api.xloadtree2.html</a></li>
+</ul>
+
+<h2>Minor Updates</h2>
+
+<p class="date">2004-11-16</p>
+
+<p>Fixed an issue with focus in IE.</p>
+
+<p><code>findChildByText</code> now takes an optional second argument telling
+which child to return if more than one child is found. Another similar method
+called <code>findNodeByText</code> searches for the node amongst the current
+node and all its descendants. These 2 methods alsp accepts a regular expresion
+instead of a string.</p>
+
+<h2>Welcome to the beta of xTree 2</h2>
+
+<p class="date">2004-11-13</p>
+
+<p>This has been long in the making and it has been a collaboration between me
+and Emil. The implementation of xTree 2 and xLoadTree 2 are now feature
+complete. There are still plenty of things to do:</p>
+
+<ul>
+	<li>Write API docs</li>
+	<li>Write article</li>
+	<li>Create better demos</li>
+	<li>Ensure that all the requirements are fulfilled</li>
+	<li>Make sure that there are no serious/obvious bugs/issues.</li>
+</ul>
+
+<h3>Requirements</h3>
+
+<p>Take a look at <a href="requirements.txt">requirements.txt</a>. There are
+still some open items but these are mostly open because they need to be verified
+and further tested.</p>
+
+<p>We are interested in feedback regarding what platforms this currently runs on.</p>
+
+
+<h3>Backwards Compatibility</h3>
+
+<p>Version 2 is mostly backwards compatible. If you can find any cases where your app
+worked using 1.x but not using xTree 2 beta (or xLoadTree) please notify us.</p>
+
+
+
+<p class="author">Author: Erik Arvidsson</p>
+
+<!-- end webfx-main-body -->
+</div>
+
+</body>
+</html>

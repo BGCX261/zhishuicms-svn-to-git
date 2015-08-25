@@ -1,0 +1,20 @@
+{include file=service/header.html} 
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="43" align="center" valign="middle"><img src="template/service/images/dot3.gif" width="32" height="32" /></td>
+    <td width="219" align="center" valign="middle">{$catalog.name}</td>
+    <td width="327"></td>
+    <td width="171" rowspan="3" valign="top">{include file=service/right.html}</td>
+  </tr>
+  <tr>
+    <td height="33" colspan="2" align="center" valign="middle"><img src="template/service/images/zhl.gif" width="131" height="27"/></td>
+    <td align="center" valign="middle"><img src="template/service/images/swxx.gif" width="139" height="31" /></td>
+  </tr>
+  <tr>
+    <td height="34" colspan="2" align="left" valign="top">{article_list catalog_id=$catalog.id count=10 template=article_list_simple_ser.htm}</td>
+    <td align="center" valign="middle">{article_detail id=$smarty.request.object_id template=article_detail_simple.htm}</td>
+  </tr>
+</table>
+{include file=footer.html} 
+</body>
+</html>

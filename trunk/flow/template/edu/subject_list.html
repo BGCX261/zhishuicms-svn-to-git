@@ -1,0 +1,8 @@
+{ foreach from=$articles item=aarticle }
+{ aritcle_detail id=$aarticle.id assign=article }
+<div class="subject_list">
+	<div class="title"><img src="template/edu/images/party_dot.gif" width="7" height="7" alt="" />{ $article.heading|cut:$params.tcut }</div>
+    <div class="content">{ if $article.summary }{ $article.summary }{ else }{ $article.heading }</div>
+    <div class="entry">>><a href="{ if $article.link }{ $article.link }{ else }redir.php?catalog_id={ $article.catalog }&amp;object_id={ $article.id }" target="_blank">进入专题</a></div>
+</div>
+{ /foreach }

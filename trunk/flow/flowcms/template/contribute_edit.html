@@ -1,0 +1,64 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=gb2312"/>
+<title>投稿</title>
+{ literal }
+<style type="text/css">
+* { font-size: 12px; }
+</style>
+
+{ /literal }
+</head>
+<body>
+<form id="" name="" method="post" action="contrib.php?catalog_id={$catalog.id}&cmd=add" target="loader">
+  <table width="100%" border="0" cellspacing="2" cellpadding="3">
+    <tr>
+      <td>栏目：</td>
+      <td>{$catalog.name|escape}
+	  	<input type="hidden" id="catalog_id" value="{$catalog.id}" >
+     </td>
+    </tr>
+    <tr>
+      <td>标题(*):</td>
+      <td><input name="heading" type="text" id="heading" size="80" /></td>
+    </tr>
+    <tr>
+      <td>作者:</td>
+      <td><input name="author" type="text" id="author" />
+        摄影：
+        <input name="photographer" type="text" id="photographer" /></td>
+    </tr>
+    <tr>
+      <td>来源：</td>
+      <td><input name="source" type="text" id="source" size="50" />(院系投稿请填写学院名称)</td>
+    </tr>
+    <tr>
+      <td valign="top">正文(*)：</td>
+      <td>
+	
+<script type="text/javascript" src="lib/editor/fckeditor.js"></script>
+	<script type="text/javascript">
+	var editor = new FCKeditor('content') ;
+	editor.BasePath = 'lib/editor/';
+
+	editor.Config['ImageBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Image&class_id=1&object_id={$data.id}' ;
+	editor.Config['FlashBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=Flash&class_id=1&object_id={$data.id}' ;
+	editor.Config['LinkBrowserURL'] = '{$flow_basedir}flowcms/filebrowser.php?Type=File&class_id=1&object_id={$data.id}' ;
+	
+	editor.Height = 430;
+	editor.Width = '98%';
+	editor.Value = "{$data.content|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"\r":"\\n"|replace:"/script":"/s\"+\"cript"|replace:"<iframe":"<i\"+\"frame"}";
+	editor.Create() ;
+	</script></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" value=" 发送 " onClick="send()"/>
+      <input name="postflag" type="hidden" id="postflag" value="1" />
+      <input name="id" type="hidden" id="id" value="{$data.id}" /></td>
+    </tr>
+  </table>
+</form>
+<iframe name="loader" width="0" height="0" src="blank.html"></iframe>
+</body>
+</html>

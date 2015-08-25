@@ -1,0 +1,50 @@
+<form id="privilege" name="privilege" method="post" action="" target="loader">
+  <table width="100%" border="0" cellspacing="1" cellpadding="1">
+    <tr>
+      <td colspan="2">为栏目[<strong>{$catalog.name}</strong>]设置权限:</td>
+    </tr>
+	{ foreach from=$groups item=group }
+    <tr>
+      <td><label>{$group.name}</label></td>
+      <td>{ enum_radios enum="catalog_privilege" name="g_`$group.id`"}</td>
+    </tr>
+	{ /foreach }
+    <tr>
+      <td><input type="button" onclick="history.go(-1);" value=" 返回 " /></td>
+      <td><input type="submit" value=" 保存 "/></td>
+    </tr>
+  </table>
+  <input type="hidden" name="cmd" value="catalog" />
+  <input type="hidden" name="catalog_id" value="{$catalog.id}" />
+  <input type="hidden" name="postflag" value="1" />
+</form>
+<script type="text/javascript">
+var frm = document.forms['privilege'];
+{ foreach from=$privileges item=p }
+set_radio('g_{$p.0}', "{$p.1}");
+{ if $p.2 }disable_radio('g_{$p.0}');{/if}
+{ /foreach }
+
+{ literal }
+function set_radio(name, value)
+{
+	for (var i = 0; i < frm.elements.length; i ++)
+	{
+		var e = frm.elements[i];
+		if (e.type == 'radio' && e.name == name && e.value == value)
+			e.checked = true;
+	}
+}
+
+function disable_radio(name)
+{
+	for (var i = 0; i < frm.elements.length; i ++)
+	{
+		var e = frm.elements[i];
+		if (e.type == 'radio' && e.name == name)
+			e.disabled = true;
+	}
+}
+{ /literal }
+</script>
+<iframe name="loader" width="0" height="0" src="blank.html"></iframe>

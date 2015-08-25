@@ -1,0 +1,103 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网络文化节</title>
+<link href="template/festival/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+{article_detail id=$smarty.request.object_id assign=article}
+<table width="780" border="0" cellspacing="0" cellpadding="6" style="margin:0px auto;">
+	<tr>
+		<td>{include file=festival/header.html}</td>
+	</tr>
+	<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#EEF1FA">
+				<tr>
+					<td height="68" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="2%" height="20">&nbsp;</td>
+							<td width="96%">&nbsp;</td>
+							<td width="2%">&nbsp;</td>
+						</tr>
+						{include file=festival/nav.html}
+						<tr>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table></td>
+				</tr>
+				<tr>
+					<td><table width="100%" border="0" cellspacing="0" cellpadding="0" style="overflow:hidden;">
+						<tr>
+							<td width="15">&nbsp;</td>
+							<td width="506" valign="top"><table width="506" border="0" cellspacing="0" cellpadding="0" style="border:1px solid gray; overflow:hidden;">
+								<tr>
+									<td width="502"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border-bottom:1px dashed gray;">
+										<tr>
+											<td width="14%">&nbsp;</td>
+											<td width="74%" height="10">&nbsp;</td>
+											<td width="12%">&nbsp;</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+													<tr>
+														<td align="center"><h1 class="space">{$article.heading}</h1></td>
+													</tr>
+													<tr>
+														<td align="center"><font style="color:#FF0000">{$article.dt|date_format:"%y-%m-%d"}&nbsp;记者:{$article.author}</font></td>
+													</tr>
+												</table></td>
+											<td>&nbsp;</td>
+										</tr>
+										<tr>
+											<td>&nbsp;</td>
+											<td height="10">&nbsp;</td>
+											<td>&nbsp;</td>
+										</tr>
+									</table></td>
+								</tr>
+								<tr>
+									<td><table width="502" border="0" cellspacing="0" cellpadding="0" style="overflow:hidden;">
+											<tr>
+												<td width="4%">&nbsp;</td>
+												<td width="93%" height="10">&nbsp;</td>
+												<td width="3%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td width="467" valign="top" style="overflow:hidden;">{$article.content}</td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td height="10">&nbsp;</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+								</tr>
+							</table></td>
+							<td width="27">&nbsp;</td>
+							<td width="182" valign="top">{include file=festival/right.html}</td>
+							<td width="38">&nbsp;</td>
+						</tr>
+						<tr>
+							<td height="30">&nbsp;</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table></td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>{include file=festival/footer.html}</td>
+	</tr>
+</table>
+</body>
+</html>

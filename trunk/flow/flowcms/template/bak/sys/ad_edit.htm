@@ -1,0 +1,198 @@
+
+<script type="text/javascript">
+var id = {$data.id};
+{ literal }
+var field;
+function choose_picture(input)
+{
+	field = input;
+	window.open('./filebrowser/fck_filebrowser.php?type=img&class_id=-1&object_id=' + id, 'picture', 'dialogWidth=610px;dialogHeight=400px');
+}
+function SetUrl(url)
+{
+	var re = /id=(\d+)/;
+	var cr = re.exec(url);
+	if (cr != null && typeof(cr) == 'object' && cr.length != null && cr.length == 2)
+		field.value = cr[1];
+}
+function row_display(id, show)
+{
+	var obj = document.getElementById(id);
+	if (obj)
+		obj.style.display = show ? '' : 'none';
+}
+var rows = new Array ('r_src', 'r_src2', 'r_href', 'r_href2', 'r_position',
+	'r_offset', 'r_size', 'r_title', 'r_wmode', 'r_timeout', 'r_style',
+	'r_loop', 'r_windowname', 'r_extfunc');
+
+var show_matrix = new Array(
+	new Array ('r_src', 'r_href', 'r_size', 'r_style', 'r_extfunc'), // common
+	new Array ('r_src', 'r_src2', 'r_href', 'r_href2', 'r_offset', 'r_size', 'r_style', 'r_wmode', 'r_extfunc'), // float
+	new Array ('r_src', 'r_src2', 'r_href', 'r_href2', 'r_offset', 'r_size', 'r_style', 'r_wmode', 'r_extfunc'), // couplet
+	new Array ('r_href', 'r_position', 'r_size', 'r_title', 'r_timeout', 'r_windowname'), // popup
+	new Array ('r_href', 'r_position', 'r_size', 'r_title', 'r_windowname'), // popunder
+	new Array ('r_src', 'r_href', 'r_wmode', 'r_style', 'r_loop', 'r_position', 'r_extfunc'),  // bookturn
+	new Array ('r_src', 'r_href', 'r_size', 'r_timeout', 'r_extfunc') // full
+);
+function toggle_rows(ad_type)
+{
+	if (ad_type > show_matrix.length || ad_type <= 0)
+		return;
+	
+	var rc = rows.length;
+	for (var i = 0; i < rc; i ++)
+		row_display(rows[i], 0);
+	var rc = show_matrix[ad_type - 1].length;
+	for (i = 0; i < rc; i ++)
+		row_display(show_matrix[ad_type - 1][i], 1);
+}
+
+function sync()
+{
+	toggle_rows(document.forms[0].ad_type.value);
+}
+document.body.onload=sync;
+{/literal}
+</script>
+<style type="text/css">
+    @import url({$cfg.jscalendar_url}/calendar-win2k-1.css);
+</style>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/lang/calendar-zh.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar-setup.js"></script>
+<form name="form1" method="post" action="" target='loader'>
+  <table border="0">
+    <tr>
+      <td bgcolor="#f5f5f5">广告名称：</td>
+      <td><input name="name" type="text" id="name" size="52" value="{$data.name|escape}"/></td>
+    </tr>
+    <tr>
+      <td>调用代码(*)：</td>
+      <td title="网站开发人员根据此代码调用广告"><input name="code" type="text" id="code" size="52" value="{$data.code|escape}" /></td>
+    </tr>
+    <tr>
+      <td bgcolor="#f5f5f5">类型(*):</td>
+      <td><select name="ad_type" id="ad_type" onchange="toggle_rows(this.value)">
+	{ enum_options enum=AD_TYPE selected=$data.ad_type }
+        </select>
+        （查看示意图）</td>
+    </tr>
+    <tr id='r_src'>
+      <td>广告内容(*)：</td>
+      <td title="右侧文件仅对对联/浮动两种类型有效；若与左边相同则不必填写">左
+        <input name="src" type="text" id="src" size="12"  value="{$data.src}"/>
+          <input type="button" name="Button" value="..." onclick="choose_picture(this.form.src)"/>
+	  </td>
+	</tr>
+	<tr id='r_src2'>
+	  <td>&nbsp;</td><td title="右侧文件仅对对联/浮动两种类型有效；若与左边相同则不必填写">
+        右
+        <input name="src2" type="text" id="src2" size="12"  value="{$data.src2}" />
+        <input type="button" name="Button" value="..." onclick="choose_picture(this.form.src2)"/></td>
+    </tr>
+    <tr id='r_href'>
+      <td bgcolor="#f5f5f5">链接地址：</td>
+      <td title="右侧仅对对联/浮动两种类型有效；若与左边相同则不必填写">左
+        <input name="href" type="text" id="href" size="50" value="{$data.href|escape}"/></td>
+    </tr>
+    <tr id='r_href2'>
+      <td>&nbsp;</td>
+      <td title="仅对翻页效果/背投有效；对于背投是指弹出窗口位置">右
+        <input name="href2" type="text" id="href2" size="50"  value="{$data.href2|escape}" /></td>
+    </tr>
+    <tr id='r_position'>
+      <td bgcolor="#f5f5f5">位置：</td>
+      <td title="仅对翻页效果/背投有效；对于背投是指弹出窗口位置">左
+        <input name="pos_left" type="text" id="pos_left" size="12" value="{if $data.pos_left > 0}{$data.pos_left}{/if}" />
+        上
+        <input name="pos_top" type="text" id="pos_top" size="12" value="{ if $data.pos_top > 0}{$data.pos_top}{/if}"/></td>
+    </tr>
+    <tr id='r_offset'>
+      <td>相对位置：</td>
+      <td title="仅对对联/浮动两种类型有效">横
+        <input name="offsetx" type="text" id="offsetx" size="12" value="{if $data.offsetx}{$data.offsetx}{/if}" />
+        纵
+        <input name="offsety" type="text" id="offsety" size="12" value="{if $data.offsety}{$data.offsety}{/if}"/></td>
+    </tr>
+    <tr id='r_size'>
+      <td bgcolor="#f5f5f5">大小</td>
+      <td title="仅对普通/浮动/弹出/背投/顶部全屏有效；对于弹出/背投是指窗口大小">宽
+        <input name="width" type="text" id="width" size="12"  value="{ if $data.width > 0}{$data.width}{/if}"/>
+        高
+        <input name="height" type="text" id="height" size="12" value="{ if $data.height > 0 }{$data.height}{/if}" /></td>
+    </tr>
+	<tr id='r_windowname'>
+	  <td>窗口名称</td>
+	  <td><input name="window_name" type="text" id="window_name" size="50" value="{$data.window_name|escape}" /></td>
+	</tr>
+    <tr id='r_title'>
+      <td>窗口标题：</td>
+      <td title="仅对弹出/背投有效"><input name="title" type="text" id="title" size="40" value="{$data.title|escape}" /></td>
+    </tr>
+    <tr id='r_timeout'>
+      <td bgcolor="#f5f5f5">时间长度：</td>
+      <td title="对对联/弹出/背投/顶部全屏有效；在显示指定毫秒后关闭广告"><input name="timeout" type="text" id="timeout" size="12"  value="{if $data.timeout > 0 }{$data.timeout}{/if}" />
+        （毫秒）</td>
+    </tr>
+    <tr id='r_wmode'>
+      <td>透明：</td>
+      <td title="仅对对联/浮动/翻页效果有效">
+        <input name="wmode" type="radio" value="1" {$data.wmode|html_check:1}/>
+        是
+        <input name="wmode" type="radio" value="0" {$data.wmode|html_check:0}/>
+        否</td>
+    </tr>
+    <tr id='r_style'>
+      <td bgcolor="#f5f5f5">样式(CSS):</td>
+      <td title="仅对对联/浮动/翻页效果有效">
+        <input name="style" type="text" id="style" size="50" value="{$data.style|escape}" /></td>
+    </tr>
+	<tr id='r_extfunc'>
+	  <td>HTML属性：</td>
+	  <td><input name="extfunc" type="text" id="extfunc" size="50" value="{$data.extfunc|escape}" /></td>
+	</tr>
+    <tr id='r_loop'>
+      <td>是否循环：</td>
+      <td title="对于对联/浮动/翻页效果/顶部全屏有效；让Flash循环播放">左
+        <input name="loop_flag" type="radio" value="1" {$data.loop_flag|html_check:1} />
+        是
+        <input name="loop_flag" type="radio" value="0" {$data.loop_flag|html_check:0} />
+        否</td>
+    </tr>
+    <tr id='r_period'>
+      <td bgcolor="#f5f5f5">显示时间段：</td>
+      <td title="仅在指定时间段内显示该广告">从
+        <input name="startdate" type="text" id="startdate" size="15" value="{if $data.startdate > 0}{$data.startdate|date_format:'%Y-%m-%d %H:%I'}{/if}" />
+	<button type="reset" value="..." id="date_b">...</button>
+        至
+        <input name="enddate" type="text" id="enddate" size="15" value="{if $data.enddate > 0}{$data.enddate|date_format:'%Y-%m-%d %H:%I'}{/if}" />
+	<button type="reset" value="..." id="date_b1">...</button>
+	{literal}
+	<script type="text/javascript">
+	Calendar.setup({
+		inputField     :    "startdate",     
+		ifFormat       :    "%Y-%m-%d %H:%M",
+		showsTime      :    true,         
+		button         :    "date_b",
+		singleClick    :    false,   
+		step           :    1        
+	});
+	Calendar.setup({
+		inputField     :    "enddate",     
+		ifFormat       :    "%Y-%m-%d %H:%M",
+		showsTime      :    true,         
+		button         :    "date_b1",
+		singleClick    :    false,   
+		step           :    1        
+	});
+	</script>
+	{/literal}</td>
+    </tr>
+    <tr>
+      <td><input type="button" onclick='window.location.href="ad.php?cmd=list&page={$page}"' value=" 返 回 "/></td>
+      <td><input type="submit" name="Submit" value=" 保 存 " />
+          <input name="id" type="hidden" id="id" value="{$data.id}">
+          <input name="postflag" type="hidden" id="postflag" value="1"></td>
+    </tr>
+  </table>
+</form>

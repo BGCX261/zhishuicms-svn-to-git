@@ -1,0 +1,71 @@
+{ include file=member/header.html}
+{ literal }
+<script type="text/javascript" src="/wescms/lib/prototype-1.4.0.js"></script>
+<script type="text/javascript" src='/wescms/lib/validator.js'></script>
+<script type="text/javascript">
+function ajax_checkcode(obj)
+{
+	var pars = 'cmd=checkcode&checkcode=' + $F(obj);
+	var myAjax = new Ajax.Request('/profile.php', {parameters: pars, onComplete: checkcode_show});
+}
+
+function checkcode_show(request)
+{
+	try {
+		var nb = Validator.GetNoticeBox($('checkcode'));
+		
+		if (!request.responseText)
+		{
+			nb.innerHTML = 'passport返回参数错误，请尝试刷新页面或联系管理员。';
+			nb.className = "noticeError";
+			nb.style.color = "red";
+			user_status = false;
+		}
+		else if (request.responseText == 'true')
+		{
+			nb.innerHTML = '√';
+			nb.className = 'noticeInfo';
+			nb.style.color = 'green';
+		}
+		else
+		{
+			nb.innerHTML = '验证码输入错误';
+			nb.className = 'noticeError';
+			nb.style.color = 'red';
+		}
+	}
+	catch (e)
+	{
+		alert(e.description);
+	}
+}
+</script>
+{/literal }
+<div class="main">
+<table width="770" border="0" align="center" cellpadding="0" cellspacing="0">
+<tr>
+<td width="210">{include file=member/left.html}</td>
+<td>
+{ if $smarty.session.rc_member_login }
+{assign var=u value=$smarty.session.rc_user_info}
+欢迎访问，{$u->username}({$u->name})。这是你第{$u->login_count}登录到本系统，上次成功登录时间为{$u->lastdate|date_format:'%Y-%m-%d %H:%M'}。你现在的积分是{$u->credits}。<br/>
+<br/>
+<a href="profile.php?cmd=logout&forward=/profile.php%3fcmd%3dlogin">注销登录</a>
+{ else }
+<form method="post" class="user_login">
+	<input type="hidden" name="cmd" value="login"/>
+	<input type="hidden" name="forward" value="{$bean->forward}"/>
+	<input type="hidden" name="postflag" value="1"/>{if $message }<font color="red">{$message}</font>{/if}
+	<table align="center">
+	<tr><td>
+	<label for="login_account">用户名:</label></td><td><input type="text" name="username" id="login_account" value="{$bean->username}"/>{ error_message field="username" }</td></tr>
+	<td><label for="login_password">密码:</label></td><td><input type="password" name="password" id="login_password"/>{ error_message field="password" }</td></tr>
+	<td><label for="checkcode">验证码:</label></td><td><input type="text" name="checkcode" id="checkcode" onblur="ajax_checkcode(this)"/><img src="/wescms/checkcode.php?number={$checkcode}"/><span>{ error_message field="checkcode" }</span></td></tr>
+	<tr><td colspan="2" align="center"><input type="submit" value="登录"/><input type="hidden" name="cmd" value="login"/><input type="hidden" name="postflag" value="1"/><input type="hidden" name="simple" value="0"/>
+	&nbsp;</td>
+	</tr>
+	</table>
+</form>
+{ /if }
+</td></tr></table>
+{ include file=footer.html}

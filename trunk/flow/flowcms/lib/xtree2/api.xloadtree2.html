@@ -1,0 +1,132 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+
+<html>
+<head>
+
+<title>xTree API 2 (WebFX)</title>
+
+<!-- WebFX Layout Include -->
+<script type="text/javascript" src="../../webfxlayout.js"></script>
+<script type="text/javascript" src="../../webfxapi.js"></script>
+<!-- end WebFX Layout Includes -->
+
+<style type="text/css">
+
+table {
+	width: 500px;
+}
+
+td {
+	vertical-align: top;
+}
+
+</style>
+
+</head>
+<body>
+
+<!-- WebFX Layout Include -->
+<script type="text/javascript">
+
+/*
+var articleMenu= new WebFXMenu;
+articleMenu.left  = 384;
+articleMenu.top   = 86;
+articleMenu.width = 140;
+articleMenu.add(new WebFXMenuItem("History & Introduction", "index.html"));
+articleMenu.add(new WebFXMenuItem("Usage", "usage.html"));
+articleMenu.add(new WebFXMenuItem("API", "api.html"));
+articleMenu.add(new WebFXMenuItem("Implementation", "implementation.html"));
+articleMenu.add(new WebFXMenuItem("Demo", "javascript:window.open('demo.html','demo','scrollbars=yes,status=no,width=500,height=400,resizable=yes'); void(0);"));
+articleMenu.add(new WebFXMenuSeparator);
+articleMenu.add(new WebFXMenuItem("Download", "http://webfx.eae.net/download/xtree117.zip"));
+webfxMenuBar.add(new WebFXMenuButton("Article Menu", null, null, articleMenu));
+*/
+
+webfxLayout.writeTitle("xTree2 API");
+webfxLayout.writeMenu();
+webfxLayout.writeDesignedByEdger();
+</script>
+
+<div class="webfx-main-body">
+
+<!-- end WebFX Layout Includes -->
+
+<h2 id="WebFXLoadTree">WebFXLoadTree</h2><p>This class extends
+		<code><a href="#WebFXTree">WebFXTree</a></code>
+		and therefore all methods and field available for
+		<code><a href="#WebFXTree">WebFXTree</a></code>
+		are also available for <code>WebFXLoadTree</code>.</p><p>
+		This tree can be used to dynamically load an XML file that
+		describes the tree.
+	</p><h3>Syntax</h3><p><code>
+
+	new WebFXLoadTree(<span class="methodArgument">sText</span>, <span class="methodArgument">sXmlSrc</span>, <span class="methodArgument">oAction</span>, <span class="methodArgument">sBehavior</span>, <span class="methodArgument">sIcon</span>, <span class="methodArgument">sOpenIcon</span>)</code></p><h3>Parameters</h3><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td><code>sText</code></td><td><code></code></td><td>
+				The text (HTML) to show as a label for the tree item
+			</td></tr><tr><td><code>sXmlSrc</code></td><td><code></code></td><td>
+				The URI to XML file describing the items in this tree node
+			</td></tr><tr><td><code>oAction</code></td><td><code></code></td><td>
+				The action to do when the node is activated. If this is String
+				then it is treated as an URL but you can also pass a Function
+				object which will be called when activated.
+			</td></tr><tr><td><code>sBehavior</code></td><td><code></code></td><td>
+				This is used to decide when to show the open icon for folders.
+				Supported values are "classic" and "explorer". When this is
+				"explorer" selected folders show the open icon. For "classic"
+				the open icon is shown for expanded folders.
+			</td></tr><tr><td><code>sIcon</code></td><td><code></code></td><td>The image to use as icon</td></tr><tr><td><code>sOpenIcon</code></td><td><code></code></td><td>The image to use as open icon</td></tr></tbody></table><h3>Static Methods</h3><table><thead><tr><td>Name</td><td>Description</td></tr></thead><tbody>
+		<tr><td><a name="createItemFromElement"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">createItemFromElement</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.createItemFromElement(<span class="methodArgument">oNode</span>)</code></p><h4>Arguments</h4><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td><code>oNode</code></td><td><code></code></td><td>
+						The XML element that describes the tree node.
+					</td></tr></tbody></table><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>
+				This static method takes an XML element and returns a
+				WebFXAbstractNode
+			</td></tr>
+		<tr><td><a name="loadXmlDocument"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">loadXmlDocument</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.loadXmlDocument(<span class="methodArgument">jsNode</span>)</code></p><h4>Arguments</h4><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td><code>jsNode</code></td><td><code></code></td><td>
+						The load tree node that we want to load the document for.
+					</td></tr></tbody></table><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>
+				This starts loading of an XML document associated with a tree node.
+			</td></tr>
+		<tr><td><a name="documentLoaded"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">documentLoaded</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.documentLoaded(<span class="methodArgument">jsNode</span>)</code></p><h4>Arguments</h4><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td><code>jsNode</code></td><td><code></code></td><td>
+						The load tree node that we loaded the document for.
+					</td></tr></tbody></table><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>
+				This is called once the document for a tree node has loaded
+			</td></tr>
+	</tbody></table><h3>Static Fields</h3><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td colspan="3">None.</td></tr></tbody></table><h3>Methods</h3><table><thead><tr><td>Name</td><td>Description</td></tr></thead><tbody><tr><td><a name="getSrc"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">getSrc</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.getSrc()</code></p><h4>Arguments</h4><p>No Arguments.</p><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>Returns the URI to the XML file</td></tr><tr><td><a name="reload"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">reload</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.reload()</code></p><h4>Arguments</h4><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td></td></tr></tbody></table><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>
+				Reloads the XML file and rebuilds the tree. If the
+				XML file is cached (and the HTTP headers don't require the file
+				to be refetched) the file will be taken from the cache.
+			</td></tr><tr><td><a name="setSrc"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">setSrc</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.setSrc()</code></p><h4>Arguments</h4><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td></td></tr></tbody></table><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>Sets the URI to the XML file</td></tr></tbody></table><h3>Fields</h3><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td colspan="3">None.</td></tr></tbody></table><h3>Events</h3><table><thead><tr><td>Name</td><td>Descripton</td></tr></thead><tbody><tr><td colspan="2">None.</td></tr></tbody></table><h3>Remarks</h3><p>
+			None.
+		</p><h2 id="WebFXLoadTreeItem">WebFXLoadTreeItem</h2><p>This class extends
+		<code><a href="#WebFXTreeItem">WebFXTreeItem</a></code>
+		and therefore all methods and field available for
+		<code><a href="#WebFXTreeItem">WebFXTreeItem</a></code>
+		are also available for <code>WebFXLoadTreeItem</code>.</p><p>
+		This tree item can be used to dynamically load an XML file that
+		describes the sub tree of the item.
+	</p><h3>Syntax</h3><p><code>
+
+	new WebFXLoadTreeItem(<span class="methodArgument">sText</span>, <span class="methodArgument">sXmlSrc</span>, <span class="methodArgument">oAction</span>, <span class="methodArgument">eParent</span>, <span class="methodArgument">sIcon</span>, <span class="methodArgument">sOpenIcon</span>)</code></p><h3>Parameters</h3><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td><code>sText</code></td><td><code></code></td><td>
+				The text (HTML) to show as a label for the tree item
+			</td></tr><tr><td><code>sXmlSrc</code></td><td><code></code></td><td>
+				The URI to XML file describing the items in this tree node
+			</td></tr><tr><td><code>oAction</code></td><td><code></code></td><td>
+				The action to do when the node is activated. If this is String
+				then it is treated as an URL but you can also pass a Function
+				object which will be called when activated.
+			</td></tr><tr><td><code>eParent</code></td><td><code></code></td><td>
+				Optional parent tree item. If provided then the item will be
+				added as a child to eParent
+			</td></tr><tr><td><code>sIcon</code></td><td><code></code></td><td>The image to use as icon</td></tr><tr><td><code>sOpenIcon</code></td><td><code></code></td><td>The image to use as open icon</td></tr></tbody></table><h3>Static Methods</h3><table><thead><tr><td>Name</td><td>Description</td></tr></thead><tbody><tr><td colspan="2">None.</td></tr></tbody></table><h3>Static Fields</h3><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td colspan="3">None.</td></tr></tbody></table><h3>Methods</h3><table><thead><tr><td>Name</td><td>Description</td></tr></thead><tbody><tr><td><a name="getSrc"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">getSrc</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.getSrc()</code></p><h4>Arguments</h4><p>No Arguments.</p><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>Returns the URI to the XML file</td></tr><tr><td><a name="reload"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">reload</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.reload()</code></p><h4>Arguments</h4><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td></td></tr></tbody></table><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>
+				Reloads the XML file and rebuilds the tree. If the
+				XML file is cached (and the HTTP headers don't require the file
+				to be refetched) the file will be taken from the cache.
+			</td></tr><tr><td><a name="setSrc"></a><a class="helpLink" href="javascript://" onclick="toggleMethodArguments( event, this ); return false;">setSrc</a><div class="methodContainer"><div class="methodInfo"><h4>Syntax</h4><p><code><span class="object">object</span>.setSrc()</code></p><h4>Arguments</h4><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td></td></tr></tbody></table><h4>Return Type</h4><p><code>void</code></p></div></div></td><td>Sets the URI to the XML file</td></tr></tbody></table><h3>Fields</h3><table><thead><tr><td>Name</td><td>Type</td><td>Descripton</td></tr></thead><tbody><tr><td colspan="3">None.</td></tr></tbody></table><h3>Events</h3><table><thead><tr><td>Name</td><td>Descripton</td></tr></thead><tbody><tr><td colspan="2">None.</td></tr></tbody></table><h3>Remarks</h3><p>
+			None.
+		</p>
+
+<!-- end webfx-main-body -->
+</div>
+
+</body>
+</html>

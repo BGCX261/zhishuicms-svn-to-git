@@ -1,0 +1,57 @@
+body, td {
+	font-size: 12px;
+}
+div.sub_catalogs li {
+	float: left;
+}
+div.sub_catalogs ul {
+	margin-left: 0px;
+}
+div.sub_catalogs li a {
+	font-size: 12px;
+	text-decoration: none;
+	color: #000;
+	display: block;
+	padding: 2px 2px 2px 2px;
+	line-height: 12px;
+	background-color: #fff1d9;
+	border: 1px solid #ff9839;
+	margin-left: 7px;
+	white-space: nowrap;
+	width: 40px;
+	text-align: center;
+}
+form {
+	margin: 0;
+	padding: 0;
+}
+form.top_search * {
+	color: #fff;
+	font-size: 12px;
+}
+form.top_search input.keywords {
+	border: 1px solid #c70700;
+	height: 16px;
+}
+input#username, input#password {
+	height: 16px;
+	border: 0px;
+	border-bottom: 1px solid #000;
+	background-color: #f4cd99;
+	width: 80px;
+}
+div.center_al ul {
+	margin: 0px;
+	padding: 0px;
+	
+}
+div.center_al ul li {
+	list-style: url(template/leisure/images/dot1.gif);
+	margin-left: 20px;
+	padding-left: 0px;
+}
+div.center_al ul li a {
+	text-decoration: none;
+	color: #000;
+	line-height: 16px;
+}

@@ -1,0 +1,35 @@
+<form method="GET" action="redir.php?action=search">
+<table border="0" cellpadding="5" cellspacing="3" width="80%" align="center">
+	<tr>
+		<td>关键字</td>
+		<td><input name="keywords" type="text" size="30" value=''></td>    
+	</tr>
+	<tr>
+		<td>开始日期</td>
+		<td>{ html_select_date time=$smarty.now-3600*24*365 start_year=2003 month_format="%m" field_order="YMD" prefix="Start"}</td>    
+	</tr>
+	<tr>
+		<td>截至日期</td>
+		<td>{ html_select_date time=$smarty.now start_year=2003 month_format="%m" field_order="YMD" prefix="End"}</td>
+	</tr>
+	<tr>
+		<td>搜索范围</td>
+		<td><select name="zone" id="zone">
+{ category_list template=category_select.htm }
+      	</select></td>
+	</tr>
+	<tr>
+		<td>&nbsp;</td>
+		<td><input type="checkbox" name="fulltext" value="1"/>执行全文检索</td>
+	</tr>
+	<tr>
+      				<td>&nbsp;</td>
+      				<td height="20">
+					<input type="hidden" name="postflag" value="1"/>
+					<input type="hidden" name="action" value="search" />
+					<input type="hidden" name="c" value="{$c}"/>
+					<input type="hidden" name="m" value="{$m}"/>
+					<input type="submit" value="  搜索 "/></td>
+      </tr>
+</table>
+      </form>

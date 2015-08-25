@@ -1,0 +1,34 @@
+<html>
+<head>
+<title>button_title_r</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312">
+
+<script>
+	var ttt
+	ttt=2;
+	function oa_tool_left(){
+		if(ttt==2){
+			ttt=1;
+			document.getElementById('frameshow_left').src="images/left_show.gif";
+			top.mainframeset.cols="0,10,*";
+		}
+		else{
+			ttt=2;
+			top.mainframeset.cols = "150,10,*";;
+			document.getElementById('frameshow_left').src="images/left_hide.gif";
+		}
+	}
+</script>
+
+
+</head>
+<body text="#000000" leftmargin="0" topmargin="0" >
+
+<table width="100%" height="100%" border="0" cellpadding="0" cellspacing="0"  style="background:#51a3d5;border-right:1px #ACAAAB solid;">
+  <tr>
+    <td height="100%" align="right" onClick="oa_tool_left()"><img id="frameshow_left" src="images/left_hide.gif" width="8" height="32" alt="隐藏顶部"></td>
+  </tr>
+</table>
+
+</body>
+</html>

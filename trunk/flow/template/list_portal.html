@@ -1,0 +1,37 @@
+{include file=leisure/header.html}
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><img src="template/leisure/images/spacer.gif" width="1" height="4" /></td>
+  </tr>
+</table>
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFCC66">
+  <tr>
+    <td width="163" valign="top"><table width="100%" height="22" border="0" cellpadding="0" cellspacing="0" bgcolor="ffa71d">
+      <tr>
+        <td align="center">热门点击</td>
+      </tr>
+    </table>
+      {article_list mode=hot count=10 catalog_id=$catalog.id assign=articles}
+      <table width="100%" border="0" cellspacing="3" cellpadding="3">
+	  { foreach from=$articles item=article}
+        <tr>
+          <td><img src="template/leisure/images/39.gif"/></td><td><a href="redir.php?catalog_id={$article.catalog}&object_id={$article.id}">{$article.heading}</a></td>
+        </tr>
+		{ /foreach }
+    </table></td>
+    <td width="10" bgcolor="#FFFFFF">&nbsp;</td>
+    <td width="371" valign="top" bgcolor="#FFFFFF">当前位置：{current_position root_id=31 catalog_id=$catalog.id} <br />
+	{ sub_catalog_list catalog_id=$catalog.id assign=catalogs}
+	{foreach from=$catalogs item=acatalog}
+	<table width="100%" bgcolor="#E36F00">
+	<tr><td height="20">&nbsp;<span style='color:#fff'>{$acatalog.name}</span></td><td align="right"><a href="redir.php?catalog_id={$acatalog.id}" style='color:#fff'>more...</a></td></tr>
+	</table>
+    {article_list catalog_id=$acatalog.id cut=46 count=5 hide_more=1}
+	{/foreach}</td>
+    <td width="10" bgcolor="#FFFFFF">&nbsp;</td>
+    <td width="206" valign="top">{include file=leisure/right.html} </td>
+  </tr>
+</table>
+{include file=leisure/footer.html}
+</body>
+</html>

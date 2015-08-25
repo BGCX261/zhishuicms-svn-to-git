@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="{$cfg.xtree_url}/css/xtree2.css"/>
+<script type="text/javascript" src="{$cfg.xtree_url}/js/xtree2.js"></script>
+<script type="text/javascript">
+{literal}
+ webFXTreeConfig = {{/literal}
+	rootIcon        : "{$cfg.xtree_url}/images/folder.png",
+	openRootIcon    : "{$cfg.xtree_url}/images/openfolder.png",
+	folderIcon      : "{$cfg.xtree_url}/images/folder.png",
+	openFolderIcon  : "{$cfg.xtree_url}/images/openfolder.png",
+	fileIcon        : "{$cfg.xtree_url}/images/file.png",
+	iIcon           : "{$cfg.xtree_url}/images/I.png",
+	lIcon           : "{$cfg.xtree_url}/images/L.png",
+	lMinusIcon      : "{$cfg.xtree_url}/images/Lminus.png",
+	lPlusIcon       : "{$cfg.xtree_url}/images/Lplus.png",
+	tIcon           : "{$cfg.xtree_url}/images/T.png",
+	tMinusIcon      : "{$cfg.xtree_url}/images/Tminus.png",
+	tPlusIcon       : "{$cfg.xtree_url}/images/Tplus.png",
+	plusIcon        : "{$cfg.xtree_url}/images/plus.png",
+	minusIcon       : "{$cfg.xtree_url}/images/minus.png",
+	blankIcon       : "{$cfg.xtree_url}/images/blank.png",
+	defaultText     : "Tree Item",
+	defaultAction   : null,
+	defaultBehavior : "explorer",
+	usePersistence	: true
+{literal}};{/literal}
+</script>
+<div style='width:150px;float:left;background-color: #fff;padding:10px;overflow:auto' id="nav">
+<script type="text/javascript">
+var tree = new WebFXTree('发布类型列表', '###', 'explorer');
+{ foreach from=$classes key=class_id item=item }
+var cnode = new WebFXTreeItem('{$item.1}', '###');
+tree.add (cnode);
+	{ foreach from=$positions key=position item=pitem }
+		var pnode = new WebFXTreeItem('{$pitem.1}', 'class_template.php?class_id={$class_id}&position={$position}');
+		cnode.add (pnode);
+	{ /foreach }
+{ /foreach }
+tree.write();
+
+document.body.onload = set_nav_height;
+{literal}
+function set_nav_height()
+{
+	var nav = document.getElementById('nav');
+	nav.style.height = screen.height - 262;
+	nav.style.width = '150';
+	var content = document.getElementById('content');
+	if (!content)
+		return;
+	content.style.width = document.body.offsetWidth - parseInt(nav.style.width) - 20;
+}
+{/literal}
+</script>
+</div>

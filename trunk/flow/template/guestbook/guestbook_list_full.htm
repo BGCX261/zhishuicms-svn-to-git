@@ -1,0 +1,84 @@
+{ literal }
+<style type="text/css">
+div.message_block {
+	border: 1px solid #2175A5;
+	margin: 5px 10px 5px 10px;
+	line-height: 25px;
+	width: 500px;
+}
+div.message_block h1 {
+	font-size: 12px;
+	font-weight: bold;
+}
+div.message_block fieldset {
+	margin: 15px 10px 10px 10px;
+}
+div.message_block div
+{
+	padding: 10px;
+}
+</style>
+<script type="text/javascript">
+function toggle_password_form(id)
+{
+	var obj = document.getElementById('guestbook_' + id);
+	if (obj.style.visibility == 'hidden')
+		obj.style.visibility = '';
+	else
+		obj.style.visibility = 'hidden';
+}
+function gen_message(id, icon, title, content, reply)
+{
+	var html;
+	html = '<h1><img src="template/guestbook/topicface/' + icon + '"/>' + title + '</h1>';
+	html += content;
+	html += '<fieldset style="padding: 10px; color:blue"><legend>版主回复</legend>' + reply + '</fieldset>';
+	var obj = document.getElementById('guestbook_' + id);
+	obj.innerHTML = html;
+	obj.style.padding = '0px';
+	document.getElementById('messagehint_' + id).style.display = 'none';
+}
+</script>
+{/literal}
+<p style='text-align: center'>共有留言 {$total} 条，分为 {$pages} 页显示
+{ if $pages > 1 }
+<a href="redir.php?c={$c}&m={$guestbook_id}&page=0">|&lt;</a>&nbsp;
+<a href="{if $page > 0 }redir.php?c={$c}&m={$guestbook_id}&page={$page-1}{else}#{/if}">&lt;</a>&nbsp;</a>
+{$page+1}&nbsp;
+<a href="{if $page < $pages - 1}redir.php?c={$c}&m={$guestbook_id}&page={$page+1}{else}#{/if}">&gt;</a>&nbsp;
+<a href="redir.php?c={$c}&m={$guestbook_id}&page={$pages-1}">&gt;|</a>
+{ /if }
+&nbsp;<a href="redir.php?catalog_id={$catalog.id}&cmd=add">填写留言</a>
+</p>
+{foreach from=$messages item=message}
+<div class="message_block">
+
+<table bgcolor="#CEDFEF" style='border-bottom: 1px solid #2175A5;width:100%'><tr>
+<td width="300">{$message.name|escape} 发表于：{$message.dt}</td>
+<td align="right">
+{ if $message.email }<a href="mailto:{$message.email|escape}"><img border="0" src="template/guestbook/images/email.gif"/></a>{ /if }
+{ if $message.qq}&nbsp;<img src="template/guestbook/images/qq.gif" alt="{$message.qq|escape}"/>{/if}
+</td>
+</tr></table>
+
+<div>
+				  { if not $message.open_flag }
+				  <p id='messagehint_{$message.id}' style='text-align: center; color: red'>此留言设置为隐藏，只有通过密码验证才可以查看。<a href="###" onclick="toggle_password_form({$message.id})">验证密码</a></p>
+				  <div style='visibility:hidden' id='guestbook_{$message.id}'>
+				  <form method="post">
+				  <input type="password" name="password"/><input type="button" value="提交" onclick="xajax_get_private_reply({$message.id},this.form.password.value)"/>
+				  </form>
+				  </div>
+				  { else }
+<h1><img src="template/guestbook/topicface/{$message.expression}" align="middle"/>{$message.title|escape}</h1>
+{$message.content|escape}
+{ if $message.reply_flag }
+<fieldset style='padding: 10px; color: blue'>
+  <legend>版主回复</legend>
+  {$message.reply}
+</fieldset>
+{/if} 
+				  { /if }
+</div>
+</div>
+{/foreach }

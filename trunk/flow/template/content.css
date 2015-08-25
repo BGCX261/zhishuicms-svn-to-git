@@ -1,0 +1,70 @@
+/*文章正文页面样式开始 */
+
+div#content h1 {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	clear: all;
+}
+
+div.metastuff, div.article_nav {
+	border-top: 1px dotted #999;
+	border-bottom: 1px dotted #999;
+	background-color: #F8F7EF;
+	font-weight: normal;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 2px;
+	width: 100%;
+}
+div.metastuff ul, div.article_nav ul {
+	margin: 0;
+	padding: 0;
+}
+div.metastuff ul li {
+	display: inline;
+	padding-left: 20px;
+}
+div.ariticle_nav, div.article_nav * {
+	text-align: left;
+	padding: 5px;
+}
+div.article_nav a {
+	color: #5689c2;
+}
+div#content {
+	line-height: 200%;
+}
+
+
+div.page_nav {
+	margin-top: 10px;
+	float: right;
+	width: 450px;
+}
+
+div.page_nav a {
+	border: 1px solid #ccc;
+	background-color: #eee;
+	text-decoration: none;
+	color: #666;
+	padding: 3px 5px 3px 5px;
+	line-height: 25px;
+}
+
+div.related h1 {
+	background-color: #224466;
+	font-size: 12px;
+	color: #fff;
+	line-height: 22px;
+	text-align: left;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+div.related li a {
+	line-height: 20px;
+	color: #666;
+}
+
+/*文章正文页面样式结束 */

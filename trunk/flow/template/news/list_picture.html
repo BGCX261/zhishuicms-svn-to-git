@@ -1,0 +1,14 @@
+ { include file="news/header.html" }
+<table width="760" border="0" align="center" cellpadding="4" cellspacing="4" bgcolor="#FFFFFF">
+  <tr>
+    <td valign="top">µ±«∞Œª÷√£∫{current_position catalog_id=$catalog.id}</td>
+    <td width="172" rowspan="2" valign="top">{include file=news/right.html} </td>
+  </tr>
+  <tr>
+    <td valign="top"><div class="block browse">
+      <h1 class="browse">{$catalog.name} </h1>
+      <div class="article_browse">{article_list count=21 catalog_id=$catalog.id template=imagenews_list.html page=$smarty.request.page width=160 height=120}</div>
+    </div></td>
+  </tr>
+</table>
+{ include file="footer.html" }

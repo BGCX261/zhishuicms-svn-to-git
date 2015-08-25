@@ -1,0 +1,15 @@
+
+
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  {foreach from=$articles item=article}
+  <tr>
+      <td valign="middle"><img src="template/edu/images/dot1.gif" width="3" height="5" /></td>
+    <td width="60"  class="highlight">[<a href="redir.php?catalog_id={$article.catalog_name}">{$article.catalog_name}</a>]
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        
+      </table></td>
+    <td  class="highlight"><a href="redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}" target="_blank">{$article.heading}</a> </td>
+  </tr>
+  
+  {/foreach}
+</table>

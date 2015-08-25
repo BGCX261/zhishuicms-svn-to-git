@@ -1,0 +1,74 @@
+<form name="InputForm" action="" method="post">
+<table cellpadding="1" cellspacing="1" border="0" align="center">
+{ if $message }
+<tr>
+<td colspan=2><font color="red">{$message}</font></td>
+</tr>
+{ /if }
+<tr>
+	<td>姓名</td>
+	<td><input type=text class=box size=30 maxlength=100 name="name" value="{$guestbook.name}" />{error_message field=name}</td>
+</tr>
+
+
+<tr>
+	<td>E-mail</td>
+	<td><input type=text class=box size=30 maxlength=50 name="email" value="{$guestbook.email}">{error_message field=email}</td>
+</tr>
+<tr>
+	<td>QQ</td>
+	<td><input type=text class=box size=30 maxlength=50 name="qq" value="{$guestbook.qq}">{error_message field=qq}</td>
+</tr>
+<tr>
+	<td>主题</td>
+	<td><input type=text class=box size=51 maxlength=100 name="title" value="{$guestbook.title}">{error_message field=title}</td>
+</tr>
+
+<tr>
+<td>发帖表情</td>
+<td>
+<div style="height:90px; width: 320px;border:1px inset;background-color: #fff;padding:5px;text-indent:0px;overflow:auto;overflow-y:scroll;">
+<input type="radio" value="face1.gif" name="expression" checked="checked" /><img src="template/guestbook/topicface/face1.gif" alt="" />
+<input type="radio" value="face2.gif" name="expression" /><img src="template/guestbook/topicface/face2.gif" alt="" />
+<input type="radio" value="face3.gif" name="expression" /><img src="template/guestbook/topicface/face3.gif" alt="" />
+<input type="radio" value="face4.gif" name="expression" /><img src="template/guestbook/topicface/face4.gif" alt="" />
+<input type="radio" value="face5.gif" name="expression" /><img src="template/guestbook/topicface/face5.gif" alt="" />
+<input type="radio" value="face6.gif" name="expression" /><img src="template/guestbook/topicface/face6.gif" alt="" />
+<input type="radio" value="face7.gif" name="expression" /><img src="template/guestbook/topicface/face7.gif" alt="" />
+<input type="radio" value="face8.gif" name="expression" /><img src="template/guestbook/topicface/face8.gif" alt="" />
+<input type="radio" value="face9.gif" name="expression" /><img src="template/guestbook/topicface/face9.gif" alt="" />
+<input type="radio" value="face10.gif" name="expression" /><img src="template/guestbook/topicface/face10.gif" alt="" />
+<input type="radio" value="face11.gif" name="expression" /><img src="template/guestbook/topicface/face11.gif" alt="" />
+<input type="radio" value="face12.gif" name="expression" /><img src="template/guestbook/topicface/face12.gif" alt="" />
+<input type="radio" value="face13.gif" name="expression" /><img src="template/guestbook/topicface/face13.gif" alt="" />
+<input type="radio" value="face14.gif" name="expression" /><img src="template/guestbook/topicface/face14.gif" alt="" />
+<input type="radio" value="face15.gif" name="expression" /><img src="template/guestbook/topicface/face15.gif" alt="" />
+<input type="radio" value="face16.gif" name="expression" /><img src="template/guestbook/topicface/face16.gif" alt="" />
+<input type="radio" value="face17.gif" name="expression" /><img src="template/guestbook/topicface/face17.gif" alt="" />
+<input type="radio" value="face18.gif" name="expression" /><img src="template/guestbook/topicface/face18.gif" alt="" />
+</div>
+</td></tr>
+
+<tr>
+	<td valign=top>内容</td>
+	<td><textarea class=lbox cols=50 rows=8 name="content" wrap=virtual>{$guestbook.content}</textarea>{error_message field=content}
+	</td>
+</tr>
+
+<tr>
+	<td></td>
+	<td>
+	<input name="open_flag" type=checkbox value="1">不公开信息（仅管理员可见）
+	</td>
+</tr>
+<tr><td>密码</td>
+	<td><input type=password class=sbox size=7 maxlength=16 name="password" value="{$guestbook.password}">{error_message field=password} (用以查看非公开信息的管理员回复)</td>
+</tr>
+<tr><td></td><td><input type=submit class=button value="发出留言">
+<input type="hidden" name="cmd" value="add">
+<input type="hidden" name="m" value="{$m}"/>
+<input type="hidden" name="postflag" value="1"/>
+<input type="hidden" name="catalog_id" value="{$catalog.id}"></td>
+</tr>
+</table>
+</form>

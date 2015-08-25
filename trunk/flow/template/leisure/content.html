@@ -1,0 +1,61 @@
+{include file=leisure/header.html}<br />
+<link href="template/leisure/css/content.css" rel="stylesheet" type="text/css" />
+<link href="template/leisure/css/leisure_sub.css" rel="stylesheet" type="text/css" />
+{literal}
+<style type="text/css">
+
+div#content h1, div.content_column h1 {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	clear: all;
+}
+div.metastuff, div.article_nav {
+	border-top: 1px dotted #999;
+	border-bottom: 1px dotted #999;
+	background-color: #F8F7EF;
+	font-weight: normal;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+div.metastuff ul {
+	margin: 5px 3px 5px 3px;
+}
+div.metastuff ul li {
+	display: inline;
+	padding-left: 20px;
+}
+div.ariticle_nav, div.article_nav * {
+	text-align: left;
+	padding: 5px;
+}
+div.article_nav a {
+	color: #5689c2;
+}
+div#content {
+	line-height: 200%;
+}
+
+</style>
+{/literal}
+<div id="content_left">
+<div id="sub_left_content" class="leisure-white">
+{article_list mode=hot period=7 count=18 cut=26 catalog_id=32963,32965,139909,33023,139910,139911,139912,139913,139914,139915,139916,139917,139918 template=leisure/article_list.html}
+</div>
+</div>
+<div id="content_right">
+<div class="wrapper">
+µ±«∞Œª÷√£∫{current_position root_id=31 catalog_id=$catalog.id} <br />
+{ article_detail id=$smarty.request.object_id template=article_detail_simple.htm}
+</div>
+</div>
+</div>
+<script>
+document.getElementById("content_left").style.height=document.getElementById("content_right").scrollHeight+"px";
+</script>
+{include file=leisure/footer.html}
+</body>
+</html>

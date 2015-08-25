@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN"
+     "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+<head>
+<title>XTree 2 Demo</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link type="text/css" rel="stylesheet" href="css/xtree2.css">
+<script type="text/javascript" src="js/xtree2.js"></script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+var t = new WebFXTree("Hello World");
+var ti0 = new WebFXTreeItem("Item 0");
+var ti1 = new WebFXTreeItem("Time");
+var ti2 = new WebFXTreeItem("Item 2");
+ti2.setId("ti2");
+var ti3 = new WebFXTreeItem;
+ti3.setText("<Item 3>");
+var ti4 = new WebFXTreeItem("<strong>Item 4</strong>");
+
+t.add(ti0);
+t.add(ti1);
+t.add(ti2);
+t.add(ti3, ti0);
+t.add(ti4);
+t.onchange = function ()
+{
+	if (t.getSelected())
+	{
+		changedItems.add(new WebFXTreeItem(webFXTreeHandler.textToHtml(
+			t.getSelected().getText() + " - " + new Date)));
+		updateChangeItem();
+	}
+};
+
+var changedItems = new WebFXTreeItem("Changed", null, t );
+
+function removeChangeItem()
+{
+	var fc = this.getFirstChild();
+	if (fc)
+		this.remove(fc);
+	updateChangeItem();
+}
+
+function updateChangeItem()
+{
+	var cs = changedItems.getChildNodes();
+	changedItems.setText("Change Events [" + cs.length + "]");
+	if (cs.length > 0 )
+	{
+		changedItems.setToolTip("Click to remove first item");
+		changedItems.setAction( removeChangeItem );
+	}
+	else
+	{
+		changedItems.setToolTip("This lists the change events");
+		changedItems.setAction( null );
+	}
+}
+
+window.setInterval(function()
+{
+	ti1.setText( (new Date).toLocaleTimeString() );
+}, 1000);
+
+function add50() {
+	var d = new Date;
+	for (var i = 0; i < 50; i++)
+		ti1.add( new WebFXTreeItem("Item " + i) );
+	alert("Took " + (new Date - d));
+}
+
+function add50_2() {
+	var d = new Date;
+	t.setSuspendRedraw(true);
+	for (var i = 0; i < 50; i++)
+		ti1.add( new WebFXTreeItem("Item " + i) );
+	t.setSuspendRedraw(false);
+	ti1.update();
+	alert("Took " + (new Date - d));
+}
+
+function remove50() {
+	var d = new Date;
+	var cs = ti1.childNodes;
+	for (var i = Math.min(cs.length - 1, 99); i >= 0 && ti1.hasChildren(); i--)
+		ti1.remove( cs[i] );
+	alert("Took " + (new Date - d));
+}
+
+function remove50_2() {
+	var d = new Date;
+	t.setSuspendRedraw(true);
+	var cs = ti1.childNodes;
+	for (var i = Math.min(cs.length - 1, 99); i >= 0 && ti1.hasChildren(); i--)
+		ti1.remove( cs[i] );
+	t.setSuspendRedraw(false);
+	ti1.update();
+	alert("Took " + (new Date - d));
+}
+
+function add50deep() {
+	var d = new Date;
+	var tmp = ti1;
+	for (var i = 0; i < 50; i++)
+		tmp.add( tmp = new WebFXTreeItem("Item " + i) );
+	alert("Took " + (new Date - d));
+}
+
+function add50deep_2() {
+	var d = new Date;
+	t.setSuspendRedraw(true);
+	var tmp = ti1;
+	for (var i = 0; i < 50; i++)
+		tmp.add( tmp = new WebFXTreeItem("Item " + i) );
+	t.setSuspendRedraw(false);
+	ti1.update();
+	alert("Took " + (new Date - d));
+}
+
+</script>
+
+<button onclick="ti0.add( new WebFXTreeItem( String(new Date), function () { this.remove(); } ) );">Add new to Item 0</button>
+<button onclick="ti2.add( new WebFXTreeItem( String(new Date), function () { this.remove(); } ) );">Add new to Item 2</button>
+<button onclick="t.add( new WebFXTreeItem( String(new Date), function () { this.remove(); } ) );">Add new to root</button>
+<button onclick="add50()">Add 50 to Item 1</button>
+<button onclick="add50_2()">Add 50 to Item 1 (alt 2)</button>
+<button onclick="remove50()">Remove 50 from Item 1</button>
+<button onclick="remove50_2()">Remove 50 from Item 1 (alt 2)</button>
+<button onclick="add50deep()">Add 50 deep to Item 1</button>
+<button onclick="add50deep_2()">Add 50 deep to Item 1 (alt 2)</button>
+
+<hr>
+
+<label for="show-lines"><input type="checkbox" id="show-lines" checked onclick="t.setShowLines(this.checked)"> Show lines</label>
+
+<label for="show-expand-icons"><input type="checkbox" id="show-expand-icons" checked onclick="t.setShowExpandIcons(this.checked)"> Show expand icons</label>
+
+<label for="show-root"><input type="checkbox" id="show-root" checked onclick="t.setShowRootNode(this.checked)"> Show root node</label>
+
+<label for="show-root-lines"><input type="checkbox" id="show-root-lines" checked onclick="t.setShowRootLines(this.checked)"> Show root lines</label>
+
+<hr>
+
+<button onclick="t.setSelected(ti2)">Select ti2</button>
+
+<p>Alt 2 uses suspendRedraw and then does an update when all done.</p>
+
+<script type="text/javascript">
+
+var d0 = new Date;
+
+t.write();
+</script>
+
+<p>And another tree in the same page</p>
+
+<script type="text/javascript">
+var d1 = new Date;
+
+var t2 = new WebFXTree("Second Tree");
+for (var i = 0; i < 50; i++)
+	t2.add( new WebFXTreeItem("Item " + i) );
+t2.write();
+
+document.title += " [" + (d1 - d0) + ", " + (new Date - d0) + "]";
+
+</script>
+
+
+</body>
+</html>

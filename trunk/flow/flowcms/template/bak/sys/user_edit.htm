@@ -1,0 +1,107 @@
+<style type="text/css">
+    @import url({$cfg.jscalendar_url}/calendar-win2k-1.css);
+</style>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/lang/calendar-zh.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar-setup.js"></script>
+
+<form name="" method="post" action="" target="loader">
+  <table border="0" cellpadding="1" cellspacing="1">
+    <tr>
+      <td width="75" align="right"><label for="username">用户名(<span class="accesskey">N</span>):</label></td>
+      <td colspan="3"><input name="username" type="text" id="username" size="61" accesskey="n" value="{$data.username}" { if $data.id > 0 }readonly{/if}/></td>
+    </tr>
+    <tr>
+      <td align="right"><label>口令:</label></td>
+      <td><input name="password" type="password" id="password" /></td>
+      <td width="75" align="right">重复口令:</td>
+      <td><input name="password1" type="password" id="password1" /></td>
+    </tr>
+    
+    <tr>
+      <td align="right"><p><label>真实姓名:</label></p>      </td>
+      <td><input name="name" type="text" id="name" value="{$data.name}" /></td>
+      <td align="right">出生日期:</td>
+      <td><input name="birthday" type="text" id="birthday" value="{$data.birthday|date_format:'%Y-%m-%d'}" readonly size="15" />
+	<input type="reset" value="..." id="date_b">
+	{literal}
+	<script type="text/javascript">
+	Calendar.setup({
+		inputField     :    "birthday",     
+		ifFormat       :    "%Y-%m-%d",
+		showsTime      :    true,         
+		button         :    "date_b",
+		singleClick    :    false,   
+		step           :    1        
+	});
+	</script>
+	{/literal}</td>
+    </tr>
+    
+    <tr>
+      <td align="right">性别:</td>
+      <td colspan="3">{ enum_radios name="gender" enum="gender" selected=$data.gender } </td>
+    </tr>
+    <tr>
+      <td align="right"><label>单位:</label></td>
+      <td colspan="3"><input name="unit" type="text" id="unit" value="{$data.unit|escape:"html"}" size="61" /></td>
+    </tr>
+    <tr>
+      <td align="right"><label>部门:</label></td>
+      <td><input name="branch" type="text" id="branch" value="{$data.branch|escape:"html"}" /></td>
+      <td align="right">职务:</td>
+      <td><input name="duty" type="text" id="duty" value="{$data.duty|escape:"html"}" /></td>
+    </tr>
+    
+    <tr>
+      <td align="right"><label>电话:</label></td>
+      <td><input name="tele" type="text" id="tele" value="{$data.tele|escape:"html"}" /></td>
+      <td align="right">手机:</td>
+      <td><input name="mobile" type="text" id="mobile" value="{$data.mobile|escape:"html"}" /></td>
+    </tr>
+    
+    <tr>
+      <td align="right"><label>电子邮件:</label></td>
+      <td colspan="3"><input name="email" type="text" id="email" value="{$data.email|escape:"html"}" size="61" /></td>
+    </tr>
+    <tr>
+      <td align="right"><label>QQ:</label></td>
+      <td><input name="qq" type="text" id="qq" value="{$data.qq|escape:"html"}" /></td>
+      <td align="right">MSN:</td>
+      <td><input name="msn" type="text" id="msn" value="{$data.msn|escape:"html"}" /></td>
+    </tr>
+    
+    <tr>
+      <td align="right"><label>地址:</label></td>
+      <td colspan="3"><input name="address" type="text" id="address" value="{$data.address|escape:"html"}" size="61" /></td>
+    </tr>
+    <tr>
+      <td align="right"><label>邮编:</label></td>
+      <td colspan="3"><input name="zip" type="text" id="zip" value="{$data.zip|escape:"html"}" /></td>
+    </tr>
+    <tr>
+      <td align="right"><label>其他联系方式:</label></td>
+      <td colspan="3"><input name="contact" type="text" id="contact" value="{$data.contact|escape:"html"}" size="61" /></td>
+    </tr>
+
+    <tr>
+      <td align="right" valign="top"><label for="descri">简介(<span class="accesskey">D</span>):</label></td>
+      <td colspan="3"><textarea name="descri" cols="60" rows="5" id="descri" accesskey="d">{$data.descri|escape:"html"}</textarea></td>
+	  </tr>
+	  <tr>
+	  <td align="right" valign="top"><label for="user_type">帐号类型:(<span class="accesskey">T</span>):</label></td>
+	  <td colspan="3"><select name="user_type" id="user_type" accesskey="t">{enum_options enum="user_type" selected=$data.user_type}</td>
+	  </tr>
+	   <tr>
+	   <td align="right" valign="top"><label for="lock_flag">帐号状态:(<span class="accesskey">L</span>):</label></td>
+	   <td colspan="3"><input type="checkbox" name="lock_flag" id="lock_flag" value="1" { if $data.lock_flag}checked{/if} accesskey="l"/><label for="lock_flag">锁定该帐号（不允许用户登录）</label></td>
+	   </tr>
+	   <tr>
+	    <td><input name="button" type="button" onclick="window.location.href='manage_group.php?page={$smarty.request.page}'" value="返回"/></td>
+		<td colspan="3"><input type="submit" name="Submit" value="保存" />
+		<input name="id" type="hidden" id="id" value="{$data.id}" />
+		<input name="postflag" type="hidden" id="postflag" value="1" /></td>
+		 </tr>
+  </table>
+</form>
+<iframe name="loader" width="0" height="0" src="../blank.html"></iframe>

@@ -1,0 +1,26 @@
+<style type="text/css">
+{literal }
+* {
+	font-size: 12px;
+}
+{/literal }
+</style>
+{vote_form id=$smarty.request.object_id}
+<table width="100%">
+<tr><td>投票结果：</td></tr>
+<tr><td>
+{assign var=vote_option_count value=$vote_options|@count}
+累计参与投票人数： { $vote_count } 选项个数：{ $vote_option_count} 
+</td></tr>
+<tr><td>
+<table>
+{assign var=i value=0}
+{ foreach from=$vote_options item=option}
+<tr>
+<td>{$option.1}</td><td><img src="{$cfg.theme_url}/bar{$i%10}.gif" border="0" width="{$option.width}" height="11"/> <strong>{$option.2}</strong> ({$option.rate}%)</td></tr>
+{assign var=i value=$i+1}
+{/foreach}
+</table>
+</td></tr>
+</table>
+<input type="button" onclick="window.close()" value="关闭"/>

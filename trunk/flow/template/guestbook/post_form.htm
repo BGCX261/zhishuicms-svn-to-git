@@ -1,0 +1,51 @@
+{ literal }
+<script type="text/javascript" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/ubbcode.js"></script>
+<script type="text/javascript">
+function into(obj)
+{
+	 document.getElementsByName('content')[0].innerHTML+=obj;
+}
+</script>
+{ /literal }
+
+<form method="post" name="frmGstBook">
+<input type="hidden" name="postflag" value="1"/>
+<input type="hidden" name="c" value="{ $c }"/>
+<input type="hidden" name="m" value="{ $m }"/>
+<table border="0" cellspacing="2" cellpadding="3">
+		<tr>
+				<td>* 姓名:</td>
+				<td><input name="name" type="text" id="name" /></td>
+				<td>电话:</td>
+				<td><input name="tele" type="text" id="tele" /></td>
+		</tr>
+		<tr>
+				<td>电子邮件:</td>
+				<td><input name="email" type="text" id="email" /></td>
+				<td>地址:</td>
+				<td><input name="contact" type="text" id="contact" /></td>
+		</tr>
+		<tr>
+				<td>* 标题:</td>
+				<td colspan="3"><input name="title" type="text" id="title" /></td>
+				</tr>
+		<tr>
+				<td>内容:</td>
+				<td colspan="3"><img onclick="Cbold()" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/bold.gif" width="22" height="22" alt="粗体" border="0"> <img onclick="Citalic()" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/italicize.gif" width="23" height="22" alt="斜体" border="0"> <img onclick="Cunder()" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/underline.gif" width="23" height="22" alt="下划线" border="0"> <img onclick="Ccenter()" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/center.gif" width="22" height="22" alt="居中" border="0"> <img onclick="Curl()" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/url.gif" width="22" height="22" alt="超级连接" border="0"> <img onclick="Cemail()" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/email.gif" width="23" height="22" alt="Email连接" border="0"> <img onclick="Cimage()" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/image.gif" width="23" height="22" alt="图片" border="0"> <IMG onclick="Cfly()" height=22 alt="飞行字" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/fly.gif" width=23 border=0> <IMG onclick="Cmarquee()" height=22 alt="移动字" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/move.gif" width=23 border=0> <IMG onclick="Cguang()" height=22 alt="发光字" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/glow.gif" width=23 border=0> <IMG onclick="Cying()" height=22 alt="阴影字" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/ubb/shadow.gif" width=23 border=0><br />
+						<textarea name="content" cols="50" rows="9" wrap="virtual" id="content">
+				</textarea>
+						<br />
+						<img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/01.gif" onclick="into('[em01]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/02.gif" onclick="into('[em02]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/03.gif" onclick="into('[em03]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/04.gif" onclick="into('[em04]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/05.gif" onclick="into('[em05]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/06.gif" onclick="into('[em06]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/07.gif" onclick="into('[em07]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/08.gif" onclick="into('[em08]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/09.gif" onclick="into('[em09]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/10.gif" onclick="into('[em10]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/11.gif" onclick="into('[em11]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/12.gif" onclick="into('[em12]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/13.gif" onclick="into('[em13]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/14.gif" onclick="into('[em14]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/15.gif" onclick="into('[em15]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/16.gif" onclick="into('[em16]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/17.gif" onclick="into('[em17]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/18.gif" onclick="into('[em18]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/19.gif" onclick="into('[em19]')" /><img class="emot" src="{$smarty.const.WESCMS_ROOT}/sharetemplate/guestbook/images/em/20.gif" onclick="into('[em20]')" /></td>
+				</tr>
+		<tr>
+				<td>&nbsp;</td>
+				<td colspan="3"><input name="open_flag" type="checkbox" id="open_flag" value="1" onclick="this.form.password.disabled=this.form.password1.disabled=!this.checked" />
+						<label for="open_flag">只允许管理员查看</label> 查看密码:
+				<input name="password" type="text" disabled="1" id="password" size="10" />
+						<input name="password1" type="text" disabled="1" id="password1" size="10" /></td>
+				</tr>
+		<tr>
+				<td colspan="4" align="center"><input type="submit" value="写好了" name="cmdOK" onclick="return(checkform())" class="logf" /></td>
+		</tr>
+</table>
+</form>

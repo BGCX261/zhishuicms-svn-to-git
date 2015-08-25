@@ -1,0 +1,6 @@
+<ul>
+	{ foreach from=$articles item=article }
+	<li><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }>{$article.heading}</a></li>
+	{ /foreach }
+</ul>
+<a href="redir.php?catalog_id={$articles_catalog}" class="more">more</a>

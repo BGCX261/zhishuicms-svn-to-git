@@ -1,0 +1,9 @@
+<table width="100%" class="al1">
+	{ foreach from=$articles item=article }
+	<tr><td width="99%"><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if } title="{$article.heading}">{$article.heading|cut:$params.tcut}</a></td><td nowrap>[{ $article.dt|date_format:"%m-%d" }]</td>
+	{ /foreach }
+
+	<table><tr><td width="96%"></td><td><a href="redir.php?catalog_id={$article.catalog}"><img src="template/images/edu/more.png" width="31" height="13" border="0" /></a></td></tr></table>
+
+</table>
+

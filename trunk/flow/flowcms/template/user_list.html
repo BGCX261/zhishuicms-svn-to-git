@@ -1,0 +1,145 @@
+	<div id="HeadBar">
+		<span id="current_position">当前操作：用户管理</span>
+		<div id="buttons">
+		<ul>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='javascript:window.location.reload()';">刷新</a></li>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='control.php?act=user_manage&amp;cmd=add';">添加新用户</a></li>
+		</ul>
+		</div>
+	</div>
+<script language="JavaScript">
+<!--
+{ literal }
+function del(id){
+	if(confirm("确实要删除ID为"+id+"的用户吗？该操作不可恢复。\n\n")){
+		window.loader.location.href="control.php?act=user_manage&amp;cmd=delete&amp;uid="+id;
+		}
+}
+function article_operate(form){
+  var operation = form.operation.value;
+  var ids = '';
+  for (var i = 0; i < form.elements.length; i ++){
+    var e = form.elements[i];
+    if (e.name == 'order' && e.checked){
+      if (ids.length == 0)
+        ids = e.value;
+      else
+        ids = ids + ',' + e.value;
+    }
+  }
+  if (ids.length == 0){
+    alert('没有选择任何用户');
+    return;
+  }
+  else{
+    // operate on selected articles
+    if (operation == 'delete'){
+      if (!confirm("确认要删除选中的用户吗？该操作不可恢复。\n\n"))
+        return;
+    }
+   var uri = 'control.php?act=user_manage&amp;cmd=delete&amp;uid='+ ids;
+   }
+	window.loader.location.href = uri;
+	return;
+}
+
+
+function check_all(form){
+for (var i = 0; i < form.elements.length; i ++)
+  {
+    var e = form.elements[i];
+    if (e.name == 'order')
+    {
+      e.checked = form.checkall.checked;
+    }
+  }
+}
+//-->
+</script>
+{ /literal }
+<form method="post" id="form" name="form" action="control.php?act=user_manage&cmd=list">
+<div class="toolbar">
+<input type="checkbox" onclick="check_all(this.form)" id="checkall"/><label for="checkall">全选</label>
+操作<select name="operation">
+<option value="delete">删除</option>
+</select><input type="button" onClick="article_operate(this.form)" value="执行"/>
+<input type="hidden" name="catalog" value="{$catalog.id}"/>
+<label for="keywords">查询用户<input type="text" name="keywords" size="15" value=""/></label><input type="submit" value=" 查询 "/>
+</div>
+
+<div id="listview" style="overflow:auto;">
+<table width="100%" cellpadding=1 cellspacing=0 class=frameLine align=center>
+	<tr>
+		<td>
+			<table width=100% cellpadding=0 border=0 cellspacing=0 height=20 background="/images/listview_col.gif" align=center>
+				<tr style='font-weight:bold'>
+					<td nowrap width="30" align="center">选择</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td width="50" align="right" align="center">编号</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+					<td width="80" align="center">用户名</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+					<td nowrap width="80" align="center">姓名</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td nowrap width="180">部门</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td nowrap width="50">职务</td>
+					<td width=3><img src="images/listview_sep.gif"></td>
+					<td nowrap style="width:36px" align="center">编辑</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+					<td nowrap style="width:36px" align="center">删除</td>
+					<td width="1"><img src="images/listview_sep.gif"></td>
+				</tr>
+				{foreach from=$users item=user}
+
+				<tr onmouseover='this.className="listview_row_mouseover"' onmouseout='this.className=""' height="20">
+					<td bgcolor='#EBE6E0' width="30" align="center"><input type="checkbox" name="order" value="{$user.id}"/></td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="50" align="right">{$user.id}&nbsp;</span></td>
+					<td width="3" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="80" ><a href="control.php?act=user_manage&cmd=edit&uid={$user.id}">{$user.username|cut:44}</a></td>
+					<td width="3" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="80" align="center"><a href="control.php?act=user_manage&cmd=edit&uid={$user.id}">{$user.name|cut:44}</a></td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="180"><a href="control.php?act=user_manage&cmd=edit&uid={$user.id}">{$user.branch|cut:44}</a></td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' width="50"><a href="control.php?act=user_manage&cmd=edit&uid={$user.id}">{$user.duty|cut:44}</a></td>
+					<td class="listview_sep" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' align="center"><a href='control.php?act=user_manage&cmd=edit&uid={$user.id}' class='btn_edit'>edit</a></td>
+					<td width="3" bgcolor=#EBE6E0></td>
+					<td bgcolor='#EBE6E0' align="center"><a onclick='del({$user.id});' class="btn_del">del</a></td>
+					<td width="3" bgcolor=#EBE6E0></td>
+				</tr>	 
+				
+				{/foreach}
+				
+			</table>
+		</td>
+	</tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td bgcolor=#ffffff>
+			<table cellpadding=0 cellspacing=0 border=0>
+				<tr>
+					<td><a href='control.php?act=user_manage&cmd=list&page=0'><img src="images/first.gif" border=0></a></td>
+					<td>{if $pagenum !=0}<a href='control.php?act=user_manage&cmd=list&page={$pagenum-1}'><img src="images/prev.gif"  border=0></a>{else}<img src="images/prev.gif"  border=0>{/if}</td>
+					<td>{if $pagenum < $pagecount-1}<a href='control.php?act=user_manage&cmd=list&page={$pagenum+1}'><img src="images/next.gif" border=0></a>{else}<img src="images/next.gif" border=0> {/if}</td>
+					<td><a href='control.php?act=user_manage&cmd=list&page={$pagecount-1}'><img src="images/last.gif" border=0></a></td>
+					<td align=center width=95%>共有条目：{$users_count} &nbsp;&nbsp;第 {$pagenum+1} / {$pagecount} 页</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+</div>
+
+</form>
+{ literal }
+<script type="text/javascript" src="template/browser.js"></script>
+<script type="text/javascript">
+var sizeArray = wesGetPageSize();
+document.getElementById('listview').style.height = (sizeArray[1] - 55) + 'px';
+</script>
+{ /literal }
+<iframe width="0" height="0" src="template/blank.html" name="loader"></iframe>

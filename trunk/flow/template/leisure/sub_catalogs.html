@@ -1,0 +1,9 @@
+{foreach from=$columns item=column}
+{if $column.id == 32963 || $column.id == 32965 || $column.id == 33023 || $column.id == 139909 || $column.id == 139910 || $column.id == 139911 || $column.id == 139912 || $column.id == 139913 || $column.id == 139914 || $column.id == 139915 || $column.id == 139916 || $column.id == 139917}
+<div class="sub_level_bar" style="background-image:url(template/leisure/images/bar_{$column.id}.gif);"></div>
+<div class="sub_level_content leisure-brown">
+{article_list catalog_id=$column.id cut=46 count=17 template=leisure/article_list.html}
+</div>
+<div class="more"><a href="redir.php?catalog_id={$column.id}"><img src="template/leisure/images/more.jpg" /></a></div>
+{/if}
+{/foreach}

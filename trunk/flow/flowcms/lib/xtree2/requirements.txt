@@ -1,0 +1,68 @@
+
+XTree2 Requirements
+
+( ) 1. backward compatible API (I'm not sure we need 100% comaptible but we
+       could easily achieve 95%)
+(x) 2. Split methods into more specific methods to make it easier to create sub
+       classes without having to copy/change the major methods
+(x) 3. Improved line handling
+( ) 4. Better dynamic support. Text, Icon (this can be done by having redraw
+       methods. Using redraw prevents code to be dubplicated)
+(x) 5. External persistance handler
+( ) 6. IE6 (IE55 if free. No planned support for IE50), Moz 1+, O7, KHTML3?.
+       Basically any DOM1 browser with innerHTML support and DOM0 event handlers.
+(x) 7. Multiple trees on a page
+( ) 8. No IE6 memory leaks (XTree 1 does not leak but XLoadTree 1 does)
+(x) 9. Better selection model. Should not depend on focus/click.
+       removing/collapsing selected fixes
+(x) 10. Add before another sibling
+(x) 11. onchange event when selection changes
+(x) 12. reveal method
+(x) 13. getNodeById or similar mapping function provided by default
+(x) 14. setId
+(x) 15. Tool tip
+(x) 16. Target support
+(x) 17. Option to only mark items that are links as links. In other words an
+        item without an action should not be underlined on hower and should not
+        use the pointer cursor. The easiest way to implement this is most likely
+        to use a specific class for this case or the inverse. This is achieved
+        by marking the rows with the (partial) class no-action. Then one can use
+        the alternate style sheet xtree2.links.css
+(x) 18. Hide root node
+(x) 19. Hide root lines
+(x) 20. Hide lines
+(x) 21. Hide expand icons
+( ) 22. We should have setters for all properties to make it more consistent
+
+
+XLoadTree2 requirements
+
+(x) 1. IE (MSXML) and Mozilla (XMLHTTP) (maybe even IE file:// support?) File://
+       not needed.
+(x) 2. More attribute to property mapping (for example open and espescially id)
+( ) 3. Allow root element to have attributes and these should map to the element
+       that loaded the xml file. We're not sure this will be supported in 2.0?
+( ) 4. NO MEMORY LEAKS
+(x) 5. onload and onerror event
+(x) 6. Recursive open/load of items tree.openPath( sPath, bSelect )
+	sPath = "item text/item text/item text"
+
+
+
+
+XTree 2 Todos
+
+(x) Keyboard nav
+( ) Dynamic changes
+	(x) Add remove
+	(x) Icon change
+	(x) Text/Html change
+(x) setters for props with side effects (like redrawing)
+(x) expand() and collapse() for backwards compat
+(x) expandAll() and collapseAll()
+(x) expandChildren() and collapseChildren()
+(x) Needs to create a test case for the onchange
+(x) Icons, setBehavior
+(x) Persistance manager
+(x) Up key when first child of root is selected does not move selection to root
+(x) implement findNodeByText( textorRegExp [, index] )

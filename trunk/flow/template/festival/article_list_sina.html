@@ -1,0 +1,42 @@
+<script src="template/images/sinaflash.js" type="text/javascript"></script>
+{assign var=suf value=$articles.0.catalog}
+<div id="focusViwer_{$suf}" align="center">
+<script type="text/javascript">
+<!--
+var text_height=22
+var swf_height = {if $params.height}{$params.height}{else}180{/if}+text_height
+var curhref=document.location.href;
+
+
+var pics = '';
+var links = '';
+var texts = '';
+{ foreach from=$articles item=article }
+pics += 'file.php?cmd=preview%26id={$article.picture_id}|';
+links += '{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}%26object_id={$article.id}{/if}|';
+texts += '{$article.heading}|';
+{ /foreach }
+if (pics.length > 0)
+	pics = pics.substring(0, pics.length -1 );
+if (links.length > 0)
+	links = links.substring(0, links.length - 1);
+if (texts.length > 0)
+	texts = texts.substring(0, texts.length - 1);
+
+var FocusFlash = new sinaFlash("template/images/pixviewer.swf", "focusflash_{$suf}", {if $params.width}{$params.width}{else}240{/if}, swf_height, "7", "#FFFFFF", false, "High");
+FocusFlash.addParam("allowScriptAccess", "sameDomain");
+FocusFlash.addParam("menu", "false");
+FocusFlash.addParam("wmode", "opaque");
+
+FocusFlash.addVariable("pics", pics);
+FocusFlash.addVariable("links", links);
+FocusFlash.addVariable("texts", texts);
+FocusFlash.addVariable("borderwidth", {if $params.width}{$params.width}{else}240{/if});
+FocusFlash.addVariable("borderheight", {if $params.height}{$params.height}{else}180{/if});
+FocusFlash.addVariable("textheight", text_height);
+FocusFlash.addVariable("curhref", curhref);
+FocusFlash.write("focusViwer_{$suf}");
+
+//-->
+</script>
+</div>

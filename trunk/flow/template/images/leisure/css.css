@@ -1,0 +1,235 @@
+.white14 {
+	font-size: 14px;
+	line-height: 18px;
+	font-weight: bolder;
+	color: #FFFFFF;
+}
+.grey {
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #666666;
+}
+.icon {
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bold;
+	color: #000000;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-color: #333333;
+	border-right-color: #333333;
+	border-bottom-color: #333333;
+	border-left-color: #333333;
+}
+.ye {
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bold;
+	color: 744604;
+}
+.text {
+	font-size: 12px;
+	line-height: 18px;
+	color: #666666;
+}
+.texttitle {
+	font-size: 12px;
+	line-height: 18px;
+	font-weight: bolder;
+	color: #000000;
+}
+
+
+
+A.nav:link    { color: #ffffff;text-decoration: none; }
+A.nav:visited { color: #ffffff;text-decoration: none; }
+A.nav:active  { color: #999999;text-decoration: none; }
+A.nav:hover   { color: #fedc46;text-decoration: underline; }
+A:link    { color: #333333;text-decoration: none; }
+A:visited { color: #666666;text-decoration: none; }
+A:active  { color: #286112;text-decoration: none; }
+A:hover   { color: #286112;text-decoration: underline; }
+
+div#content h1 {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	clear: all;
+}
+
+div.metastuff, div.article_nav {
+	border-top: 1px dotted #999;
+	border-bottom: 1px dotted #999;
+	background-color: #F8F7EF;
+	font-weight: normal;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+div.metastuff ul li {
+	display: inline;
+	padding-left: 20px;
+}
+div.ariticle_nav, div.article_nav * {
+	text-align: left;
+	padding: 5px;
+}
+div.article_nav a {
+	color: #5689c2;
+}
+div#content {
+	line-height: 200%;
+}
+
+a.more {
+	margin: 5px;
+	margin-right: 10px;
+	text-indent: -5000px;
+	background-image: url(/images/more.gif);
+	display: block;
+	float: right;
+	width: 42px;
+	height: 16px;
+}
+
+
+div.page_nav {
+	margin-top: 10px;
+	float: right;
+	width: 450px;
+}
+
+div.page_nav a {
+	border: 1px solid #ccc;
+	background-color: #eee;
+	text-decoration: none;
+	color: #666;
+	padding: 3px 5px 3px 5px;
+	line-height: 25px;
+}
+
+div.related h1 {
+	background-color: #9CC5DB;
+	font-size: 12px;
+	line-height: 22px;
+	text-align: left;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+div.related li a {
+	line-height: 20px;
+	color: #666;
+}
+
+div#content h1 {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	clear: all;
+}
+
+div.metastuff, div.article_nav {
+	border-top: 1px dotted #999;
+	border-bottom: 1px dotted #999;
+	background-color: #F8F7EF;
+	font-weight: normal;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+div.metastuff ul li {
+	display: inline;
+	padding-left: 20px;
+}
+div.ariticle_nav, div.article_nav * {
+	text-align: left;
+	padding: 5px;
+}
+div.article_nav a {
+	color: #5689c2;
+}
+div#content {
+	line-height: 200%;
+}
+
+a.more {
+	margin: 5px;
+	margin-right: 10px;
+	text-indent: -5000px;
+	background-image: url(/images/service/more.png);
+	display: block;
+	float: right;
+	width: 31px;
+	height: 13px;
+}
+
+
+div.page_nav {
+	margin-top: 10px;
+	float: right;
+	width: 450px;
+}
+
+div.page_nav a {
+	border: 1px solid #ccc;
+	background-color: #eee;
+	text-decoration: none;
+	color: #666;
+	padding: 3px 5px 3px 5px;
+	line-height: 25px;
+}
+
+div.related h1 {
+	background-color: #9CC5DB;
+	font-size: 12px;
+	line-height: 22px;
+	text-align: left;
+	padding-left: 10px;
+	margin-bottom: 10px;
+}
+div.related li a {
+	line-height: 20px;
+	color: #666;
+}
+
+td {
+	font-size: 12px;
+}
+div.block ul {
+	margin-left: 0px;
+	list-style-type: none;
+	margin-top: 4px;
+	margin-bottom: 2px;
+}
+div.block ul li a {
+	padding-left: 13px;
+	background: url(/images/service/dot.png) no-repeat 5px;
+	white-space: nowrap;
+	width: 120px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: block;
+	text-decoration: none;
+	line-height: 20px;
+	border-bottom: 1px dotted #ccc;
+	color: #333;
+}
+div.block1 ul li a {
+	width: 180px;
+}
+div.block2 ul li a {
+	width: 200px;
+}
+div.left ul li a {
+	margin-left: 5px;
+	padding-left: 28px;
+	background: url(/images/service/dot2.gif) no-repeat 2px;
+	border-bottom: none;
+}

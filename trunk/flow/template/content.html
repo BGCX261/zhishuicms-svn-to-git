@@ -1,0 +1,75 @@
+{include file=leisure/header.html}
+{literal}
+<style type="text/css">
+
+div#content h1, div.content_column h1 {
+	font-size: 16px;
+	font-weight: bold;
+	text-align: center;
+	clear: all;
+}
+div.metastuff, div.article_nav {
+	border-top: 1px dotted #999;
+	border-bottom: 1px dotted #999;
+	background-color: #F8F7EF;
+	font-weight: normal;
+	text-align: center;
+	font-size: 12px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	width: 100%;
+}
+div.metastuff ul {
+	margin: 5px 3px 5px 3px;
+}
+div.metastuff ul li {
+	display: inline;
+	padding-left: 20px;
+}
+div.ariticle_nav, div.article_nav * {
+	text-align: left;
+	padding: 5px;
+}
+div.article_nav a {
+	color: #5689c2;
+}
+div#content {
+	line-height: 200%;
+}
+
+</style>
+{/literal}
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><img src="template/leisure/images/spacer.gif" width="1" height="4" /></td>
+  </tr>
+</table>
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFCC66">
+  <tr>
+    <td width="163" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td>{include file=leisure/right.html}</td>
+      </tr>
+    </table>
+    <table width="100%" height="22" border="0" cellpadding="0" cellspacing="2" bgcolor="ffa71d">
+      <tr>
+        <td align="center">热门点击</td>
+      </tr>
+    </table>
+      {article_list mode=hot count=10 catalog_id=$catalog.id assign=articles}
+      <table width="100%" border="0" cellspacing="3" cellpadding="3">
+	  { foreach from=$articles item=article}
+        <tr>
+          <td><img src="template/leisure/images/39.gif"/></td><td><a href="redir.php?catalog_id={$article.catalog}&object_id={$article.id}">{$article.heading}</a></td>
+        </tr>
+		{ /foreach }
+    </table></td>
+    <td width="10" bgcolor="#FFFFFF">&nbsp;</td>
+    <td valign="top" bgcolor="#FFFFFF">当前位置：{current_position root_id=31 catalog_id=$catalog.id} <br />
+    <br />
+    <div > { article_detail id=$smarty.request.object_id template=article_detail_simple.htm} </div></td>
+  </tr>
+</table>
+{include file=leisure/footer.html}
+</body>
+</html>

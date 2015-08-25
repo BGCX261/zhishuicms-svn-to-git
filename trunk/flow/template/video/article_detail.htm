@@ -1,0 +1,77 @@
+<div id='content'>
+<h1>{ $article.heading }</h1>
+<div class="metastuff">
+<ul><li>记者：{$article.author}</li><li>编辑：{$article.editor}</li><li>发布时间: { $article.dt|date_format:"%Y-%m-%d" }</li><li> 浏览次数: { $article.visitcount+1 }</li></ul></div>
+<table width="100%"><tr><td align="center">
+{article_keywords article_id=$smarty.request.object_id assign=ext}
+{if $ext <> 'wmv' and $ext <> 'avi' and $ext <> 'asf' and $ext <> 'flv' }{assign var=ext value='rm'}{/if}
+{if $ext == 'rm' }{assign var=protocal value='rtsp'}{elseif $ext == 'flv'}{assign var=protocal value='flash'}{else}{assign var=protocal value='mms'}{/if}
+
+{if $protocal == 'mms' }
+<object  height=360 width=480 classid="clsid:6bf52a52-394a-11d3-b153-00c04f79faa6" standby="loading media player components..." width="100%" height="100%" viewastext>
+        <param name="autostart" value="false">
+        <param name="uimode" value="full">
+        <param name="url" value="mms://qsctech.zju.edu.cn/{$article.id}.{$ext}">
+        <param name="volume" value="100">
+        <param name="stretchtofit" value="true">
+        </object>			
+{elseif  $protocal == 'flash'}
+	<object classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,28,0" width="480" height="360"> 
+		<param name="_cx" value="15875">
+		<param name="_cy" value="11906">
+		<param name="FlashVars" value>
+		<param name="Movie" value="http://www.qsc.zju.edu.cn/video/peach.swf?vcastr_file=http://www.qsc.zju.edu.cn/video/{$article.id}.{$ext}&IsShowTime=1">
+		<param name="WMode" value="Window">
+		<param name="Play" value="0">
+		<param name="Loop" value="-1">
+		<param name="Quality" value="High">
+		<param name="SAlign" value="LT">
+		<param name="Menu" value="0">
+		<param name="Base" value>
+		<param name="AllowScriptAccess" value>
+		<param name="Scale" value="NoScale">
+		<param name="DeviceFont" value="0">
+		<param name="EmbedMovie" value="0">
+		<param name="BGColor" value>
+		<param name="SWRemote" value>
+		<param name="MovieData" value>
+		<param name="SeamlessTabbing" value="1">
+		<param name="Profile" value="0">
+		<param name="ProfileAddress" value>
+		<param name="ProfilePort" value="0">
+		<param name="AllowNetworking" value="all">
+		<param name="AllowFullScreen" value="true">
+		<embed src="http://www.qsc.zju.edu.cn/video/peach.swf?vcastr_file=http://www.qsc.zju.edu.cn/video/{$article.id}.{$ext}&IsShowTime=1" allowFullScreen="true" quality="high" pluginspage="http://www.macromedia.com/go/getflashplayer" type="application/x-shockwave-flash" width="480" height="360">
+	</object>
+
+{else}
+<OBJECT id=Control1 height=360 width=480
+classid=clsid:CFCDAA03-8BE4-11CF-B84B-0020AFBBCCFA class=OBJECT>
+<PARAM NAME='src' VALUE='rtsp://qsctech.zju.edu.cn/{$article.id}.{$ext}'>
+   <PARAM NAME=CONSOLE VALUE=Clip1>
+				<PARAM NAME=CONTROLS VALUE=imagewindow>
+				<PARAM NAME=AUTOSTART VALUE=0>
+				</OBJECT>
+				<br>
+				<OBJECT classid=CLSID:CFCDAA03-8BE4-11CF-B84B-0020AFBBCCFA height=28 id=video2 width=329>
+				<PARAM NAME=AUTOSTART VALUE=0>
+				<PARAM NAME=CONTROLS VALUE=controlpanel>
+				<PARAM NAME=CONSOLE VALUE=Clip1>
+				</OBJECT>
+{/if}<br />
+{if $ext <> 'flv'}
+点击“播放”按钮开始播放；<a href='{$protocal}://qsctech.zju.edu.cn/{$smarty.request.object_id}.{$ext}' target='player'><strong>点击这里在播放软件中观看 </strong></a>
+{/if}
+</td></tr></table>
+<div class="content">
+{ $article.content }
+</div>
+</div>
+{ assign var=id value=$smarty.request.object_id}
+{ article_visitcount id=$id }
+
+
+<div class="article_nav">
+{ article_nav id=$id mode="summary" direction="both" }
+</div>
+<a name="footer"></a>

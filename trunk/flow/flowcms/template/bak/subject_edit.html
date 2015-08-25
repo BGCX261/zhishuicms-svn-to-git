@@ -1,0 +1,61 @@
+
+<script type="text/javascript" src="{$cfg.fckeditor_url}/fckeditor.js"></script>
+<style type="text/css">
+    @import url({$cfg.jscalendar_url}/calendar-win2k-1.css);
+</style>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/lang/calendar-zh.js"></script>
+<script type="text/javascript" src="{$cfg.jscalendar_url}/calendar-setup.js"></script>
+
+<form method="POST" target="loader">
+<table width=90% align=center>
+<tr><td colspan="2">{heading label=专题基本属性}
+</td></tr>
+<tr><td>专题标题:</td><td><input type="text" size="60" name="title" value="{$data.title|escape}"/>发布状态：<select name="status"><option value="1" {$data.status|html_option:1}>草稿</option><option value="2" {$data.status|html_option:2}>发布</option></select>
+<input type="checkbox" name="highlight" value="1" id="highlight" {$data.highlight|html_check:1}>
+<label for="highlight">高亮显示</label>
+<input type="checkbox" name="sticky" value="1" id="sticky" {$data.sticky|html_check:1}>
+<label for="sticky">置顶</label>
+</td></tr>
+<tr><td valign="top">专题介绍:</td><td>
+
+<script type="text/javascript">
+	var editor = new FCKeditor('intro') ;
+	editor.BasePath = '{$cfg.fckeditor_url}/';
+	editor.Config['CustomConfigurationsPath']  = '../../fckeditor_config.js'; 
+	editor.Config['ImageBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=img&class_id={$smarty.const.CC_SUBJECT}&object_id={$data.id}';
+	editor.Config['LinkBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?class_id={$smarty.const.CC_SUBJECT}&object_id={$data.id}';
+	editor.Config['FlashBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=swf&class_id={$smarty.const.CC_SUBJECT}&object_id={$data.id}';
+	editor.Height = 230;
+	editor.Width = '100%';
+	editor.Value = "{$data.intro|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"\r":"\\n"|replace:"/script":"/s\"+\"cript"}";
+	editor.Create() ;
+</script>
+
+</td></tr>
+<tr><td valign="top">专题子栏目:</td><td><textarea name="catalogs" cols="59" rows="10">{$data.catalogs|escape}</textarea><span class="hint">在这里输入专题的子栏目标题，每行一个</span></td></tr>
+<tr><td valign="top">链接地址:</td><td><input type="text" name="url" size="60" value="{$data.url|escape}"/><span class="hint">如果输入网址，则打开此专题时将直接跳转到该网址</span></td></tr>
+<tr><td>日期:</td><td>
+<input type=text size=20 name=dt id=f_date value="{$data.dt}" readonly><button type="reset" value="..." id=date_b>...</button></td></tr>
+{ literal }
+<script type="text/javascript">
+    Calendar.setup({
+        inputField     :    "f_date",      // id of the input field
+        ifFormat       :    "%Y-%m-%d %H:%M",       // format of the input field
+        showsTime      :    true,            // will display a time selector
+        button         :    "date_b",   // trigger for the calendar (button ID)
+        singleClick    :    false,           // double-click mode
+        step           :    1                // show all years in drop-down boxes (instead of every other year as default)
+    });
+</script>
+{ /literal }
+{ if $use_district }
+<tr><td>区域:</td><td>{ set_checkboxes set='district' value=$data.district}</td></tr>
+{/if }
+<tr><td>
+  <input type="button" value=" 返回 " onclick="window.location.href='hwnd_subject.php?cmd=subject_list&catalog_id={$data.catalog_id}&page={$data.page}';"/></td><td><input type="submit" value=" 保存 "/></td></tr></table>
+<input type="hidden" name="page" value="{$data.page}"/>
+<input type="hidden" name="postflag" value="1"/>
+<input type="hidden" name="id" value="{$data.id}"/>
+<input type="hidden" name="catalog_id" value="{$data.catalog_id}"/>
+</form>

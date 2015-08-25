@@ -1,0 +1,17 @@
+{foreach from=$articles item=article}
+<table width="100%" border="0" cellspacing="2" cellpadding="2">
+  <tr>
+    <td align="center"><div align="center"><img src="file.php?cmd=preview&id={$article.picture_id}" width="200" height="150" alt="" /></div></td>
+  </tr>
+  <tr>
+    <td><table width="100%" border="0" cellspacing="2" cellpadding="2">
+      <tr>
+        <td align="center"><div align="center" class="css"><a href="redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}">{$article.heading|cut:30}</a></div></td>
+      </tr>
+      <tr>
+	  	<td>&nbsp;</td>
+	  </tr>
+    </table></td>
+  </tr>
+</table>
+{/foreach}

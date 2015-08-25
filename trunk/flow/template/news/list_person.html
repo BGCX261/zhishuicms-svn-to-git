@@ -1,0 +1,37 @@
+{ include file="news/header.html" }
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+    </table></td>
+    <td width="10" rowspan="2"><img src="images/spacer.gif" width="10" height="20" /></td>
+    <td width="180" rowspan="2" valign="top">{ include file=news/left.html} </td>
+  </tr>
+  <tr>
+    <td width="180" align="center" valign="top" bgcolor="#CED7E7"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td align="center"><br />
+          <img src="template/news/images/btn_imagenews.gif" width="165" height="26" /></td>
+      </tr>
+      <tr>
+        <td align="center">{article_list count=3 picture_only=1 catalog_id=$catalog.id template=article_list_picture_vert1.html width=120 height=160}</td>
+      </tr>
+    </table>
+      <table width="96%" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td align="center"><br />
+          <img src="template/news/images/btn_hot.gif" width="165" height="26" /></td>
+      </tr>
+      <tr>
+        <td>{article_list count=8 cut=25 catalog_id=12,13,15,16 template=article_list_hot.htm mode=hot} </td>
+      </tr>
+    </table></td>
+    <td valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="3">
+      <tr>
+        <td>µ±«∞Œª÷√£∫{current_position catalog_id=$catalog.id root_id=1} </td>
+      </tr>
+    </table>
+      <br />
+    {article_list count=30 catalog_id=$catalog.id template=article_list_pages.htm page=$smarty.request.page cut=23}</td>
+  </tr>
+</table>
+{ include file="footer.html" }

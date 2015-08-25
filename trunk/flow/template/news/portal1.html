@@ -1,0 +1,124 @@
+
+<center><div id=fullscreenad style="display:none">&nbsp;</div></center>
+{ include file="news/header.html" }
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td width="521" height="270" background="template/news/images/news_zdgj_bg.gif"><table width="602" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+        <td colspan="2"><img src="template/news/images/new_zdgj.jpg" width="501" height="43" /></td>
+      </tr>
+      <tr>
+        <td height="194">{article_list catalog_id=12 count=5 picture_only=1 template=article_list_sina.html width=180 height=135 tcut=34}</td>
+        <td width="36%" rowspan="2"><span class="block2">{article_list catalog_id=12 template=article_list_news.htm count=9 tcut=38}</span></td>
+      </tr>
+      <tr>
+        <td width="64%" height="194">&nbsp;</td>
+        </tr>
+      <tr>
+        <td height="13" colspan="2">&nbsp;</td>
+      </tr>
+    </table></td>
+    <td width="239" rowspan="6" align="left" valign="top">{ include file=news/right.html } </td>
+  </tr>
+  <tr>
+    <td><table width="508" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="2"><img src="template/news/images/news_yxfc.gif" width="505" height="43" /></td>
+      </tr>
+      <tr>
+        <td width="61%" height="185"><span class="black"><span class="block">{article_list catalog_id=15 count=10 tcut=40}</span>
+            <label></label>
+        </span></td>
+        <td width="39%">{article_list catalog_id=15 count=1 picture_only=1 template=article_list_news_picture.html width=180 height=135 tcut=34}</td>
+      </tr>
+      <tr>
+        <td colspan="2"><img src="template/news/images/news_d.gif" width="520" height="15" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="502" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td colspan="2"><img src="template/news/images/news_stbf.gif" width="505" height="43" /></td>
+      </tr>
+      <tr>
+        <td width="34%" height="185">{article_list catalog_id=16 count=1 picture_only=1 template=article_list_news_picture.html width=180 height=135 tcut=34}</td>
+        <td width="66%"><span class="black">
+          <label></label>
+          <br />
+          {article_list catalog_id=16 count=10 tcut=44}</span></td>
+      </tr>
+      <tr>
+        <td colspan="2"><img src="template/news/images/news_d.gif" width="505" height="15" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="505" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="template/news/images/news_ztbd.gif" width="505" height="43" /></td>
+      </tr>
+      <tr>
+        <td height="185"><table width="100%" border="0" cellspacing="2" cellpadding="0">
+
+          <tr>
+            <td class="black">{ subject_list catalog_id=20 count=1 assign=subjects }
+              { foreach from=$subjects item=subject }
+              <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                  <tr>
+                    <td><table width="100%" border="0" cellspacing="3" cellpadding="3">
+                        <tr>
+                          <td class="deepblue"><div align="center"><strong>&nbsp;{$subject.title}</strong></div></td>
+                        </tr>
+                        <tr>
+                          <td height="19"><div align="center">{$subject.intro}</div></td>
+                        </tr>
+                        <tr>
+                          <td height="19" align="right"><div align="left"><a href="redir.php?catalog_id={$subject.catalog_id}&amp;object_id={$subject.id}">²é¿´ÏêÏ¸ÄÚÈÝ¡­</a></div></td>
+                        </tr>
+                    </table></td>
+                    <td width="130" valign="top"><table width="100%" border="0" cellspacing="2" cellpadding="3">
+                        <tr>
+                          <td align="center">{subject_article_list id=$subject.id catalog_id=$catalog.id count=1 picture_only=1 template=news/sal_pp.html width=120 height=160 tcut=40} </td>
+                        </tr>
+                    </table></td>
+                  </tr>
+                </table>
+              <br />
+              { /foreach }<br/>
+              <a class="more" href="redir.php?catalog_id=20">more</a>
+              <label></label></td>
+          </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td><img src="template/news/images/news_d.gif" width="520" height="15" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td><table width="505" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="template/news/images/news_rw.gif" width="505" height="43" /></td>
+      </tr>
+      <tr>
+        <td height="185"><table width="93%" border="0" cellspacing="2" cellpadding="0">
+          <tr>
+            <td>&nbsp;</td>
+          </tr>
+          <tr>
+            <td class="black"><span class="block">{article_list catalog_id=5,6,7,8,9,10 count=4 picture_only=1 template=news/person_list.html}</span> <br />
+              <a href="redir.php?catalog_id=4" class="more">more</a></td>
+          </tr>
+        </table></td>
+        </tr>
+      <tr>
+        <td><img src="template/news/images/news_d.gif" width="520" height="15" /></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+{ include file="footer.html" }

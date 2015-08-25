@@ -1,0 +1,32 @@
+@charset "gb2312";
+/* CSS Document of party_list.html */
+/*main*/
+.main {
+	width:990px;
+	padding:0 5px;
+}
+/*left*/
+.left {
+	float:left;
+	width:215px;
+}
+/*hot*/
+.hot {
+	border:1px solid #AF1C1A;
+	width:213px;
+	text-align:left;
+}
+
+.hot .hot_title {
+	background:url(../images/party_list_hot_title_bg.gif) left top repeat-x #E8A3A3;
+	width:213px;
+}
+
+.hot .hot_content {
+	background:url(../images/party_list_e.gif) right bottom no-repeat #F3C7C7;
+	padding:7px 14px 4px 11px;
+}
+/*end hot*/
+/*end left*/
+/*end main*/
+

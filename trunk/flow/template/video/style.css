@@ -1,0 +1,63 @@
+body, td {
+	font-size: 12px;
+}
+
+ul {
+	line-height: 20px;
+	font-size: 12px;
+	color: #000;
+	list-style-image: url(template/edu/images/dot1.gif);
+	margin: 0px;
+	margin-left: 17px;
+}
+a {
+	color: #000;
+	text-decoration: none;
+}
+ul a {
+	text-decoration: none;
+	color: #333;
+}
+/* 一级栏目导航div样式开始 */
+
+div.catalog {
+	padding-left: 10px;
+	padding-right: 10px;
+}
+div.catalog ul {
+	margin-left: 0px;
+	list-style-image: none;
+	list-style-type: none;
+	line-height: 25px;
+	border-top: 3px solid #e2e2e2;
+	list-style-type: none;
+	list-style-image:none;
+}
+div.catalog ul li a {
+	background: url(/images/edu/catalog-icon.png) no-repeat 0 -3px;
+	padding-left: 40px;
+}
+div.catalog ul li.current a {
+	background: url(/images/edu/catalog-icon1.png) no-repeat 0 -3px;
+}
+div.catalog ul li {
+	border-bottom: 3px solid #e2e2e2;
+	text-align: center;
+}
+/* 一级栏目导航div样式结束 */
+
+.cw {
+	color: #fff;
+}
+
+span.zdxgb_header {
+	display: block;
+	width: 273px;
+	height: 41px;
+	background: url(template/edu/images/btn_zdxgb.gif) no-repeat;
+	padding: 10px 0 0 35px;
+	font-size: 12px;
+	font-weight: bold;
+	color: #fff;
+	letter-spacing: 3px;
+}

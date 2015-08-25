@@ -1,0 +1,61 @@
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html;charset=gb2312"/>
+<title>登录 - WESCMS</title>
+<link rel="stylesheet" href="share/themes/default/style.css"/>
+{ literal }
+<script language="javascript">
+if(window.top!=window) 
+{
+	window.top.location.href=window.location.href;
+}
+
+function focus_input()
+{
+	document.forms[0].username.focus();
+}
+</script>
+{ /literal }
+</head>
+<body onLoad="focus_input()">
+<table width="100%" height="100%">
+<tr><td align="center" valign="middle"><table border="0" align="center" cellpadding="0" cellspacing="0" class=Panel>
+  <tr>
+    <td colspan="2" valign="middle"><img src="top.gif" width="800" height="80"></td>
+  </tr>
+  <tr>
+    <td width="723" height="400" valign="middle" background="b1.gif"><img src="pic.gif" width="722" height="274">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+          <td width="520"><img src="jian.gif" width="517" height="67"></td>
+          <td><form method="post" action="login.php" name="Login" target="loader">
+              <table border="0" cellspacing="2" cellpadding="3">
+                <tr>
+                  <td><label for='account'>用户名</label></td>
+                  <td><input name="username" type="text" id='username' value="{$bean->username}" size="20">                  </td>
+                </tr>
+                <tr>
+                  <td><label for='password'>口令</label></td>
+                  <td><input name="password" type="password" id="password" size="20"></td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td><input type="submit" value="登录"/>&nbsp;&nbsp;<a href="/apps/editor_bbs">工作论坛</a>
+                      <input type="hidden" name="postflag" value="1"></td>
+                </tr>
+              </table>
+          </form></td>
+        </tr>
+      </table></td>
+    <td width="77" rowspan="2" valign="middle"><img src="a2.gif" width="72" height="435"></td>
+  </tr>
+  <tr>
+    <td height="33" valign="middle" background="a1.gif"> &nbsp;Powered by WESCMS </td>
+    </tr>
+  
+</table></td>
+  </tr>
+</table>
+<iframe name="loader" width="0" height="0" src="blank.html"></iframe>
+</body>
+</html>

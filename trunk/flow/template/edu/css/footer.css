@@ -1,0 +1,13 @@
+@charset "gb2312";
+/* CSS Document of footer.html */
+/*footer*/
+.footer{
+	background:url(../images/footer_bg.gif) left bottom repeat-x;
+	height:100px;
+}
+
+.footer_copy{
+	margin-top:40px;
+	color:#666666;
+}
+/*end footer*/

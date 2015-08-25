@@ -1,0 +1,32 @@
+<div align="center">
+<form name="givescore" action="javascript:void(0)">
+<table width="100%" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td colspan="2"><div align="center" style="font-size:18px; font-weight:bold">文章评分</div></td>
+  </tr>
+  <tr>
+    <td width="20%">文章：</td>
+    <td>[{$article.id}]{$article.heading}</td>
+  </tr>
+  <tr>
+    <td width="20%">编辑：</td>
+    <td>{$article.editor}&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="20%">得分:</td>
+    <td><input type="text" name="score" value="{$article.score}"></td>
+  </tr>
+  <tr>
+    <td width="20%">&nbsp;</td>
+    <td>
+      <input type="submit" name="Submit" value="评价" onClick="Postscore('givescore.php?article_id={$article.id}','POST',2,document.forms['givescore'],{$article.id});">
+      <input type="reset" name="Submit2" value="返回" onClick="score_clean()">
+	  <input type="hidden" name="article_id" value="{$article.id}">
+	  <input type="hidden" name="editor" value="{$article.editor}"  />
+	  <input type="hidden" name="fscore" value="{$article.score}" />
+	  <input type="hidden" name="postflag" value="1">
+    </td>
+  </tr>
+</table>
+ </form>
+ </div>

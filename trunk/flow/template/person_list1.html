@@ -1,0 +1,18 @@
+<table width="100%" cellspacing="5"><tr>
+	{ foreach from=$articles item=aarticle }
+	<td width="50%" valign="top"><a href="{if $aarticle.link}{$aarticle.link}{else}redir.php?catalog_id={$aarticle.catalog}&amp;object_id={$aarticle.id}{/if}" target="_blank" { if $aarticle.highlight }class="highlight"{ /if }>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" bordercolor="0">
+	<tr>
+	<td width="13%" align="left">
+	  <table width="26%" border="1" cellpadding="6" cellspacing="0" bordercolor="#EAEAEA">
+        <tr>
+          <td><div align="center"><img src="file.php?cmd=preview&amp;id={$aarticle.picture_id}" width="84" height="112" border="0"/></div></td>
+        </tr>
+      </table>	  </td>
+	  <td width="87%" align="left">{article_list catalog_id=$aarticle.catalog template=article_list_new1.htm count=4 tcut=14}	
+	</tr>
+	  </table>
+
+    {$aarticle.heading|cut:18}</a></td>
+	{ /foreach }
+</tr></table>

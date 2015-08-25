@@ -1,0 +1,22 @@
+.main {
+height:auto;
+}
+#content_left {
+width:204px;
+background-color:#666666;
+background-image:url(../images/content_left.gif);
+background-repeat:no-repeat;
+float:left;
+display:inline;
+}
+#content_right {
+width:780px;
+float:left;
+margin-left:8px;
+display:inline;
+background-color:#FFFED9;
+text-align:justify;
+}
+.wrapper {
+padding:5px 30px 10px 30px;
+}

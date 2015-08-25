@@ -1,0 +1,138 @@
+<table width="100%" class="Panel">
+  <tr>
+    <td><form method="post" name="catalog_edit" target="loader">
+        <table width="100%">
+          <tr>
+            <td width="120" align="right">栏目名称:</td>
+            <td><input type="text" name="name" size="40" value="{$data.name|escape:"html"}"></td>
+          </tr>
+		  <tr>
+			<td width="120" align="right">栏目别名:</td>
+		  <td><input type="text" name='alias' size="40" value="{$data.alias}"/>		  </tr>
+          <tr>
+            <td width="120" align="right">类型:</td>
+            <td><select name=type>
+                <option value="">&lt;请选择&gt;</option>
+                
+{ foreach from=$catalog_types item=catalog key=cid}
+                
+                <option value="{$cid}" {$data.type|html_option:$cid}>{$catalog.1}</option>
+                
+{ /foreach }
+
+              
+              </select><a href="#" onclick="loader.location.href='manage_user.php?cmd=save_preference&amp;pref_name=catalog.new.type&amp;pref_value='+ document.catalog_edit.type.value" class="save_default_value" title="设为默认值">save as default</a></td>
+          </tr>
+          <tr>
+            <td width="120">&nbsp;</td>
+            <td><input type="checkbox" name="show_in_guide" id="show_in_guide" value="1" {$data.show_in_guide|html_check:1} />
+              <label for="show_in_guide">在栏目导航中显示该栏目</label></td>
+          </tr>
+          <tr>
+            <td width="120" align="right">网址:</td>
+            <td><input type="text" name="url" id="url" value="{$data.url}" size="40"/>
+              <br/>
+              打开此栏目时，自动跳转到以上网址</td>
+          </tr>
+          {if $use_district}
+          <tr>
+            <td width="120" align="right">所属区域:</td>
+            <td>{set_checkboxes set="district"  value=$data.district }</td>
+          </tr>
+          {/if}
+          {if $use_contrib}
+          <tr>
+            <td width="120" align="right">接受投稿:</td>
+            <td>{enum_radios name='contrib' enum='boolean' selected=$data.contrib}</td>
+          </tr>
+          {/if}
+          <tr>
+            <td width="120" align="right">栏目描述:</td>
+            <td>
+<script type="text/javascript" src="{$cfg.fckeditor_url}/fckeditor.js"></script>
+	<script type="text/javascript">
+	var editor = new FCKeditor('description') ;
+	editor.BasePath = '{$cfg.fckeditor_url}/';
+	editor.Config['CustomConfigurationsPath']  = '../../fckeditor_config.js'; 
+	editor.Config['ImageBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=img&class_id=1&object_id={$data.id}';
+	editor.Config['LinkBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?class_id=1&object_id={$data.id}';
+	editor.Config['FlashBrowserURL'] = '../../../../sys/filebrowser/fck_filebrowser.php?type=swf&class_id=1&object_id={$data.id}';
+	editor.Height = 230;
+	editor.Width = '100%';
+	editor.Value = "{$data.description|replace:"\"":"\\\""|replace:"\r\n":"\\n"|replace:"\r":"\\n"|replace:"/script":"/s\"+\"cript"}";
+	editor.Create() ;
+	</script></td>
+          </tr>
+          <tr>
+            <td colspan="2">{heading label="前台页面选项（需前台模板支持方有效）" }</td>
+          </tr>
+          <tr>
+            <td width="120" align="right">显示位置:</td>
+            <td><select name="show_position" id="show_position">
+                <option value="0" {$data.show_position|html_option:0}>&lt;不显示&gt;</option>
+                <option value="1" {$data.show_position|html_option:1}>左侧</option>
+                <option value="2" {$data.show_position|html_option:2}>中间</option>
+                <option value="3" {$data.show_position|html_option:3}>右侧</option>
+              </select>
+              <label for="show_position">在栏目组对应的前台页面中的显示位置</label></td>
+          </tr>
+          <tr>
+          	<td width="120" align="right">&nbsp;</td>
+            <td><label><input type="checkbox" name="label_link" value="1" {if $data.label_link}checked{/if}/>栏目名称显示为链接</label></td>
+          </tr>
+          <tr>
+            <td colspan="2">{heading label="发布与模板选项" }</td>
+          </tr>
+          <tr>
+            <td width="120" align="right" valign="top"><label for="base_path">发布起始点:</label></td>
+            <td><select name="base_path_type">
+			<option value="0">&lt;请选择&gt;</option>
+			{enum_options enum=STATIC_PUBLISH_SUBDIR_FORMAT selected=$data.base_path_type}
+			</select><br/><input type="text" id="base_path" name="base_path" value="{$data.base_path}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="120" align="right"><label for="portal_template">入口页模版:</label></td>
+            <td><input type="text" id="portal_template" name="template_portal" value="{$data.template_portal}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="120" align="right"><label for="portal_file">入口页文件名:</label></td>
+            <td><input type="text" id="portal_file" name="path_portal" value="{$data.path_portal}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="120" align="right"><label for="list_template">分页浏览模版:</label></td>
+            <td><input type="text" id="list_template" name="template_list" value="{$data.template_list}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="120" align="right"><label for="list_file">分页浏览文件名:</label></td>
+            <td><input type="text" id="list_file" name="path_list" value="{$data.path_list}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="120" align="right"><label for="content_template">内容页模版:</label></td>
+            <td><input type="text" id="content_template" name="template_content" value="{$data.template_content}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="120" align="right"><label for="content_file">内容页文件名:</label></td>
+            <td><input type="text" id="content_file" name="path_content" value="{$data.path_content}" size="61"/></td>
+          </tr>
+          <tr>
+            <td width="120"></td>
+            <td><input type="submit" value="  保存  "/>
+              <input type="button" value="  返回  " onclick='window.location.href="column.php?task=list&pcatalog={$data.pcatalog}";'/>
+              <input type="hidden" name="pcatalog" value="{$data.pcatalog}"/>
+              <input type="hidden" name="id" value="{$data.id}"/>
+              <input type="hidden" name="cmd" value="{$data.cmd}"/>
+              <input type="hidden" name="postflag" value="1"/></td>
+          </tr>
+        </table>
+      </form></td>
+  </tr>
+</table>
+{ literal }
+<script type="text/javascript">
+document.body.onload=function() 
+{
+	document.catalog_edit.name.focus();
+	document.catalog_edit.name.select();
+};
+</script>
+{ /literal }

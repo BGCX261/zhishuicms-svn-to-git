@@ -1,0 +1,30 @@
+	<div id="HeadBar">
+		<span id="current_position">当前操作：用户组管理</span>
+		<div id="buttons">
+		<ul>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='javascript:window.location.reload()';">刷新</a></li>
+			<li><a class="NormalButton" href="#" onClick="window.location.href='control.php?act=group_manage&amp;cmd=add';">添加新用户组</a></li>
+		</ul>
+		</div>
+	</div>
+	
+<form id="form1" name="form1" method="post" action="" target="loader">
+  <table width="100%" border="0" cellspacing="2" cellpadding="3">
+    <tr>
+      <td width="7%"><label for="name">组名(<span class="accesskey">N</span>):</label></td>
+      <td width="93%"><input name="name" type="text" id="name" size="61" accesskey="n" value="{$data.name}"/></td>
+    </tr>
+    <tr>
+      <td><label for="descri">描述(<span class="accesskey">D</span>):</label></td>
+      <td><textarea name="descri" cols="60" rows="10" id="descri" accesskey="d">{$data.descri}</textarea></td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value="保存" />
+        <input name="button" type="button" onclick="window.location.href='control.php?act=group_manage&cmd=list'" value="返回"/>
+      <input name="id" type="hidden" id="id" value="{$data.id}" />
+      <input name="postflag" type="hidden" id="postflag" value="1" /></td>
+    </tr>
+  </table>
+</form>
+<iframe name="loader" width="0" height="0" src="../blank.html"></iframe>

@@ -1,0 +1,22 @@
+{include file=leisure/header.html}
+<link href="template/leisure/css/leisure_sub.css" rel="stylesheet" type="text/css" />
+<div id="sub_left">
+<div id="sub_left_content" class="leisure-white">
+{article_list mode=hot period=7 count=18 cut=26 catalog_id=32963,32965,139909,33023,139910,139911,139912,139913,139914,139915,139916,139917,139918 template=leisure/article_list.html}
+</div>
+</div>
+<div id="sub_center">
+<div class="sub_level">
+<div class="sub_level_head" style="background-image:url(template/leisure/images/head_{$catalog.id}.gif);"></div>
+{sub_catalog_list catalog_id=$catalog.id template=leisure/sub_catalogs.html}
+</div>
+</div>
+<div id="sub_right"><div id="sub_right_top"></div><div id="sub_right_bottom"></div></div>
+</div>
+<script>
+document.getElementById("sub_left").style.height=document.getElementById("sub_center").scrollHeight+"px";
+document.getElementById("sub_right_bottom").style.height=document.getElementById("sub_center").scrollHeight-489+"px";
+</script>
+{include file=leisure/footer.html}
+</body>
+</html>

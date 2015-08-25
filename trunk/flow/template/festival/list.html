@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>网络文化节</title>
+<link href="template/festival/css.css" rel="stylesheet" type="text/css" />
+</head>
+<body bgcolor="#B9D1E3">
+<table width="780" border="0" cellspacing="0" cellpadding="6" style="margin:0px auto;">
+	<tr>
+		<td>{include file=festival/header.html}</td>
+	</tr>
+	<tr>
+		<td><table width="100%" border="0" cellspacing="0" cellpadding="0" bgcolor="#EEF1FA">
+				<tr>
+					<td height="68" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="2%" height="20">&nbsp;</td>
+							<td width="96%">&nbsp;</td>
+							<td width="2%">&nbsp;</td>
+						</tr>
+						{include file=festival/nav.html}
+						<tr>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table></td>
+				</tr>
+				<tr>
+					<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+						<tr>
+							<td width="15">&nbsp;</td>
+							<td width="506" valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px solid gray;">
+								<tr>
+									<td width="502" style="background:url(template/festival/images/{if $catalog.id==128917}compete.jpg) left top no-repeat; height:137px;{elseif $catalog.id==128925}dv.jpg) left top no-repeat; height:137px;{elseif $catalog.id==128922}news_1.jpg) left top no-repeat; height:48px;{elseif $catalog.id==128923}news_2.jpg) left top no-repeat; height:49px;{elseif $catalog.id==128924}news_3.jpg) left top no-repeat; height:49px;{elseif $catalog.id==129105 || $catalog.id==129106}bless_01.jpg) left top no-repeat; height:48px;{elseif $catalog.id==128941}revolution_01.jpg) left top no-repeat; height:48px;{elseif $catalog.id==129004 || $catalog.id==129005 || $catalog.id==129007}voice.jpg) left top no-repeat;height:137px;{/if}">&nbsp;</td>
+								</tr>
+								<tr>
+									<td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+											<tr>
+												<td width="2%">&nbsp;</td>
+												<td width="97%" height="10">&nbsp;</td>
+												<td width="1%">&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td align="left" valign="top" style="min-height:400px;">{article_list count=30 catalog_id=$catalog.id  template=festival/article_list_pages.htm page=$smarty.request.page tcut=46} </td>
+												<td>&nbsp;</td>
+											</tr>
+											<tr>
+												<td>&nbsp;</td>
+												<td height="10">&nbsp;</td>
+												<td>&nbsp;</td>
+											</tr>
+										</table></td>
+								</tr>
+							</table></td>
+							<td width="27">&nbsp;</td>
+							<td width="182" valign="top">{include file=festival/right.html}</td>
+							<td width="38">&nbsp;</td>
+						</tr>
+						<tr>
+							<td height="30">&nbsp;</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+							<td valign="top">&nbsp;</td>
+							<td>&nbsp;</td>
+						</tr>
+					</table></td>
+				</tr>
+			</table></td>
+	</tr>
+	<tr>
+		<td>{include file=festival/footer.html}</td>
+	</tr>
+</table>
+</body>
+</html>

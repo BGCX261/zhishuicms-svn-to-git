@@ -1,0 +1,5 @@
+<table width="100%" cellspacing="2">
+	{ foreach from=$articles item=article }<tr>
+	<td align="center" valign="top"><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }><img style='border: 2px solid #e1f2f8' src="file.php?cmd=preview&id={$article.picture_id}" width="160" height="120" border="0" /></a></td></tr><tr><td valign="top" align="center"><a href="{if $article.link}{$article.link}{else}redir.php?catalog_id={$article.catalog}&amp;object_id={$article.id}{/if}" target="_blank" { if $article.highlight }class="highlight"{ /if }>{$article.heading|cut:20}</a></td></tr>
+	{ /foreach }
+</table>

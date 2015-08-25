@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style type="text/css">
+<!--
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+* {
+	font-size: 12px;
+}
+-->
+</style>
+<script type="text/javascript">
+function proportion_check()
+{
+	var obj = document.forms[0].proportion;
+	if (obj.checked)
+	{
+		document.forms[0].crop[0].disabled = true;
+		document.forms[0].crop[1].disabled = true;
+		document.forms[0].crop[1].checked = true;
+	}
+	else
+	{
+		document.forms[0].crop[0].disabled = false;
+		document.forms[0].crop[1].disabled = false;
+	}
+}
+
+function handle_return()
+{
+	var width, height, proportion, crop, crop_mode;
+	var obj = document.forms[0];
+	width = obj.width.value;
+	height = obj.height.value;
+	proportion = obj.proportion.checked ? 1 : 0;
+	crop = obj.crop[0].checked ? 1 : 0;
+	crop_mode = obj.crop_mode.value;
+	var result = new Array(width, height, proportion, crop, crop_mode);
+	window.returnValue = result;
+	window.close();
+	return false;
+}
+</script>
+<title>图片尺寸</title>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" /></head>
+<body><form id="form1" method="post" action="" onsubmit="return handle_return()">
+  <table width="100%" border="0" cellspacing="2" cellpadding="3">
+    <tr>
+      <td colspan="2" bgcolor="#cccccc">图片尺寸调整</td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input name="proportion" type="checkbox" id="proportion" value="1" onclick="proportion_check()" />
+<label for="proportion">保持图片原始宽/高比例（选中此项后，高度和宽度只需填写其中之一）</label></td>
+    </tr>
+    <tr>
+      <td>宽度：</td>
+      <td><input name="width" type="text" id="width" size="10" onchange="if (this.form.proportion.checked) this.form.height.value='';"/>
+      像素</td>
+    </tr>
+    <tr>
+      <td>高度：</td>
+      <td><input name="height" type="text" id="height" size="10"  onchange="if (this.form.proportion.checked) this.form.width.value='';"/>
+      象素</td>
+    </tr>
+    <tr>
+      <td valign="top">裁剪：</td>
+      <td>
+        <input name="crop" type="radio" id="crop" value="0" />
+        不裁剪，按输入比例强制压缩/拉伸图片<br />
+		<input name="crop" type="radio" id="crop" value="1" />
+        按上方输入宽度与高度裁剪图片，保留原始图片以下部分：<select name="crop_mode"><option value="1">左/上</option><option value="2">中间</option><option value="3">右/下</option></select>
+          </td>
+    </tr>
+    <tr>
+      <td>&nbsp;</td>
+      <td><input type="submit" name="Submit" value=" 确定 " /></td>
+    </tr>
+  </table>
+</form>
+</body>
+</html>

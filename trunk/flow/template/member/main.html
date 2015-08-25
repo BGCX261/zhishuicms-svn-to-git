@@ -1,0 +1,30 @@
+
+{ include file="edu_header.html" }
+<div class="main">
+  <table width="770" align="center" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF">
+    <tr>
+      <td width="234" valign="top"><div class="block t3">
+          <h1>»»√≈µ„ª˜</h1>
+		  		  { article_list catalog_id=$smarty.request.catalog_id count=6 template=article_list_edu.htm mode=hot}</div>
+        <br />
+        <br />
+        <br />
+        <br />
+      <br /></td>
+      <td align="center" valign="top"><table width="525" height="245" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+          <td height="29" colspan="2" background="template/images/edu/vbox_01.png"><div class="block_header">{$catalog.name}</div></td>
+        </tr>
+        <tr>
+          <td width="262" height="208" valign="top"><div class="block middle">{ article_list catalog_id=$catalog.id count=20 template=article_list_pages.htm}</div></td>
+          <td width="263" valign="top"><div class="pic_news">{ article_list catalog_id=$catalog.id count=5 picture_only=1 template=article_list_picture_vert1.html}</div></td>
+        </tr>
+        <tr>
+          <td colspan="2"><img src="template/images/edu/vbox_03.png" width="525" height="8" alt="" /></td>
+        </tr>
+      </table>
+        </td>
+    </tr>
+  </table>
+</div>
+{ include file="global_footer.html" }

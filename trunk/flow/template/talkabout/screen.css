@@ -1,0 +1,12 @@
+#draghead {
+	
+}
+#wclosebtn {
+	
+}
+#floatBox {
+	DISPLAY: none; Z-INDEX: 1001; LEFT: 0px; POSITION: absolute; TOP: 0px
+}
+#overlay {
+	DISPLAY: none; Z-INDEX: 1000; FILTER: alpha(opacity=40); LEFT: 0px; WIDTH: 100%; POSITION: absolute; TOP: 0px; HEIGHT: 100%; BACKGROUND-COLOR: #333; moz-opacity: 0.8; opacity: .80
+}

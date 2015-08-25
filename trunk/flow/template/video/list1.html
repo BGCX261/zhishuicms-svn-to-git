@@ -1,0 +1,37 @@
+{include file=video/header.html}
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td valign="top"><br />
+          <table width="98%" border="0" cellspacing="0" cellpadding="0">
+            <tr>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="5" style="border: 1px solid #ddd;boder-top: 0px">
+                    <tr>
+                      <td>{ if $catalog.id == 121 }{assign var=img value=btn_qsfts.gif}
+                                  {elseif $catalog.id == 122 } {assign var=img value=btn_xsbgt.gif}
+                                  {elseif $catalog.id == 124 } {assign var=img value=btn_ycdv.gif}
+                                  {elseif $catalog.id == 127 } {assign var=img value=btn_msjt.gif}
+                                  {elseif $catalog.id == 128 } {assign var=img value=btn_xwsd.gif}
+                      {/if}<img src="template/video/images/{$img}" /></td>
+                    </tr>
+                    <tr>
+                      <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                          <tr>
+                            <td><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                              <tr>
+                                <td><br /></td>
+                              </tr>
+                              <tr>
+                                <td>{article_list catalog_id=$catalog.id count=12 page=$smarty.request.page template=article_list_video.html} </td>
+                              </tr>
+                            </table></td>
+                          </tr>
+                      </table></td>
+                    </tr>
+                </table></td>
+            </tr>
+      </table></td><td width="200" valign="top">{ include file=video/right.html} </td>
+  </tr>
+</table>
+{include file=footer.html} 
+</body>
+</html>

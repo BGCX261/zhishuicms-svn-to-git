@@ -1,0 +1,7 @@
+<div class="ul_list">
+    <ul>
+        { foreach from=$articles item=article }
+        <li{ if $article.highlight } class="highlight"{ /if }><a href="{ if $article.link }{ $article.link }{ else }redir.php?catalog_id={ $article.catalog }&amp;object_id={ $article.id }{ /if }" target="_blank">{ $article.heading }</a></li>
+        { /foreach }
+    </ul>
+</div>
